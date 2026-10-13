@@ -1,0 +1,265 @@
+/* ============================================================================
+   PREINDUCOL S.A.S. - CSS BASE, VARIABLES Y RESET
+   ============================================================================ */
+
+:root {
+  /* Paleta Base Clean & Light */
+  --c-bg-canvas: #ffffff;
+  --c-bg-subtle: #f8fafc;
+  --c-bg-elevated: #ffffff;
+  --c-border-light: #e2e8f0;
+  --c-border-subtle: #f1f5f9;
+
+  /* Texto de Alta Legibilidad */
+  --c-text-main: #0f172a;
+  --c-text-muted: #475569;
+  --c-text-light: #94a3b8;
+
+  /* Acentos de Marca Preinducol */
+  --c-brand-green: #059669;
+  --c-brand-green-hover: #047857;
+  --c-brand-yellow: #facc15;
+  --c-brand-red: #dc2626;
+  --c-brand-red-hover: #b91c1c;
+  --c-brand-blue: #0284c7;
+
+  /* Tipografías */
+  --f-display: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --f-headline: 'Bebas Neue', 'Oswald', sans-serif;
+  --f-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --f-mono: 'Space Grotesk', monospace;
+
+  /* Sombras y Radios */
+  --radius-hero: 36px;
+  --radius-card: 20px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 20px 35px -10px rgba(15, 23, 42, 0.08);
+  --shadow-xl: 0 25px 50px -12px rgba(15, 23, 42, 0.14);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--c-bg-canvas);
+}
+
+body.preinducol-portal {
+  font-family: var(--f-body);
+  background-color: var(--c-bg-canvas);
+  color: var(--c-text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Fondos y Efectos Atmosféricos */
+.bg-grid-overlay {
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.18;
+}
+
+.orb-primary {
+  width: 500px;
+  height: 500px;
+  background: #dc2626;
+  top: -100px;
+  left: 30%;
+}
+
+.orb-cyan {
+  width: 400px;
+  height: 400px;
+  background: #0284c7;
+  top: 40%;
+  right: -100px;
+}
+
+.orb-lime {
+  width: 450px;
+  height: 450px;
+  background: #10b981;
+  bottom: 10%;
+  left: -100px;
+}
+
+.container-max {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.section-block {
+  padding: 90px 0;
+  position: relative;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.bg-dark-industrial {
+  background: #0d1117;
+  color: #ffffff;
+}
+
+.bg-subtle {
+  background: #f8fafc;
+}
+
+.header-editorial {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 55px;
+}
+
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: #f1f5f9;
+  color: #334155;
+  margin-bottom: 14px;
+}
+
+.badge-pill.pill-red {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.badge-pill.pill-lime {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.title-editorial {
+  font-family: var(--f-display);
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+  margin-bottom: 16px;
+}
+
+.desc-editorial {
+  font-size: 1.05rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.text-white {
+  color: #ffffff !important;
+}
+
+.text-muted-light {
+  color: #94a3b8 !important;
+}
+
+.text-accent-red {
+  color: #dc2626 !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Botones Píldora Generales Estilo Studds */
+.btn-pill-studds {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 22px;
+  border-radius: 999px;
+  font-family: var(--f-body);
+  font-weight: 700;
+  font-size: 0.74rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1.5px solid #111827;
+  color: #111827;
+  background: transparent;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-pill-studds:hover {
+  background-color: #111827;
+  color: #ffffff;
+  transform: translateY(-1.5px);
+  box-shadow: 0 4px 12px rgba(17, 24, 39, 0.18);
+}
+
+.btn-pill-studds.btn-pill-sm {
+  padding: 5px 18px;
+  font-size: 0.72rem;
+}
+
+.btn-pill-studds.btn-pill-accent {
+  border-color: #dc2626;
+  color: #dc2626;
+}
+
+.btn-pill-studds.btn-pill-accent:hover {
+  background-color: #dc2626;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.3);
+}
+
+.btn-pill-studds.btn-pill-red {
+  background-color: #dc2626;
+  border-color: #dc2626;
+  color: #ffffff;
+}
+
+.btn-pill-studds.btn-pill-red:hover {
+  background-color: #b91c1c;
+  border-color: #b91c1c;
+}

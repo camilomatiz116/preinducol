@@ -1,0 +1,947 @@
+/* ============================================================================
+   PREINDUCOL S.A.S. - CSS FICHAS TÉCNICAS & PANEL ADMINISTRADOR DE PDF
+   ============================================================================ */
+
+.section-fichas-tecnicas {
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.ft-admin-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 14px 22px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.ft-counter-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: #334155;
+}
+
+.ft-status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+.btn-admin-manage {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 10px;
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn-admin-manage:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.3);
+}
+
+/* Buscador y Filtros */
+.ft-search-filters-row {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 35px;
+}
+
+.ft-search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 0 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  transition: border-color 0.2s ease;
+}
+
+.ft-search-box:focus-within {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.ft-search-box svg {
+  color: #94a3b8;
+  margin-right: 10px;
+}
+
+.ft-search-box input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 14px 0;
+  font-size: 0.92rem;
+  color: #0f172a;
+  outline: none;
+  font-family: inherit;
+}
+
+.btn-clear-search {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  color: #475569;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ft-filter-tabs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.ft-tab {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #475569;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.ft-tab:hover {
+  border-color: #cbd5e1;
+  background: #f1f5f9;
+}
+
+.ft-tab.active {
+  background: #dc2626;
+  border-color: #dc2626;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25);
+}
+
+/* Cuadrícula de Tarjetas de Fichas Técnicas */
+.fichas-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 28px;
+}
+
+.ficha-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+}
+
+.ficha-card:hover {
+  transform: translateY(-6px);
+  border-color: #cbd5e1;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+}
+
+.ficha-card-header {
+  padding: 18px 22px;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fafafa;
+}
+
+.ficha-cat-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+
+.ficha-cat-badge.badge-hogar {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.ficha-cat-badge.badge-industrial {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.ficha-cat-badge.badge-nitrilo {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.ficha-cat-badge.badge-cuero {
+  background: #ffedd5;
+  color: #c2410c;
+}
+
+.ficha-code-badge {
+  font-family: var(--f-mono);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.ficha-card-body {
+  padding: 24px 22px;
+  flex: 1;
+}
+
+.ficha-card-title {
+  font-family: var(--f-display);
+  font-size: 1.28rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+
+.ficha-card-desc {
+  font-size: 0.84rem;
+  color: #64748b;
+  line-height: 1.55;
+  margin-bottom: 18px;
+}
+
+.ficha-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  background: #f8fafc;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #f1f5f9;
+}
+
+.spec-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.spec-label {
+  font-size: 0.68rem;
+  color: #94a3b8;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.spec-value {
+  font-size: 0.8rem;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.ficha-card-footer {
+  padding: 16px 22px;
+  background: #ffffff;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.pdf-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.74rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.ficha-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-action-ft {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.btn-view-ft {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+.btn-view-ft:hover {
+  background: #dc2626;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.btn-download-ft {
+  background: #f1f5f9;
+  color: #334155;
+  border-color: #e2e8f0;
+}
+
+.btn-download-ft:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.ft-empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px dashed #cbd5e1;
+  margin-top: 20px;
+}
+
+.empty-icon {
+  font-size: 2.8rem;
+  margin-bottom: 12px;
+}
+
+/* ============================================================================
+   MODALES: VISOR PDF & PANEL DE ADMINISTRACIÓN CON PIN
+   ============================================================================ */
+
+.pdf-modal-overlay,
+.admin-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeInModal 0.2s ease;
+}
+
+.pdf-modal-overlay.hidden,
+.admin-modal-overlay.hidden {
+  display: none !important;
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.pdf-modal-container {
+  background: #ffffff;
+  width: 100%;
+  max-width: 960px;
+  height: 90vh;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+}
+
+.pdf-modal-header {
+  padding: 18px 28px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+}
+
+.pdf-doc-badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #dc2626;
+  margin-bottom: 2px;
+}
+
+.pdf-header-info h3 {
+  font-family: var(--f-display);
+  font-size: 1.2rem;
+  color: #0f172a;
+}
+
+.pdf-ref-tag {
+  font-size: 0.72rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.pdf-header-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-pdf-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-pdf-print {
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+}
+
+.btn-pdf-download {
+  background: #dc2626;
+  color: #ffffff;
+  border: 1px solid #dc2626;
+}
+
+.btn-close-pdf-modal,
+.btn-close-admin-modal {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 6px;
+}
+
+.pdf-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 30px;
+  background: #f8fafc;
+}
+
+/* Hoja Oficial Documental de Fábrica (Print Ready) */
+.official-pdf-sheet {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 40px;
+  max-width: 820px;
+  margin: 0 auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  font-family: var(--f-body);
+  color: #1e293b;
+}
+
+.sheet-header-grid {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 20px;
+  align-items: center;
+  border-bottom: 2px solid #0f172a;
+  padding-bottom: 20px;
+  margin-bottom: 25px;
+}
+
+.sheet-brand-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.sheet-header-titles h2 {
+  font-family: var(--f-display);
+  font-size: 1.4rem;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.sheet-header-titles p {
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.sheet-code-box {
+  text-align: right;
+}
+
+.sheet-code-box strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #dc2626;
+}
+
+.sheet-section-title {
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #0f172a;
+  border-left: 4px solid #dc2626;
+  padding-left: 10px;
+  margin: 22px 0 12px;
+}
+
+.sheet-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-size: 0.86rem;
+}
+
+.sheet-data-table th,
+.sheet-data-table td {
+  padding: 10px 14px;
+  border: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+.sheet-data-table th {
+  background: #f8fafc;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.sheet-footer-sign {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px dashed #cbd5e1;
+}
+
+.sign-box {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.sign-line {
+  border-bottom: 1px solid #475569;
+  margin-bottom: 8px;
+}
+
+/* Modal Administrador con PIN */
+.admin-modal-container {
+  background: #ffffff;
+  width: 100%;
+  max-width: 780px;
+  max-height: 90vh;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+}
+
+.admin-modal-header {
+  padding: 18px 26px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+}
+
+.admin-badge-lock {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #dc2626;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.admin-header-title h3 {
+  font-family: var(--f-display);
+  font-size: 1.25rem;
+  color: #0f172a;
+}
+
+.admin-gate-screen {
+  padding: 50px 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gate-icon-box {
+  font-size: 3.5rem;
+  margin-bottom: 14px;
+}
+
+.pin-input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 22px 0 10px;
+}
+
+.pin-input-group input {
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: 2px solid #cbd5e1;
+  font-size: 1.1rem;
+  letter-spacing: 4px;
+  text-align: center;
+  outline: none;
+  width: 220px;
+}
+
+.pin-input-group input:focus {
+  border-color: #dc2626;
+}
+
+.btn-pin-submit {
+  padding: 12px 22px;
+  border-radius: 10px;
+  background: #dc2626;
+  color: #ffffff;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+}
+
+.pin-error-msg {
+  color: #dc2626;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.pin-hint-text {
+  font-size: 0.74rem;
+  color: #94a3b8;
+  margin-top: 14px;
+}
+
+/* Dashboard de Admin */
+.admin-dashboard-screen {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.admin-tabs-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 12px;
+}
+
+.admin-nav-tab {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.admin-nav-tab.active {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+.admin-form-pro {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-field label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.86rem;
+  font-family: inherit;
+  outline: none;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: #dc2626;
+}
+
+.pdf-drop-zone {
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  background: #f8fafc;
+  cursor: pointer;
+  position: relative;
+}
+
+.file-input-hidden {
+  display: none;
+}
+
+.drop-icon {
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+
+.drop-zone-content strong {
+  display: block;
+  font-size: 0.88rem;
+  color: #1e293b;
+}
+
+.drop-zone-content span {
+  font-size: 0.74rem;
+  color: #64748b;
+}
+
+.file-preview-strip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  text-align: left;
+}
+
+.pdf-mini-badge {
+  background: #fee2e2;
+  color: #dc2626;
+  font-weight: 800;
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.preview-pdf-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.preview-pdf-info strong {
+  font-size: 0.85rem;
+  color: #0f172a;
+}
+
+.preview-pdf-info span {
+  font-size: 0.72rem;
+  color: #64748b;
+}
+
+.btn-remove-file {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: none;
+  background: #e2e8f0;
+  color: #475569;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.btn-remove-file:hover {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.upload-note {
+  font-size: 0.74rem;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.admin-form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.btn-cancel-admin {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #475569;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-save-ft {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 8px;
+  background: #dc2626;
+  color: #ffffff;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-save-ft:hover {
+  background: #b91c1c;
+}
+
+.admin-list-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.btn-reset-default-fts {
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-reset-default-fts:hover {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.admin-fts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-ft-row-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+.admin-row-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-row-badge {
+  background: #fee2e2;
+  color: #dc2626;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.admin-row-info h4 {
+  font-family: var(--f-display);
+  font-size: 0.98rem;
+  color: #0f172a;
+}
+
+.admin-row-info span {
+  font-size: 0.72rem;
+  color: #64748b;
+}
+
+.admin-row-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-row-edit,
+.btn-row-delete {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-row-edit {
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+}
+
+.btn-row-delete {
+  background: #fff1f2;
+  color: #e11d48;
+  border: 1px solid #fecdd3;
+}

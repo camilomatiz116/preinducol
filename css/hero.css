@@ -1,0 +1,595 @@
+/* ============================================================================
+   PREINDUCOL S.A.S. - CSS HERO INTERACTIVO CON TRANSICIÓN CINEMÁTICA
+   ESTADO 1 (Intro): Hormiga a la izquierda + "CONOCE NUESTROS PRODUCTOS" al lado.
+   ESTADO 2 (Showcase): Al hacer clic, "CONOCE NUESTROS PRODUCTOS" desaparece,
+   la hormiga se desliza al centro y emergen los 4 productos a su alrededor.
+   ============================================================================ */
+
+.hero-constellation-stage {
+  position: relative;
+  background: #f7f6f2;
+  padding: 50px 24px 30px;
+  overflow: hidden;
+  border-bottom: 1px solid #e7e5e0;
+  min-height: calc(100vh - 65px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* ================= ARENA ORBITAL ================= */
+.constellation-arena {
+  position: relative;
+  z-index: 2;
+  max-width: 1520px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(290px, 350px) auto minmax(290px, 350px);
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+}
+
+/* ================= ALAS LATERALES (PRODUCTOS) ================= */
+.constellation-wing {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  z-index: 3;
+}
+
+.wing-left {
+  align-items: flex-start;
+}
+
+.wing-right {
+  align-items: flex-end;
+}
+
+/* ================= BLOQUES EDITORIALES DE PRODUCTO (SOLO TEXTO) ================= */
+.editorial-product-card {
+  position: relative;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 8px 4px;
+  width: 100%;
+  max-width: 330px;
+  box-shadow: none !important;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: visible;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.3s ease;
+}
+
+.editorial-product-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* ESTADO 1 (INTRO INICIAL): Los productos están ocultos */
+.hero-constellation-stage.state-intro .constellation-wing.wing-left .editorial-product-card {
+  opacity: 0;
+  transform: translateX(-70px) scale(0.75);
+  pointer-events: none;
+  visibility: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.3s ease,
+              visibility 0.3s ease;
+}
+
+.hero-constellation-stage.state-intro .constellation-wing.wing-right .editorial-product-card {
+  opacity: 0;
+  transform: translateX(70px) scale(0.75);
+  pointer-events: none;
+  visibility: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.3s ease,
+              visibility 0.3s ease;
+}
+
+/* ESTADO 2 (SHOWCASE REVELADO): Los 4 productos emergen alrededor de la hormiga */
+.hero-constellation-stage.state-showcase .constellation-wing.wing-left .editorial-product-card,
+.hero-constellation-stage.state-showcase .constellation-wing.wing-right .editorial-product-card {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  transform: translateX(0) scale(1);
+  transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1),
+              opacity 0.45s ease,
+              visibility 0.45s ease;
+}
+
+/* Entradas escalonadas suaves */
+.hero-constellation-stage.state-showcase .card-pos-tl { transition-delay: 0.15s; }
+.hero-constellation-stage.state-showcase .card-pos-tr { transition-delay: 0.25s; }
+.hero-constellation-stage.state-showcase .card-pos-bl { transition-delay: 0.35s; }
+.hero-constellation-stage.state-showcase .card-pos-br { transition-delay: 0.45s; }
+
+/* CONTENIDO INTERNO: SOLO TIPOGRAFÍA Y TEXTO */
+.card-overline {
+  font-family: var(--f-body), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #dc2626;
+  margin-bottom: 6px;
+}
+
+.card-main-title {
+  font-family: var(--f-headline), 'Bebas Neue', 'Oswald', sans-serif;
+  font-size: clamp(2.1rem, 2.8vw, 2.85rem);
+  font-weight: 900;
+  line-height: 1.0;
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-main-title .model-text {
+  color: #0f172a;
+  letter-spacing: 0.5px;
+}
+
+.card-main-title .brand-text {
+  color: #dc2626;
+  letter-spacing: 1px;
+  transition: color 0.2s ease, filter 0.2s ease;
+}
+
+.editorial-product-card:hover .card-main-title .brand-text {
+  filter: drop-shadow(0 4px 12px rgba(220, 38, 38, 0.35));
+}
+
+.card-short-desc {
+  font-family: var(--f-body), sans-serif;
+  font-size: 0.86rem;
+  color: #4b5563;
+  line-height: 1.48;
+  margin: 0 0 14px 0;
+  font-weight: 500;
+}
+
+.card-cta-wrap {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+}
+
+.card-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #004bb7;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  background: transparent;
+  transition: all 0.25s ease;
+}
+
+.editorial-product-card:hover .card-cta-btn {
+  background: transparent;
+  color: #dc2626;
+  border: none;
+  transform: translateX(6px);
+}
+
+/* ================= ALINEACIÓN POR ALAS ================= */
+/* Ala izquierda: alineada a la izquierda */
+.constellation-wing.wing-left .editorial-product-card {
+  text-align: left;
+  align-items: flex-start;
+}
+.constellation-wing.wing-left .card-cta-wrap {
+  justify-content: flex-start;
+  width: 100%;
+}
+
+/* Ala derecha: alineada a la derecha */
+.constellation-wing.wing-right .editorial-product-card {
+  text-align: right;
+  align-items: flex-end;
+}
+.constellation-wing.wing-right .card-overline {
+  text-align: right;
+  width: 100%;
+}
+.constellation-wing.wing-right .card-main-title {
+  text-align: right;
+  align-items: flex-end;
+  width: 100%;
+}
+.constellation-wing.wing-right .card-short-desc {
+  text-align: right;
+  width: 100%;
+}
+.constellation-wing.wing-right .card-cta-wrap {
+  justify-content: flex-end;
+  width: 100%;
+}
+
+/* ================= CENTRO: MASCOTA HORMIGUITA ================= */
+.constellation-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 4;
+  transition: transform 0.85s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* En Estado 1: La hormiga se ubica a la izquierda */
+.hero-constellation-stage.state-intro .constellation-center {
+  transform: translateX(-240px);
+}
+
+/* En Estado 2: La hormiga se traslada al centro exacto */
+.hero-constellation-stage.state-showcase .constellation-center {
+  transform: translateX(0);
+}
+
+.orbital-centerpiece {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Onda de Choque Expansiva */
+.mascot-energy-shockwave {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.3);
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  border: 2px solid rgba(220, 38, 38, 0.7);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.mascot-energy-shockwave.shockwave-active {
+  animation: shockwaveExpandAnim 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes shockwaveExpandAnim {
+  0% {
+    transform: translate(-50%, -50%) scale(0.2);
+    opacity: 0.95;
+    border-color: rgba(220, 38, 38, 0.85);
+  }
+  60% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.35);
+    opacity: 0;
+    border-color: rgba(0, 75, 183, 0.1);
+  }
+}
+
+/* Anillo de energía sutil */
+.mascot-energy-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.10) 0%, rgba(0, 75, 183, 0.05) 50%, transparent 72%);
+  pointer-events: none;
+  z-index: 1;
+  transition: transform 0.35s ease;
+  animation: ringAmbientBreath 4s infinite ease-in-out;
+}
+
+@keyframes ringAmbientBreath {
+  0%, 100% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.7; }
+  50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+}
+
+.orbital-centerpiece:hover .mascot-energy-ring {
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+/* Contenedor de Poses de la Mascota */
+.mascot-avatar-stack {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 500px;
+  max-width: 100%;
+  height: 600px;
+  z-index: 2;
+}
+
+/* Imagen de la Hormiga (Base anclada abajo) */
+.hero-mascot-img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: auto;
+  max-width: 500px;
+  height: 100%;
+  max-height: 600px;
+  object-fit: contain;
+  transform-origin: bottom center;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.18));
+  cursor: pointer;
+  z-index: 2;
+  transition: opacity 0.5s ease,
+              transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+              filter 0.3s ease,
+              visibility 0.5s;
+  animation: antAmbientPulse 3.5s infinite ease-in-out;
+}
+
+/* En Estado 1 (Intro): Pose 1 (Guiño y OK) visible */
+.hero-constellation-stage.state-intro .mascot-img-intro {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) scale(1);
+}
+
+.hero-constellation-stage.state-intro .mascot-img-showcase {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-50%) scale(0.92);
+}
+
+/* En Estado 2 (Showcase Interactivo): Pose 2 (Brazos cruzados) MÁS GRANDE */
+.hero-constellation-stage.state-showcase .mascot-img-intro {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-50%) scale(0.92);
+}
+
+.hero-constellation-stage.state-showcase .mascot-img-showcase {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) scale(1.18);
+  animation: antShowcasePulse 3.5s infinite ease-in-out;
+}
+
+/* Animación de respiración sin despegar los pies del suelo */
+@keyframes antAmbientPulse {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.015, 1.012);
+  }
+}
+
+@keyframes antShowcasePulse {
+  0%, 100% {
+    transform: translateX(-50%) scale(1.18);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.198, 1.192);
+  }
+}
+
+.orbital-centerpiece:hover .hero-mascot-img {
+  filter: drop-shadow(0 22px 38px rgba(220, 38, 38, 0.28));
+  animation-play-state: paused;
+}
+
+@keyframes mascotAntJumpAnim {
+  0% { transform: translateX(-50%) scale(1); }
+  25% { transform: translateX(-50%) scale(1.10, 0.90) translateY(-20px); }
+  50% { transform: translateX(-50%) scale(0.96, 1.04) translateY(-6px); }
+  75% { transform: translateX(-50%) scale(1.02, 0.98) translateY(-2px); }
+  100% { transform: translateX(-50%) scale(1); }
+}
+
+.hero-mascot-img.mascot-bouncing {
+  animation: mascotAntJumpAnim 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+/* Sombra de piso y contacto directo pegada a los zapatos */
+.mascot-platform-glow {
+  width: 410px;
+  height: 22px;
+  background: radial-gradient(ellipse at center, rgba(220, 38, 38, 0.26) 0%, transparent 68%);
+  border-radius: 50%;
+  margin-top: -24px;
+  z-index: 1;
+}
+
+.mascot-floor-shadow {
+  width: 380px;
+  height: 22px;
+  background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.62) 0%, rgba(15, 23, 42, 0.26) 48%, transparent 75%);
+  border-radius: 50%;
+  margin-top: -38px;
+  z-index: 1;
+  filter: blur(1.5px);
+}
+
+/* ================= LLAMADO DE ACCIÓN INICIAL: "CONOCE NUESTROS PRODUCTOS" ================= */
+.hero-intro-callout {
+  position: absolute;
+  left: calc(50% - 20px);
+  top: 50%;
+  transform: translateY(-50%) translateX(0);
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+  width: 100%;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.45s ease,
+              transform 0.75s cubic-bezier(0.25, 1, 0.5, 1),
+              visibility 0.45s;
+}
+
+.hero-intro-callout:hover {
+  transform: translateY(-50%) scale(1.03);
+}
+
+.hero-intro-callout .intro-title-styled {
+  font-size: clamp(2.3rem, 3.2vw, 3.3rem);
+  line-height: 1.0;
+  margin: 0 0 10px 0;
+}
+
+/* EN ESTADO 2 (SHOWCASE): "CONOCE NUESTROS PRODUCTOS" DESAPARECE COMPLETAMENTE EN ANIMACIÓN */
+.hero-constellation-stage.state-showcase .hero-intro-callout {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-50%) translateX(60px) scale(0.9);
+  transition: opacity 0.35s ease,
+              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.35s;
+}
+
+/* ================= PULSO AL SELECCIONAR EN CATÁLOGO ================= */
+@keyframes tileGlowPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 75, 183, 0.6);
+    transform: scale(1);
+  }
+  40% {
+    box-shadow: 0 0 0 16px rgba(0, 75, 183, 0);
+    transform: scale(1.03);
+    border-color: #004bb7;
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 75, 183, 0);
+    transform: scale(1);
+  }
+}
+
+.product-tile.tile-highlight-pulse {
+  animation: tileGlowPulse 1.2s ease forwards;
+}
+
+/* ================= RESPONSIVE DESIGN ================= */
+@media (max-width: 1200px) {
+  .hero-constellation-stage.state-intro .constellation-center {
+    transform: translateX(-180px);
+  }
+  .hero-intro-callout {
+    left: calc(50% - 10px);
+  }
+  .constellation-arena {
+    grid-template-columns: minmax(260px, 310px) auto minmax(260px, 310px);
+    gap: 20px;
+  }
+  .editorial-product-card {
+    padding: 4px 0;
+    max-width: 300px;
+  }
+  .mascot-avatar-stack {
+    max-width: 440px;
+    height: 530px;
+  }
+  .hero-mascot-img {
+    max-width: 440px;
+    max-height: 530px;
+  }
+}
+
+@media (max-width: 980px) {
+  .hero-constellation-stage {
+    min-height: auto;
+    padding: 70px 16px 36px;
+  }
+  .constellation-arena {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    position: relative;
+  }
+  .hero-constellation-stage.state-intro .constellation-center {
+    transform: none;
+  }
+  .hero-intro-callout {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin-top: 15px;
+    align-items: center;
+    text-align: center;
+  }
+  .hero-intro-callout:hover {
+    transform: scale(1.04);
+  }
+  .hero-constellation-stage.state-showcase .hero-intro-callout {
+    display: none;
+  }
+  .constellation-wing {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    gap: 16px;
+  }
+  .wing-left, .wing-right {
+    align-items: stretch;
+  }
+  .mascot-avatar-stack {
+    max-width: 360px;
+    height: 460px;
+  }
+  .hero-mascot-img {
+    max-width: 360px;
+    max-height: 460px;
+  }
+}
+
+@media (max-width: 640px) {
+  .constellation-wing {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .constellation-wing.wing-right .editorial-product-card,
+  .constellation-wing.wing-right .card-overline,
+  .constellation-wing.wing-right .card-main-title,
+  .constellation-wing.wing-right .card-short-desc {
+    text-align: left;
+    align-items: flex-start;
+  }
+  .constellation-wing.wing-right .card-cta-wrap {
+    justify-content: flex-start;
+  }
+  .hero-intro-title {
+    font-size: 2.2rem;
+  }
+}

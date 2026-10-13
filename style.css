@@ -1,0 +1,18 @@
+/* ============================================================================
+   PREINDUCOL S.A.S. - SISTEMA DE DISEÑO MODULARIZADO
+   Arquitectura escalable en componentes independientes (/css/)
+   Totalmente compatible con ejecución local (file://) y despliegue web
+   ============================================================================ */
+
+@import url('css/base.css');
+@import url('css/navbar.css');
+@import url('css/hero.css');
+@import url('css/categories.css');
+@import url('css/process.css');
+@import url('css/variations.css');
+@import url('css/fichas.css');
+@import url('css/catalog.css');
+@import url('css/visor3d.css');
+@import url('css/company.css');
+@import url('css/footer.css');
+@import url('css/responsive.css');

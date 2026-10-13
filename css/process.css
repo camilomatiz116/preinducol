@@ -1,0 +1,103 @@
+/* ============================================================================
+   PREINDUCOL S.A.S. - CSS PROCESO CINEMATOGRÁFICO (BANDA OSCURA STUDDS)
+   ============================================================================ */
+
+.section-studds-dark-band {
+  background: #0f1115;
+  color: #ffffff;
+  padding: 80px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.studds-cinematic-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.cine-card-photo {
+  background: #181c24;
+  border-radius: 18px;
+  padding: 28px 24px;
+  border: 1px solid #282f3c;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cine-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #dc2626;
+}
+
+.cine-card-photo h4 {
+  font-family: var(--f-display);
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.cine-card-photo p {
+  font-size: 0.84rem;
+  color: #94a3b8;
+  line-height: 1.5;
+}
+
+/* Tarjeta Central Destacada con Marco Rojo */
+.cine-card-center-highlight {
+  display: flex;
+  justify-content: center;
+}
+
+.highlight-red-frame {
+  position: relative;
+  border: 4px solid #dc2626;
+  border-radius: 20px;
+  padding: 38px 30px;
+  background: #14171e;
+  box-shadow: 0 0 40px rgba(220, 38, 38, 0.35);
+  text-align: center;
+  max-width: 440px;
+}
+
+.frame-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #dc2626;
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 4px 14px;
+  border-radius: 999px;
+}
+
+.frame-eyebrow {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #94a3b8;
+  margin-bottom: 8px;
+}
+
+.highlight-red-frame h3 {
+  font-family: var(--f-headline);
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.highlight-red-frame p {
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+  margin-bottom: 22px;
+}

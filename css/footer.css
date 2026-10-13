@@ -1,0 +1,142 @@
+/* ============================================================================
+   FOOTER EDITORIAL
+   ============================================================================ */
+.footer-master {
+  background: #0f172a;
+  color: #94a3b8;
+  padding: 80px 0 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-columns-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.footer-brand-logo {
+  height: 48px;
+  background: #ffffff;
+  padding: 6px 12px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.f-brand-desc {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+.colombia-pride-pill {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.f-title {
+  font-family: var(--f-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.f-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.f-list a {
+  font-size: 0.88rem;
+  transition: color var(--tr-fast);
+}
+
+.f-list a:hover {
+  color: #34d399;
+}
+
+.f-contacts p {
+  font-size: 0.88rem;
+  margin-bottom: 8px;
+}
+
+.f-contacts strong {
+  color: #ffffff;
+}
+
+.footer-legal-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.82rem;
+}
+
+.f-legal-badges {
+  display: flex;
+  gap: 12px;
+  color: #64748b;
+}
+
+/* ============================================================================
+   BOTÓN FLOTANTE WHATSAPP
+   ============================================================================ */
+.wa-floating-trigger {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wa-bubble-prompt {
+  background: #ffffff;
+  color: var(--c-text-main);
+  padding: 10px 16px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--c-border-light);
+  font-size: 0.8rem;
+  max-width: 240px;
+  line-height: 1.4;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.prompt-status {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #059669;
+}
+
+.wa-icon-glow {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #10b981;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+  transition: transform var(--tr-smooth);
+}
+
+.wa-floating-trigger:hover .wa-icon-glow {
+  transform: scale(1.1);
+}

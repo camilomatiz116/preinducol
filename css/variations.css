@@ -1,0 +1,132 @@
+/* ============================================================================
+   PREINDUCOL S.A.S. - CSS VARIACIONES Y MODELOS (CARRUSEL STUDDS)
+   ============================================================================ */
+
+.section-studds-variations {
+  background: #ffffff;
+  padding: 80px 24px 90px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.variations-header {
+  margin-bottom: 40px;
+}
+
+.variations-carousel-wrap {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.variations-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  width: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 15px 5px;
+  scrollbar-width: none;
+}
+
+.variations-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.var-arrow-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #111827;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.var-arrow-btn:hover {
+  background: #111827;
+  color: #ffffff;
+  border-color: #111827;
+}
+
+.var-item-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.var-item-card:hover {
+  transform: translateY(-6px);
+  border-color: #cbd5e1;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
+}
+
+.var-item-card.active-featured {
+  border-color: #dc2626;
+  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.12);
+}
+
+.var-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #fee2e2;
+  color: #dc2626;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.var-img-box {
+  width: 140px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.var-img-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.15));
+  transition: transform 0.3s ease;
+}
+
+.var-item-card:hover .var-img-box img {
+  transform: scale(1.06);
+}
+
+.var-meta h4 {
+  font-family: var(--f-display);
+  font-size: 1.15rem;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.var-meta p {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin-bottom: 14px;
+}
