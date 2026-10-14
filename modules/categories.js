@@ -1,104 +1,207 @@
 /**
- * PREINDUCOL S.A.S. - MÓDULO: CATEGORÍAS (BANDA CÁLIDA TAUPE CON REPISA FLOTANTE)
- * Inspirado en el showcase "Open Face Helmet" de Studds, con hormiga2 y repisa flotante.
+ * PREINDUCOL S.A.S. - MÓDULO: CATEGORÍAS (SHOWCASE LÍNEA LÁTEX 100% NATURAL)
+ * Exclusivamente las 3 líneas oficiales de Látex Preinducol:
+ * 1. Rubberplus Guantes (assets/ima92.png) - Producto Insignia Multiuso
+ * 2. Guantes Preindumax (assets/ima91.png) - Línea Industrial Severo
+ * 3. Flexi Guantes (assets/ima93.png) - Línea Hogar & Alta Sensibilidad
+ *
+ * Características:
+ * - Cambio de información limpio y elegante in-situ (sin desplazamientos que desborden texto)
+ * - Wendy (Hormiga 3) a escala grande
+ * - Slide automático cíclico cada 4 segundos
+ * - Pausa en hover e interacción manual fluida
  */
 window.CategoriesModule = (function () {
   const mountId = 'categories-mount';
+  const AUTO_INTERVAL_MS = 4000; // 4 segundos entre cambios de guante
 
   const CAT_SHOWCASES = [
     {
-      title: 'LÁTEX INDUSTRIAL & HOGAR',
-      desc: 'Preinducol S.A.S. es líder en la fabricación de guantes de látex 100% natural biodegradable. Diseñados con calibre parejo y alta resistencia para aseo doméstico, agroindustria y plantas de procesamiento.',
-      products: [
-        { name: 'Ruberplus™ Cal. 20', img: 'assets/guante_palma.png' },
-        { name: 'Ruberplus™ Cal. 25', img: 'assets/guante_dorso.png' },
-        { name: 'Indumax™ Industrial', img: 'assets/guante.png' }
-      ]
+      idx: 0,
+      tabName: 'Rubberplus Guantes',
+      brandImg: 'assets/ima92.png',
+      eyebrow: '100% LÁTEX NATURAL • PRODUCTO INSIGNIA',
+      title: 'RUBERPLUS™',
+      subtitle: 'LÁTEX INDUSTRIAL & HOGAR',
+      desc: 'El guante preferido en Colombia. Fabricado con látex 100% natural biodegradable de calibre parejo. Suavidad superior, diseño anatómico curvo de descanso y labrado antideslizante tipo panal de abeja.',
+      hotspotText: '100% Látex Natural • Biodegradable',
+      colors: [
+        { name: 'Amarillo Clásico', class: 'dot-yellow' },
+        { name: 'Bicolor Satinado', class: 'dot-bicolor' }
+      ],
+      sizes: ['Cal. 20', 'Cal. 25', 'Cal. 35', 'Cal. 50', 'Talla 7', 'Talla 8', 'Talla 9'],
+      defaultSize: 'Cal. 25'
     },
     {
-      title: 'LÍNEA NITRILO QUÍMICO',
-      desc: 'Formulación avanzada de acrilonitrilo butadieno de alta resistencia a derivados del petróleo, disolventes, ácidos y grasas industriales. Cero proteínas alergénicas.',
-      products: [
-        { name: 'Nitrilo Verde 13 Mil', img: 'assets/guante.png' },
-        { name: 'Nitrilo Bicolor Cal. 28', img: 'assets/guante_dorso.png' },
-        { name: 'Nitrilo Aflocado', img: 'assets/guante_palma.png' }
-      ]
+      idx: 1,
+      tabName: 'Guantes Preindumax',
+      brandImg: 'assets/ima91.png',
+      eyebrow: '100% LÁTEX NATURAL • INDUSTRIAL SEVERO',
+      title: 'PREINDUMAX™',
+      subtitle: 'LÍNEA INDUSTRIAL PESADA',
+      desc: 'Calibre 25 a 50 reforzado para manipulación química moderada, agroindustria, floricultura y faenas industriales exigentes. Interior satinado antifatiga para jornadas continuas.',
+      hotspotText: 'Látex Reforzado • Calibre 25 a 50',
+      colors: [
+        { name: 'Negro Industrial', class: 'dot-black' },
+        { name: 'Bicolor Reforzado', class: 'dot-bicolor' },
+        { name: 'Amarillo Cromo', class: 'dot-yellow' }
+      ],
+      sizes: ['Cal. 25', 'Cal. 35', 'Cal. 40', 'Cal. 50', 'Talla 8', 'Talla 9', 'Talla 10'],
+      defaultSize: 'Cal. 35'
     },
     {
-      title: 'CUERO & VAQUETA PESADA',
-      desc: 'Guantes de cuero vacuno y carnaza seleccionada para protección en soldadura, manipulación de láminas cortantes, montaje de estructuras y trabajo rudo en construcción.',
-      products: [
-        { name: 'Vaqueta Tipo Ingeniero', img: 'assets/guante_dorso.png' },
-        { name: 'Carnaza Reforzada', img: 'assets/guante.png' },
-        { name: 'Soldador Largo 16"', img: 'assets/guante_palma.png' }
-      ]
-    },
-    {
-      title: 'DIELÉCTRICOS & ESPECIALES',
-      desc: 'Guantes dieléctricos certificados bajo normas ASTM D120 e IEC 60903 para protección de electricistas e ingenieros contra riesgos eléctricos en baja, media y alta tensión.',
-      products: [
-        { name: 'Dieléctrico Clase 0 (1.000V)', img: 'assets/guante_palma.png' },
-        { name: 'Dieléctrico Clase 2 (17.000V)', img: 'assets/guante_dorso.png' },
-        { name: 'Protector Cuero Sobre-Guante', img: 'assets/guante.png' }
-      ]
+      idx: 2,
+      tabName: 'Flexi Guantes',
+      brandImg: 'assets/ima93.png',
+      eyebrow: '100% LÁTEX NATURAL • LÍNEA HOGAR',
+      title: 'FLEXI GUANTES™',
+      subtitle: 'EXTRA FLEXIBILIDAD & CONFORT',
+      desc: 'Formulación ultraelástica para máxima sensibilidad táctil y confort superior en labores domésticas, aseo general, manipulación de alimentos y hotelería. Alta resistencia al desgarro.',
+      hotspotText: 'Alta Sensibilidad • Tacto Sedoso',
+      colors: [
+        { name: 'Amarillo Hogar', class: 'dot-yellow' },
+        { name: 'Bicolor Suave', class: 'dot-bicolor' }
+      ],
+      sizes: ['Cal. 18', 'Cal. 20', 'Cal. 22', 'Talla 7', 'Talla 8', 'Talla 8.5'],
+      defaultSize: 'Cal. 20'
     }
   ];
 
   let currentCatIdx = 0;
+  let selectedSize = '';
+  let selectedColor = '';
+  let autoSlideTimer = null;
+  let isHovered = false;
+
+  function renderColorPills(colors) {
+    return colors.map((c, idx) => `
+      <button class="color-pill ${idx === 0 ? 'active' : ''}" data-color="${c.name}">
+        <span class="color-dot ${c.class}"></span>
+        <span>${c.name}</span>
+      </button>
+    `).join('');
+  }
+
+  function renderSizePills(sizes, defaultSize) {
+    return sizes.map((s) => `
+      <button class="size-pill ${s === defaultSize ? 'active' : ''}" data-size="${s}">
+        ${s}
+      </button>
+    `).join('');
+  }
 
   function render() {
     const current = CAT_SHOWCASES[currentCatIdx];
+    selectedSize = current.defaultSize;
+    selectedColor = current.colors[0].name;
+
     return `
-    <section class="section-studds-categories" id="categorias">
-      <div class="container-max">
+    <section class="section-showcase-alpinestars" id="categorias">
+      <div class="showcase-outer-wrap">
         
-        <!-- Encabezado Editorial en Banda Cálida Taupe -->
-        <div class="studds-cat-header-split">
-          <div class="cat-title-col">
-            <span class="cat-eyebrow-red">Product Categories</span>
-            <div class="cat-display-nav">
-              <button class="cat-arrow-nav" id="btnCatPrev" aria-label="Categoría anterior">‹</button>
-              <h2 class="cat-title-display" id="catDisplayTitle">${current.title}</h2>
-              <button class="cat-arrow-nav" id="btnCatNext" aria-label="Categoría siguiente">›</button>
-            </div>
-          </div>
-
-          <div class="cat-desc-col">
-            <p id="catDisplayDesc">${current.desc}</p>
-            <div class="cat-pills-row">
-              <a href="#fichas-tecnicas" class="btn-pill-studds btn-pill-sm">
-                <span>ver fichas de esta línea</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Plataforma de Exhibición / Repisa Flotante (Studds Floating Display Shelf) -->
-        <div class="studds-floating-shelf-stage">
+        <!-- Contenedor Integrado a la Página -->
+        <div class="alpinestars-card">
           
-          <div class="shelf-plank"></div>
-          <div class="shelf-shadow"></div>
+          <!-- 1. Barra de Navegación de las 3 Líneas Látex -->
+          <header class="card-internal-nav">
+            <div class="nav-latex-title-wrap">
+              <span class="latex-eyebrow">100% LÁTEX NATURAL DE ALTA CALIDAD</span>
+            </div>
+            <nav class="card-category-tabs" id="cardCategoryTabs">
+              ${CAT_SHOWCASES.map((cat, i) => `
+                <button class="cat-tab-btn ${i === currentCatIdx ? 'active' : ''}" data-cat-idx="${i}">
+                  ${cat.tabName}
+                </button>
+              `).join('')}
+            </nav>
+          </header>
 
-          <div class="shelf-items-row" id="shelfItemsRow">
-            <div class="shelf-item item-mascot">
-              <img src="assets/hormiga2 (1).png" alt="Preinducol Mascota Técnica" class="shelf-mascot-img">
-              <div class="shelf-caption">Control de Calidad</div>
+          <!-- 2. Cuerpo Principal Split: Blanco con Hormiga 3 + Diagonal Azul -->
+          <div class="card-split-body">
+            
+            <!-- Lado Izquierdo: Fondo Limpio con Wendy (Hormiga 3) a Gran Escala -->
+            <div class="split-left-stage">
+              
+              <!-- Indicadores verticales (3 líneas de slide automático) -->
+              <div class="vertical-dashes" id="verticalDashes">
+                ${CAT_SHOWCASES.map((_, i) => `
+                  <span class="dash-item ${i === currentCatIdx ? 'active' : ''}" data-idx="${i}" title="${CAT_SHOWCASES[i].tabName}"></span>
+                `).join('')}
+              </div>
+
+              <!-- Wendy Hormiga 3 en gran tamaño señalando hacia la derecha -->
+              <div class="mascot-hero-wrap">
+                <img src="assets/hormiga-3.png" alt="Wendy Mascota Preinducol" class="mascot-hero-img" id="mascotHeroImg">
+                
+                <!-- Hotspot interactivo pulsante (+) -->
+                <div class="hero-hotspot" id="heroHotspot" title="${current.hotspotText}">
+                  <span class="hotspot-pulse"></span>
+                  <span class="hotspot-icon">+</span>
+                  <span class="hotspot-tooltip" id="hotspotTooltip">${current.hotspotText}</span>
+                </div>
+                
+                <div class="mascot-floor-shadow"></div>
+              </div>
+
             </div>
 
-            <div class="shelf-item item-product featured-shelf-product">
-              <img src="${current.products[0].img}" alt="${current.products[0].name}" class="shelf-product-img">
-              <div class="shelf-badge-tag">${current.products[0].name}</div>
+            <!-- Lado Derecho: Bloque Poligonal Diagonal Azul Corporativo (Información Única en Transición) -->
+            <div class="split-right-diagonal">
+              
+              <div class="diagonal-blue-content" id="diagonalBlueContent">
+                
+                <!-- Rombo Oficial de la Línea (ima91 / ima92 / ima93) -->
+                <div class="brand-diamond-wrap">
+                  <img src="${current.brandImg}" alt="${current.title}" class="blue-brand-diamond-badge" id="blueBrandBadge">
+                </div>
+                
+                <div class="blue-eyebrow-tag" id="blueCategoryEyebrow">${current.eyebrow}</div>
+                
+                <h2 class="blue-product-title" id="blueProductTitle">${current.title}</h2>
+                <div class="blue-product-subtitle" id="blueProductSubtitle">${current.subtitle}</div>
+                
+                <p class="blue-product-desc" id="blueProductDesc">${current.desc}</p>
+
+                <!-- Selector de Acabados / Colores -->
+                <div class="selector-group">
+                  <label class="group-label">COLOR / ACABADO</label>
+                  <div class="color-pills-row" id="colorPillsRow">
+                    ${renderColorPills(current.colors)}
+                  </div>
+                </div>
+
+                <!-- Selector de Calibres / Tallas -->
+                <div class="selector-group">
+                  <label class="group-label">CALIBRE / GROSOR DISPONIBLE</label>
+                  <div class="size-pills-row" id="sizePillsRow">
+                    ${renderSizePills(current.sizes, current.defaultSize)}
+                  </div>
+                </div>
+
+                <!-- Fila de Acción y Cotización -->
+                <div class="action-footer-row">
+                  <div class="factory-info-badge">
+                    <span class="factory-tag">VENTA DIRECTA DE FÁBRICA</span>
+                    <span class="factory-highlight">CALIBRE 100% HOMOLOGADO</span>
+                  </div>
+                  <a href="#contacto" class="btn-action-black btn-quote-trigger" id="btnQuoteCategory">COTIZAR AHORA</a>
+                </div>
+
+              </div>
+
+              <!-- Franja Inferior: Enlace directo al Laboratorio 3D -->
+              <a href="#visor3d" class="bottom-action-banner" title="Abrir Laboratorio 3D de Inspección">
+                <div class="action-banner-text">
+                  <span class="play-circle-icon">▶</span>
+                  <span>VER LABORATORIO 3D Y CONTROL DE CALIDAD EN ACCIÓN</span>
+                </div>
+                <div class="action-banner-thumb">
+                  <img src="assets/guante.png" alt="Visor 3D" class="banner-mini-thumb">
+                </div>
+              </a>
+
             </div>
 
-            <div class="shelf-item item-product">
-              <img src="${current.products[1].img}" alt="${current.products[1].name}" class="shelf-product-img">
-              <div class="shelf-badge-tag">${current.products[1].name}</div>
-            </div>
-
-            <div class="shelf-item item-product">
-              <img src="${current.products[2].img}" alt="${current.products[2].name}" class="shelf-product-img">
-              <div class="shelf-badge-tag">${current.products[2].name}</div>
-            </div>
           </div>
 
         </div>
@@ -108,72 +211,164 @@ window.CategoriesModule = (function () {
     `;
   }
 
-  function update() {
+  function goToSlide(idx) {
+    if (idx < 0 || idx >= CAT_SHOWCASES.length) return;
+    currentCatIdx = idx;
     const current = CAT_SHOWCASES[currentCatIdx];
-    const titleEl = document.getElementById('catDisplayTitle');
-    const descEl = document.getElementById('catDisplayDesc');
-    const shelfEl = document.getElementById('shelfItemsRow');
 
-    if (titleEl) titleEl.textContent = current.title;
-    if (descEl) descEl.textContent = current.desc;
-    if (shelfEl) {
-      shelfEl.innerHTML = `
-        <div class="shelf-item item-mascot">
-          <img src="assets/hormiga2 (1).png" alt="Preinducol Mascota Técnica" class="shelf-mascot-img">
-          <div class="shelf-caption">Control de Calidad</div>
-        </div>
+    const contentBox = document.getElementById('diagonalBlueContent');
+    if (contentBox) {
+      contentBox.classList.add('slide-fading');
+    }
 
-        <div class="shelf-item item-product featured-shelf-product">
-          <img src="${current.products[0].img}" alt="${current.products[0].name}" class="shelf-product-img">
-          <div class="shelf-badge-tag">${current.products[0].name}</div>
-        </div>
+    setTimeout(() => {
+      // 1. Emblema y Textos
+      const brandBadge = document.getElementById('blueBrandBadge');
+      const eyebrowEl = document.getElementById('blueCategoryEyebrow');
+      const titleEl = document.getElementById('blueProductTitle');
+      const subtitleEl = document.getElementById('blueProductSubtitle');
+      const descEl = document.getElementById('blueProductDesc');
+      const hotspotTooltip = document.getElementById('hotspotTooltip');
 
-        <div class="shelf-item item-product">
-          <img src="${current.products[1].img}" alt="${current.products[1].name}" class="shelf-product-img">
-          <div class="shelf-badge-tag">${current.products[1].name}</div>
-        </div>
+      if (brandBadge) brandBadge.src = current.brandImg;
+      if (eyebrowEl) eyebrowEl.textContent = current.eyebrow;
+      if (titleEl) titleEl.textContent = current.title;
+      if (subtitleEl) subtitleEl.textContent = current.subtitle;
+      if (descEl) descEl.textContent = current.desc;
+      if (hotspotTooltip) hotspotTooltip.textContent = current.hotspotText;
 
-        <div class="shelf-item item-product">
-          <img src="${current.products[2].img}" alt="${current.products[2].name}" class="shelf-product-img">
-          <div class="shelf-badge-tag">${current.products[2].name}</div>
-        </div>
-      `;
+      // 2. Selectores
+      const colorsRow = document.getElementById('colorPillsRow');
+      if (colorsRow) colorsRow.innerHTML = renderColorPills(current.colors);
+
+      const sizesRow = document.getElementById('sizePillsRow');
+      if (sizesRow) sizesRow.innerHTML = renderSizePills(current.sizes, current.defaultSize);
+
+      selectedSize = current.defaultSize;
+      selectedColor = current.colors[0].name;
+
+      // 3. Tabs superiores y dashes verticales
+      document.querySelectorAll('.cat-tab-btn').forEach((btn, i) => {
+        btn.classList.toggle('active', i === currentCatIdx);
+      });
+
+      document.querySelectorAll('.dash-item').forEach((dash, i) => {
+        dash.classList.toggle('active', i === currentCatIdx);
+      });
+
+      if (contentBox) {
+        contentBox.classList.remove('slide-fading');
+      }
+    }, 180);
+
+    // Micro-animación de reactividad en la hormiga
+    const mascotImg = document.getElementById('mascotHeroImg');
+    if (mascotImg) {
+      mascotImg.style.transform = 'scale(0.975)';
+      setTimeout(() => {
+        mascotImg.style.transform = 'scale(1)';
+      }, 180);
+    }
+  }
+
+  function nextSlide() {
+    const nextIdx = (currentCatIdx + 1) % CAT_SHOWCASES.length;
+    goToSlide(nextIdx);
+  }
+
+  function startAutoSlide() {
+    stopAutoSlide();
+    autoSlideTimer = setInterval(() => {
+      if (!isHovered) {
+        nextSlide();
+      }
+    }, AUTO_INTERVAL_MS);
+  }
+
+  function stopAutoSlide() {
+    if (autoSlideTimer) {
+      clearInterval(autoSlideTimer);
+      autoSlideTimer = null;
     }
   }
 
   function init() {
-    const btnPrev = document.getElementById('btnCatPrev');
-    const btnNext = document.getElementById('btnCatNext');
+    const section = document.getElementById('categorias');
+    if (!section) return;
 
-    if (btnPrev && btnNext) {
-      btnPrev.addEventListener('click', () => {
-        currentCatIdx = (currentCatIdx - 1 + CAT_SHOWCASES.length) % CAT_SHOWCASES.length;
-        update();
-      });
+    // Pausar slider cuando el usuario pasa el mouse para leer o interactuar
+    section.addEventListener('mouseenter', () => {
+      isHovered = true;
+    });
 
-      btnNext.addEventListener('click', () => {
-        currentCatIdx = (currentCatIdx + 1) % CAT_SHOWCASES.length;
-        update();
-      });
-    }
+    section.addEventListener('mouseleave', () => {
+      isHovered = false;
+    });
 
-    const shelfItemsRow = document.getElementById('shelfItemsRow');
-    if (shelfItemsRow) {
-      shelfItemsRow.addEventListener('click', (e) => {
-        const mascotItem = e.target.closest('.item-mascot');
-        if (mascotItem) {
-          if (window.HeroModule && typeof window.HeroModule.openCategories === 'function') {
-            window.HeroModule.openCategories();
-          }
+    // Eventos interactivos
+    section.addEventListener('click', (e) => {
+      // Click en tab superior
+      const tabBtn = e.target.closest('.cat-tab-btn');
+      if (tabBtn) {
+        const idx = parseInt(tabBtn.getAttribute('data-cat-idx'), 10);
+        if (!isNaN(idx) && idx !== currentCatIdx) {
+          goToSlide(idx);
+          startAutoSlide();
         }
-      });
-    }
+        return;
+      }
+
+      // Click en dash vertical
+      const dashItem = e.target.closest('.dash-item');
+      if (dashItem) {
+        const idx = parseInt(dashItem.getAttribute('data-idx'), 10);
+        if (!isNaN(idx) && idx !== currentCatIdx) {
+          goToSlide(idx);
+          startAutoSlide();
+        }
+        return;
+      }
+
+      // Click en píldora de color
+      const colorPill = e.target.closest('.color-pill');
+      if (colorPill) {
+        document.querySelectorAll('.color-pill').forEach(p => p.classList.remove('active'));
+        colorPill.classList.add('active');
+        selectedColor = colorPill.getAttribute('data-color') || '';
+        startAutoSlide();
+        return;
+      }
+
+      // Click en píldora de calibre/talla
+      const sizePill = e.target.closest('.size-pill');
+      if (sizePill) {
+        document.querySelectorAll('.size-pill').forEach(p => p.classList.remove('active'));
+        sizePill.classList.add('active');
+        selectedSize = sizePill.getAttribute('data-size') || '';
+        startAutoSlide();
+        return;
+      }
+
+      // Click en botón cotizar
+      const btnQuote = e.target.closest('#btnQuoteCategory');
+      if (btnQuote) {
+        if (window.CompanyModule && typeof window.CompanyModule.openQuoteModal === 'function') {
+          e.preventDefault();
+          const current = CAT_SHOWCASES[currentCatIdx];
+          window.CompanyModule.openQuoteModal(`${current.title} - ${selectedSize} (${selectedColor})`);
+        }
+      }
+    });
+
+    // Iniciar con el primer slide y disparar autoplay
+    goToSlide(0);
+    startAutoSlide();
   }
 
   function selectCategory(idx) {
     if (idx >= 0 && idx < CAT_SHOWCASES.length) {
-      currentCatIdx = idx;
-      update();
+      goToSlide(idx);
+      startAutoSlide();
     }
   }
 
@@ -187,6 +382,8 @@ window.CategoriesModule = (function () {
 
   return {
     mount,
-    selectCategory
+    selectCategory,
+    startAutoSlide,
+    stopAutoSlide
   };
 })();

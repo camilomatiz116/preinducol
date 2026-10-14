@@ -47,6 +47,7 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
       overflow: visible !important;
       padding-top: 10px;
+      padding-bottom: 14px;
     }
 
     .navbar-studds .nav-wrapper {
@@ -63,13 +64,14 @@
       overflow: visible !important;
     }
 
-    /* Navegación Izquierda: Distribuida hacia el centro con espaciado idéntico */
+    /* Navegación Izquierda: Distribuida hacia el centro con espaciado idéntico y alineada con las puntas del logo */
     .nav-links-left {
       display: flex;
       align-items: center;
       justify-content: flex-end;
       padding-right: 36px;
       z-index: 5;
+      transform: translateY(22px);
     }
 
     .nav-links-left .nav-menu-list,
@@ -145,7 +147,7 @@
       filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.12));
     }
 
-    /* Navegación Derecha: Distribuida desde el centro con espaciado idéntico */
+    /* Navegación Derecha: Distribuida desde el centro con espaciado idéntico y alineada con las puntas del logo */
     .nav-right-cluster {
       display: flex;
       align-items: center;
@@ -154,6 +156,7 @@
       margin-left: 0;
       z-index: 5;
       white-space: nowrap;
+      transform: translateY(22px);
     }
 
     .badge-ft-count {
