@@ -12,23 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. Montar Hero Editorial Studds Reference
   if (window.HeroModule) window.HeroModule.mount();
 
-  // 3. Montar Categorías de Producto con Repisa Flotante
+  // 3. Montar Categorías de Producto con Repisa Flotante y Slide Azul
   if (window.CategoriesModule) window.CategoriesModule.mount();
 
   // 4. Montar Banda Cinematográfica Oscura del Proceso
   if (window.ProcessModule) window.ProcessModule.mount();
 
-  // 5. Montar Carrusel Horizontal de Modelos y Variaciones
-  if (window.VariationsModule) window.VariationsModule.mount();
-
-  // 6. Montar Centro de Fichas Técnicas & Panel Admin con PIN
-  if (window.FichasModule) window.FichasModule.mount();
-
-  // 7. Montar Catálogo de Productos Filtrable
-  if (window.CatalogModule) window.CatalogModule.mount();
-
-  // 8. Montar Laboratorio y Visor 3D Three.js
-  if (window.Visor3DModule) window.Visor3DModule.mount();
+  // 5. Montar Información Corporativa, Planta y Formulario de Contacto
 
   // 9. Montar Información Corporativa, Planta y Formulario de Contacto
   if (window.CompanyModule) window.CompanyModule.mount();

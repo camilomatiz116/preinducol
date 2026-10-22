@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiénes Somos — Historia, Valores y ADN de Preinducol S.A.S.</title>
+  <meta name="description" content="Conoce la historia de Preinducol S.A.S., fabricante colombiano de guantes de látex natural: nuestra mascota Wendy, misión, visión, valores corporativos y manifiesto.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/company.css">
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    .section-about-preinducol { padding-top: 130px; border-top: none; }
+  </style>
+</head>
+<body class="preinducol-portal">
+
+  <div id="navbar-mount">
+    <header class="navbar-pro navbar-studds" id="siteHeader">
+      <div class="nav-wrapper">
+        <nav class="nav-links-left" id="navMenuLeft">
+          <ul class="nav-menu-list">
+            <li><a href="index.html#inicio" class="nav-anchor">Inicio</a></li>
+            <li><a href="quienes-somos.html" class="nav-anchor active">Quiénes Somos</a></li>
+            <li><a href="catalogo.html" class="nav-anchor">Catálogo</a></li>
+          </ul>
+        </nav>
+
+        <a href="index.html" class="nav-brand-center" title="Preinducol S.A.S. - Inicio">
+          <div class="logo-box">
+            <img src="assets/logo.png" alt="Preinducol S.A.S." class="main-logo">
+          </div>
+        </a>
+
+        <div class="nav-right-cluster">
+          <nav class="nav-links-right" id="navMenuRight">
+            <ul class="nav-menu-list">
+              <li class="nav-ft-item">
+                <a href="fichas.html" class="nav-anchor anchor-ft-highlight">
+                  <span>Fichas Técnicas</span>
+                  <span class="badge-ft-count" id="menuFtCount">4</span>
+                </a>
+              </li>
+              <li><a href="planta.html" class="nav-anchor">Planta</a></li>
+              <li><a href="index.html#contacto" class="nav-anchor">Contacto</a></li>
+            </ul>
+          </nav>
+          <div class="nav-actions">
+            <button class="mobile-hamburger" id="mobileToggle" aria-label="Abrir Menú">
+              <span></span><span></span><span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mobile-drawer" id="mobileDrawer" style="display: none;">
+        <ul class="mobile-menu-list">
+          <li><a href="index.html#inicio" class="nav-anchor">Inicio</a></li>
+          <li><a href="quienes-somos.html" class="nav-anchor active">Quiénes Somos</a></li>
+          <li><a href="catalogo.html" class="nav-anchor">Catálogo</a></li>
+          <li><a href="fichas.html" class="nav-anchor">Fichas Técnicas (<span class="mobile-ft-count">4</span>)</a></li>
+          <li><a href="planta.html" class="nav-anchor">Planta &amp; Proceso</a></li>
+          <li><a href="index.html#contacto" class="nav-anchor">Contacto &amp; Cotizaciones</a></li>
+        </ul>
+      </div>
+    </header>
+  </div>
+
+  <main id="main-content">
+    <div id="about-mount"></div>
+  </main>
+
+  <div id="footer-mount"></div>
+
+  <script src="modules/navbar.js"></script>
+  <script src="modules/about.js"></script>
+  <script src="modules/footer.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.NavbarModule) window.NavbarModule.mount();
+      if (window.AboutModule) window.AboutModule.mount();
+      if (window.FooterModule) window.FooterModule.mount();
+    });
+  </script>
+</body>
+</html>

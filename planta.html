@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planta de Producción & Proceso Industrial — Preinducol S.A.S.</title>
+  <meta name="description" content="Conoce la planta de producción y el riguroso proceso de fabricación de guantes de látex natural de Preinducol S.A.S. en Colombia.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+
+  <!-- Tipografías de Alta Gama -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos Maestros y de Componentes -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/company.css">
+  <link rel="stylesheet" href="css/planta.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    body.preinducol-portal {
+      background-color: var(--c-bg-canvas, #ffffff);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    main { flex: 1; }
+  </style>
+</head>
+<body class="preinducol-portal">
+
+  <!-- ========================================================================= -->
+  <!-- 1. CABECERA & NAVBAR MAESTRO STUDDS                                       -->
+  <!-- ========================================================================= -->
+  <div id="navbar-mount">
+    <header class="navbar-pro navbar-studds" id="siteHeader">
+      <div class="nav-wrapper">
+        
+        <!-- Navegación Izquierda -->
+        <nav class="nav-links-left" id="navMenuLeft">
+          <ul class="nav-menu-list">
+            <li><a href="index.html#inicio" class="nav-anchor">Inicio</a></li>
+            <li><a href="quienes-somos.html" class="nav-anchor">Quiénes Somos</a></li>
+            <li><a href="catalogo.html" class="nav-anchor">Catálogo</a></li>
+          </ul>
+        </nav>
+
+        <!-- Logotipo Central -->
+        <a href="index.html" class="nav-brand-center" title="Preinducol S.A.S. - Inicio">
+          <div class="logo-box">
+            <img src="assets/logo.png" alt="Preinducol S.A.S." class="main-logo">
+          </div>
+        </a>
+
+        <!-- Cluster Derecho -->
+        <div class="nav-right-cluster">
+          <nav class="nav-links-right" id="navMenuRight">
+            <ul class="nav-menu-list">
+              <li class="nav-ft-item">
+                <a href="fichas.html" class="nav-anchor anchor-ft-highlight">
+                  <span>Fichas Técnicas</span>
+                  <span class="badge-ft-count" id="menuFtCount">4</span>
+                </a>
+              </li>
+              <li><a href="planta.html" class="nav-anchor active">Planta</a></li>
+              <li><a href="index.html#contacto" class="nav-anchor">Contacto</a></li>
+            </ul>
+          </nav>
+
+          <div class="nav-actions">
+            <button class="mobile-hamburger" id="mobileToggle" aria-label="Abrir Menú">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Menú Móvil Desplegable -->
+      <div class="mobile-drawer" id="mobileDrawer" style="display: none;">
+        <ul class="mobile-menu-list">
+          <li><a href="index.html#inicio" class="nav-anchor">Inicio</a></li>
+          <li><a href="quienes-somos.html" class="nav-anchor">Quiénes Somos</a></li>
+          <li><a href="catalogo.html" class="nav-anchor">Catálogo</a></li>
+          <li><a href="fichas.html" class="nav-anchor">Fichas Técnicas (<span class="mobile-ft-count">4</span>)</a></li>
+          <li><a href="planta.html" class="nav-anchor active">Planta &amp; Proceso</a></li>
+          <li><a href="index.html#contacto" class="nav-anchor">Contacto &amp; Cotizaciones</a></li>
+        </ul>
+      </div>
+    </header>
+  </div>
+
+  <main id="main-content">
+    
+    <!-- ========================================================================= -->
+    <!-- 2. HERO EDITORIAL DE LA PLANTA DE PRODUCCIÓN                              -->
+    <!-- ========================================================================= -->
+    <section class="planta-hero">
+      <div class="container-max">
+        <div class="badge-pill pill-lime">
+          <span>INFRAESTRUCTURA INDUSTRIAL COLOMBIANA</span>
+        </div>
+        <h1 class="planta-lead-title">Planta de Producción &amp; Manufactura de Clase Mundial</h1>
+        <p class="planta-lead-desc">
+          En nuestras instalaciones de Rionegro y Bogotá combinamos la pureza del látex 100% natural, formulaciones antibacteriales patentadas y hornos térmicos controlados para fabricar más de <strong>1.5 millones de pares anuales</strong> con certificación técnica.
+        </p>
+        <div class="planta-tags-strip">
+          <span class="planta-tag-item">🏭 Nave Industrial Automatizada</span>
+          <span class="planta-tag-item">🧪 Laboratorio de Calidad Hidrostática</span>
+          <span class="planta-tag-item">🔬 Hornos de Vulcanizado 100% Controlado</span>
+          <span class="planta-tag-item">🇨🇴 Mano de Obra 100% Colombiana</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 3. SECCIÓN PROCESO DE PRODUCCIÓN (4 ETAPAS TRASLADADAS DEL INDEX)          -->
+    <!-- ========================================================================= -->
+    <section class="section-block bg-dark-industrial" id="manufactura">
+      <div class="container-max">
+        
+        <div class="header-editorial dark-mode-header">
+          <div class="badge-pill pill-lime">
+            <span>PROCESO DE PRODUCCIÓN</span>
+          </div>
+          <h2 class="title-editorial text-white">Industria 100% Colombiana: Precisión en Cada Par</h2>
+          <p class="desc-editorial text-muted-light">
+            Desde los operadores de maquinaria que dominan la precisión, hasta los expertos en control de calidad que certifican cada lote antes de su empaque.
+          </p>
+        </div>
+
+        <!-- 4 Pasos del Proceso de Fabricación -->
+        <div class="manufacturing-steps-grid">
+          
+          <div class="step-card">
+            <div class="step-counter">ETAPA 01</div>
+            <div class="step-icon-circle">🌱</div>
+            <h4>Látex Natural Puro</h4>
+            <p>Recepción y selección de látex natural extraído responsablemente de plantaciones renovables, libre de impurezas y con alta concentración de sólidos.</p>
+            <span class="step-sub-tag">Materia Prima Renovable</span>
+          </div>
+
+          <div class="step-card">
+            <div class="step-counter">ETAPA 02</div>
+            <div class="step-icon-circle">🧪</div>
+            <h4>Formulación Antibacterial</h4>
+            <p>Compounding especializado con aditivos bactericidas y antioxidantes que garantizan protección higiénica y aceleran la degradación natural posterior.</p>
+            <span class="step-sub-tag">Bioseguridad Activa</span>
+          </div>
+
+          <div class="step-card">
+            <div class="step-counter">ETAPA 03</div>
+            <div class="step-icon-circle">🧤</div>
+            <h4>Inmersión &amp; Labrado</h4>
+            <p>Doble baño de inmersión en moldes anatómicos curvos con grabado en relieve en palma y falanges para conseguir agarre antideslizante y calibre parejo 20.</p>
+            <span class="step-sub-tag">Calibre Parejo Homogéneo</span>
+          </div>
+
+          <div class="step-card">
+            <div class="step-counter">ETAPA 04</div>
+            <div class="step-icon-circle">🔬</div>
+            <h4>Vulcanizado &amp; Certificación</h4>
+            <p>Curado en hornos térmicos controlados, enrollado de orillo en boca, pruebas hidrostáticas de hermeticidad y empaque en cajas de 12 docenas.</p>
+            <span class="step-sub-tag">Inspección de Calidad</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 4. SLIDE DIAGRAMÁTICO DE FOTOS DE PLANTA (WIREFRAME & BLUEPRINT SCHEMATIC)-->
+    <!-- ========================================================================= -->
+    <section class="section-blueprint-slider" id="galeria-planta">
+      <div class="blueprint-grid-overlay"></div>
+      
+      <div class="blueprint-header">
+        <div class="badge-pill pill-lime">
+          <span>RECORRIDO EN PLANTA • ESQUEMA DE DIAGRAMACIÓN</span>
+        </div>
+        <h2 class="title-editorial text-white">Galería Técnica de Instalaciones &amp; Maquinaria</h2>
+        <p class="desc-editorial text-muted-light">
+          Estructura y diagramación para el registro fotográfico de nuestras áreas productivas, tanques de mezcla, líneas continuas y laboratorio técnico.
+        </p>
+      </div>
+
+      <div class="blueprint-slider-wrap">
+        
+        <!-- Escenario del Slider Diagramático -->
+        <div class="blueprint-stage-box">
+          
+          <!-- Barra de Estado Técnica -->
+          <div class="blueprint-status-bar">
+            <div class="blueprint-sys-tag">
+              <span>SISTEMA DE DIAGRAMACIÓN VISUAL • SLOTS DE FOTOGRAFÍA</span>
+            </div>
+            <div class="blueprint-counter">
+              SLIDE <span id="currentSlideNum">01</span> / <span id="totalSlidesNum">05</span>
+            </div>
+          </div>
+
+          <!-- Cuadro Wireframe Fotográfico (16:9 con mira técnica) -->
+          <div class="blueprint-frame-slot" id="blueprintFrameSlot">
+            <div class="frame-corner corner-tl"></div>
+            <div class="frame-corner corner-tr"></div>
+            <div class="frame-corner corner-bl"></div>
+            <div class="frame-corner corner-br"></div>
+            
+            <div class="blueprint-crosshair"></div>
+
+            <div class="blueprint-frame-inner">
+              <div class="blueprint-cam-icon">
+                <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                  <circle cx="12" cy="13" r="4"/>
+                </svg>
+              </div>
+              <span class="blueprint-slot-label" id="slotAreaTag">ÁREA PRODUCTIVA 01</span>
+              <h3 class="blueprint-slot-title" id="slotTitle">Zona de Mezclado &amp; Tanques de Compounding</h3>
+              <p class="blueprint-slot-desc" id="slotDesc">
+                Tanques de acero inoxidable de alta capacidad donde el látex 100% natural se mezcla homogéneamente con bactericidas y estabilizantes bioseguros antes de la inmersión.
+              </p>
+              
+              <div class="blueprint-meta-strip">
+                <span class="meta-chip" id="metaRes">📐 Formato: 1920×1080 px (16:9)</span>
+                <span class="meta-chip" id="metaAngle">📷 Encuadre: Plano General de Tanques</span>
+                <span class="meta-chip" id="metaLighting">💡 Iluminación: Industrial Difusa</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controles de Navegación -->
+          <div class="blueprint-controls-row">
+            <button class="blueprint-nav-btn" id="btnPrevSlide">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+              <span>Anterior</span>
+            </button>
+
+            <div class="blueprint-dots-track" id="blueprintDotsTrack">
+              <!-- Renderizado dinámico de puntos -->
+            </div>
+
+            <button class="blueprint-nav-btn" id="btnNextSlide">
+              <span>Siguiente</span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Miniaturas Diagramáticas -->
+        <div class="blueprint-thumbs-grid" id="blueprintThumbsGrid">
+          <!-- Renderizado dinámico de miniaturas -->
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 5. Pie de Página y Trigger Flotante WhatsApp -->
+  <div id="footer-mount"></div>
+
+  <!-- Scripts -->
+  <script src="modules/navbar.js"></script>
+  <script src="modules/footer.js"></script>
+  <script>
+    // Datos de la Diagramación de Fotos de la Planta (Listo para insertar fotos reales)
+    const PLANTA_SLIDES = [
+      {
+        tag: "ÁREA PRODUCTIVA 01 • MATERIA PRIMA",
+        title: "Tanques de Compounding & Mezcla de Látex",
+        desc: "Batería de tanques de acero inoxidable donde el látex natural puro Hevea brasiliensis se homogeniza a temperatura controlada con fórmula antibacterial activa.",
+        res: "1920×1080 px (16:9)",
+        angle: "Plano General • Batería de Tanques",
+        lighting: "Industrial Iluminación Blanca",
+        thumbTitle: "Tanques de Compounding"
+      },
+      {
+        tag: "ÁREA PRODUCTIVA 02 • INMERSIÓN CONTINUA",
+        title: "Línea Automatizada de Moldes Curvos Anatómicos",
+        desc: "Carrusel continuo con moldes cerámicos de inmersión doble en baño de látex. Grabado en relieve sobre palma y falanges para agarre antideslizante uniforme.",
+        res: "1920×1080 px (16:9)",
+        angle: "Plano Medio • Moldes en Movimiento",
+        lighting: "Luz Focal de Línea",
+        thumbTitle: "Carrusel de Inmersión"
+      },
+      {
+        tag: "ÁREA PRODUCTIVA 03 • TRATAMIENTO TÉRMICO",
+        title: "Túneles de Vulcanizado & Hornos de Secado",
+        desc: "Zona de curado continuo a 95°C que confiere a los guantes Ruberplus™ e Indumax™ su alta resistencia a la tracción y elongación superior al 700%.",
+        res: "1920×1080 px (16:9)",
+        angle: "Plano Longitudinal de Hornos",
+        lighting: "Reflejo Térmico Controlado",
+        thumbTitle: "Túnel de Vulcanizado"
+      },
+      {
+        tag: "ÁREA PRODUCTIVA 04 • ASEGURAMIENTO DE CALIDAD",
+        title: "Laboratorio de Ensayos Mecánicos & Hermeticidad",
+        desc: "Banco de pruebas hidrostáticas y neumáticas 100% libre de poros. Dinamometría digital para verificar calibre 20 parejo y tolerancia a desgarros.",
+        res: "1920×1080 px (16:9)",
+        angle: "Plano Detalle • Inspección con Operario",
+        lighting: "Luz Fría de Precisión",
+        thumbTitle: "Laboratorio de Calidad"
+      },
+      {
+        tag: "ÁREA PRODUCTIVA 05 • EMBALAJE & DESPACHOS",
+        title: "Línea de Enrollado de Orillo & Empaque en Cajas",
+        desc: "Enrollado automático en boca del guante para mayor facilidad de postura, conteo por pares, encartonado por 12 docenas y consolidación de despachos nacionales.",
+        res: "1920×1080 px (16:9)",
+        angle: "Plano Panorámico de Despachos",
+        lighting: "Almacén Logístico",
+        thumbTitle: "Empaque & Despachos"
+      }
+    ];
+
+    let activeSlideIndex = 0;
+
+    function renderSlide(idx) {
+      const slide = PLANTA_SLIDES[idx];
+      document.getElementById('currentSlideNum').textContent = String(idx + 1).padStart(2, '0');
+      document.getElementById('slotAreaTag').textContent = slide.tag;
+      document.getElementById('slotTitle').textContent = slide.title;
+      document.getElementById('slotDesc').textContent = slide.desc;
+      document.getElementById('metaRes').textContent = '📐 ' + slide.res;
+      document.getElementById('metaAngle').textContent = '📷 ' + slide.angle;
+      document.getElementById('metaLighting').textContent = '💡 ' + slide.lighting;
+
+      // Actualizar dots
+      document.querySelectorAll('.blueprint-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === idx);
+      });
+
+      // Actualizar thumbs
+      document.querySelectorAll('.blueprint-thumb-item').forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === idx);
+      });
+    }
+
+    function initBlueprintSlider() {
+      document.getElementById('totalSlidesNum').textContent = String(PLANTA_SLIDES.length).padStart(2, '0');
+      
+      const dotsTrack = document.getElementById('blueprintDotsTrack');
+      const thumbsGrid = document.getElementById('blueprintThumbsGrid');
+
+      // Crear dots y thumbs
+      PLANTA_SLIDES.forEach((item, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'blueprint-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', `Ir al slide ${i + 1}`);
+        dot.addEventListener('click', () => {
+          activeSlideIndex = i;
+          renderSlide(activeSlideIndex);
+        });
+        dotsTrack.appendChild(dot);
+
+        const thumb = document.createElement('div');
+        thumb.className = 'blueprint-thumb-item' + (i === 0 ? ' active' : '');
+        thumb.innerHTML = `
+          <span class="thumb-step-num">SLOT 0${i + 1}</span>
+          <h5 class="thumb-title">${item.thumbTitle}</h5>
+        `;
+        thumb.addEventListener('click', () => {
+          activeSlideIndex = i;
+          renderSlide(activeSlideIndex);
+        });
+        thumbsGrid.appendChild(thumb);
+      });
+
+      // Botones siguiente / anterior
+      document.getElementById('btnPrevSlide').addEventListener('click', () => {
+        activeSlideIndex = (activeSlideIndex - 1 + PLANTA_SLIDES.length) % PLANTA_SLIDES.length;
+        renderSlide(activeSlideIndex);
+      });
+
+      document.getElementById('btnNextSlide').addEventListener('click', () => {
+        activeSlideIndex = (activeSlideIndex + 1) % PLANTA_SLIDES.length;
+        renderSlide(activeSlideIndex);
+      });
+
+      // Soporte para flechas de teclado
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+          activeSlideIndex = (activeSlideIndex - 1 + PLANTA_SLIDES.length) % PLANTA_SLIDES.length;
+          renderSlide(activeSlideIndex);
+        } else if (e.key === 'ArrowRight') {
+          activeSlideIndex = (activeSlideIndex + 1) % PLANTA_SLIDES.length;
+          renderSlide(activeSlideIndex);
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.NavbarModule) window.NavbarModule.mount();
+      if (window.FooterModule) window.FooterModule.mount();
+      initBlueprintSlider();
+    });
+  </script>
+</body>
+</html>

@@ -2,8 +2,8 @@
    FOOTER EDITORIAL
    ============================================================================ */
 .footer-master {
-  background: #0f172a;
-  color: #94a3b8;
+  background: linear-gradient(145deg, #0056cc 0%, #0043aa 55%, #002c77 100%);
+  color: #e0f2fe;
   padding: 80px 0 30px;
   position: relative;
   z-index: 2;
@@ -59,16 +59,19 @@
 
 .f-list a {
   font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
   transition: color var(--tr-fast);
 }
 
 .f-list a:hover {
-  color: #34d399;
+  color: #38bdf8;
 }
 
 .f-contacts p {
   font-size: 0.88rem;
   margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .f-contacts strong {
@@ -80,14 +83,15 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .f-legal-badges {
   display: flex;
   gap: 12px;
-  color: #64748b;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* ============================================================================

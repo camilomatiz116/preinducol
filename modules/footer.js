@@ -26,11 +26,11 @@ window.FooterModule = (function () {
             <h4 class="f-title">Navegación</h4>
             <ul class="f-list">
               <li><a href="#inicio">Inicio</a></li>
-              <li><a href="#nosotros">Quiénes Somos</a></li>
-              <li><a href="#manufactura">Planta & Proceso</a></li>
-              <li><a href="#catalogo">Catálogo de Guantes</a></li>
-              <li><a href="#fichas-tecnicas">Fichas Técnicas</a></li>
-              <li><a href="#visor-3d">Visor 3D Ruberplus™</a></li>
+              <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+              <li><a href="planta.html">Planta & Proceso</a></li>
+              <li><a href="catalogo.html">Catálogo de Guantes</a></li>
+              <li><a href="fichas.html">Fichas Técnicas</a></li>
+              <li><a href="visor3d.html">Visor 3D Ruberplus™</a></li>
               <li><a href="#sostenibilidad">Sostenibilidad & Eco</a></li>
               <li><a href="#contacto">Contacto & Cotizaciones</a></li>
             </ul>
@@ -39,12 +39,12 @@ window.FooterModule = (function () {
           <div class="f-col">
             <h4 class="f-title">Líneas de Producción</h4>
             <ul class="f-list">
-              <li><a href="#catalogo">Guante Ruberplus™ Cal. 20</a></li>
-              <li><a href="#catalogo">Ruberplus™ Calibre 25</a></li>
-              <li><a href="#catalogo">Guante Indumax™ Industrial</a></li>
-              <li><a href="#catalogo">Rubber 50™ Trabajo Pesado</a></li>
-              <li><a href="#catalogo">Guante Mosquetero™</a></li>
-              <li><a href="#catalogo">Guantes de Nitrilo y Cuero</a></li>
+              <li><a href="catalogo.html">Guante Ruberplus™ Cal. 20</a></li>
+              <li><a href="catalogo.html">Ruberplus™ Calibre 25</a></li>
+              <li><a href="catalogo.html">Guante Indumax™ Industrial</a></li>
+              <li><a href="catalogo.html">Rubber 50™ Trabajo Pesado</a></li>
+              <li><a href="catalogo.html">Guante Mosquetero™</a></li>
+              <li><a href="catalogo.html">Guantes de Nitrilo y Cuero</a></li>
             </ul>
           </div>
 

@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preinducol S.A.S. — Portal Administrativo de Fichas Técnicas</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  
+  <!-- Tipografía -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --c-bg: #0b1329;
+      --c-surface: #111e38;
+      --c-card: #182849;
+      --c-border: rgba(255, 255, 255, 0.12);
+      --c-text: #f8fafc;
+      --c-text-muted: #94a3b8;
+      --c-primary: #059669;
+      --c-primary-hover: #047857;
+      --c-blue: #0284c7;
+      --c-blue-hover: #0369a1;
+      --c-red: #ef4444;
+      --f-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --f-display: 'Space Grotesk', system-ui, sans-serif;
+      --f-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--f-sans);
+      background-color: var(--c-bg);
+      color: var(--c-text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* =========================================================================
+       VISTA 1: LOGIN (PANTALLA DE ACCESO PROTEGIDO)
+       ========================================================================= */
+    #loginView {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      background: radial-gradient(circle at 50% 30%, rgba(5, 150, 105, 0.15) 0%, transparent 60%),
+                  radial-gradient(circle at 80% 80%, rgba(2, 132, 199, 0.12) 0%, transparent 50%),
+                  var(--c-bg);
+    }
+
+    .login-card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: 24px;
+      padding: 44px 38px;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(5, 150, 105, 0.15);
+      backdrop-filter: blur(16px);
+      text-align: center;
+    }
+
+    .login-logo {
+      height: 52px;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+    }
+
+    .login-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #34d399;
+      background: rgba(5, 150, 105, 0.16);
+      border: 1px solid rgba(5, 150, 105, 0.3);
+      padding: 4px 14px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .login-title {
+      font-family: var(--f-display);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .login-desc {
+      font-size: 0.86rem;
+      color: var(--c-text-muted);
+      margin-bottom: 28px;
+    }
+
+    .form-group {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #cbd5e1;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .input-field {
+      width: 100%;
+      background: rgba(11, 19, 41, 0.8);
+      border: 1px solid var(--c-border);
+      border-radius: 12px;
+      padding: 13px 16px;
+      color: #ffffff;
+      font-family: var(--f-sans);
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.25s ease;
+    }
+
+    .input-field:focus {
+      border-color: #34d399;
+      box-shadow: 0 0 15px rgba(52, 211, 153, 0.3);
+      background: rgba(11, 19, 41, 0.95);
+    }
+
+    .btn-login {
+      width: 100%;
+      background: linear-gradient(135deg, var(--c-primary), #047857);
+      border: none;
+      border-radius: 12px;
+      padding: 14px;
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4);
+      margin-top: 10px;
+    }
+
+    .btn-login:hover {
+      background: linear-gradient(135deg, #047857, #065f46);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(5, 150, 105, 0.6);
+    }
+
+    .login-error {
+      display: none;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #fca5a5;
+      font-size: 0.82rem;
+      padding: 10px 14px;
+      border-radius: 10px;
+      margin-top: 18px;
+    }
+
+    .login-footer-link {
+      display: inline-block;
+      margin-top: 24px;
+      color: var(--c-text-muted);
+      font-size: 0.82rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .login-footer-link:hover {
+      color: #34d399;
+    }
+
+    /* =========================================================================
+       VISTA 2: DASHBOARD ADMINISTRATIVO
+       ========================================================================= */
+    #dashboardView {
+      display: none;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .admin-navbar {
+      background: var(--c-surface);
+      border-bottom: 1px solid var(--c-border);
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-brand-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .admin-nav-logo {
+      height: 38px;
+    }
+
+    .admin-nav-title {
+      font-family: var(--f-display);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+    }
+
+    .admin-nav-user-badge {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .user-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--c-border);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      color: #cbd5e1;
+    }
+
+    .user-pill strong {
+      color: #34d399;
+    }
+
+    .btn-logout {
+      background: rgba(239, 68, 68, 0.14);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #fca5a5;
+      padding: 7px 16px;
+      border-radius: 999px;
+      font-size: 0.80rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-logout:hover {
+      background: #ef4444;
+      color: #ffffff;
+      border-color: #ef4444;
+    }
+
+    .admin-content {
+      flex: 1;
+      padding: 34px 28px 60px;
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* Barra Superior de Métricas & Acciones */
+    .dashboard-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .topbar-titles h1 {
+      font-family: var(--f-display);
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .topbar-titles p {
+      font-size: 0.9rem;
+      color: var(--c-text-muted);
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-new-ft {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--c-primary), #047857);
+      border: none;
+      color: #ffffff;
+      padding: 12px 22px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.90rem;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(5, 150, 105, 0.4);
+      transition: all 0.25s ease;
+    }
+
+    .btn-new-ft:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(5, 150, 105, 0.6);
+    }
+
+    .btn-view-site {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--c-border);
+      color: #ffffff;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-view-site:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: #ffffff;
+    }
+
+    /* Tarjetas de Estadísticas */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+
+    .stat-card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: 18px;
+      padding: 22px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(5, 150, 105, 0.16);
+      color: #34d399;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .stat-num {
+      font-family: var(--f-display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--c-text-muted);
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    /* Buscador y Filtros */
+    .admin-filter-bar {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: 16px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .admin-search-wrap {
+      flex: 1;
+      min-width: 260px;
+      position: relative;
+    }
+
+    .admin-search-input {
+      width: 100%;
+      background: rgba(11, 19, 41, 0.7);
+      border: 1px solid var(--c-border);
+      border-radius: 10px;
+      padding: 10px 14px 10px 38px;
+      color: #ffffff;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .admin-search-input:focus {
+      border-color: #34d399;
+    }
+
+    .search-icon-svg {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--c-text-muted);
+    }
+
+    /* Tabla de Fichas Técnicas */
+    .fichas-table-wrap {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .fichas-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .fichas-table th {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 16px 20px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: var(--c-text-muted);
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--c-border);
+    }
+
+    .fichas-table td {
+      padding: 18px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.88rem;
+      vertical-align: middle;
+    }
+
+    .fichas-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .code-badge {
+      font-family: var(--f-mono);
+      font-size: 0.80rem;
+      font-weight: 700;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 4px 10px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    .cat-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #34d399;
+      background: rgba(52, 211, 153, 0.12);
+      padding: 4px 10px;
+      border-radius: 999px;
+      display: inline-block;
+    }
+
+    .pdf-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: #cbd5e1;
+    }
+
+    .table-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-action-icon {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--c-border);
+      color: #ffffff;
+      padding: 7px 12px;
+      border-radius: 8px;
+      font-size: 0.80rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .btn-action-icon:hover {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .btn-action-delete {
+      background: rgba(239, 68, 68, 0.12);
+      border-color: rgba(239, 68, 68, 0.3);
+      color: #fca5a5;
+    }
+
+    .btn-action-delete:hover {
+      background: #ef4444;
+      color: #ffffff;
+    }
+
+    /* Modal de Edición / Creación */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: 24px;
+      width: 100%;
+      max-width: 680px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-header {
+      padding: 22px 28px;
+      border-bottom: 1px solid var(--c-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-title {
+      font-family: var(--f-display);
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .btn-close-modal {
+      background: transparent;
+      border: none;
+      color: var(--c-text-muted);
+      font-size: 1.6rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .btn-close-modal:hover {
+      color: #ffffff;
+    }
+
+    .modal-body {
+      padding: 28px;
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .file-dropzone {
+      border: 2px dashed rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      background: rgba(11, 19, 41, 0.5);
+    }
+
+    .file-dropzone:hover {
+      border-color: #34d399;
+      background: rgba(5, 150, 105, 0.08);
+    }
+
+    .modal-footer {
+      padding: 18px 28px;
+      border-top: 1px solid var(--c-border);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    .btn-cancel {
+      background: transparent;
+      border: 1px solid var(--c-border);
+      color: var(--c-text-muted);
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-cancel:hover {
+      color: #ffffff;
+      border-color: #ffffff;
+    }
+
+    .btn-save {
+      background: linear-gradient(135deg, var(--c-primary), #047857);
+      border: none;
+      color: #ffffff;
+      padding: 10px 24px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn-save:hover {
+      background: #047857;
+    }
+
+    /* Toast Notification */
+    .admin-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #065f46;
+      border: 1px solid #34d399;
+      color: #ffffff;
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      display: none;
+      z-index: 200;
+      animation: toastIn 0.3s ease;
+    }
+
+    @keyframes toastIn {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================================
+       1. PANTALLA DE ACCESO (LOGIN OCULTO)
+       ========================================================================= -->
+  <div id="loginView">
+    <div class="login-card">
+      <img src="assets/logo.png" alt="Preinducol S.A.S." class="login-logo">
+      <span class="login-badge">SEGURIDAD INTERNA</span>
+      <h1 class="login-title">Portal Administrativo</h1>
+      <p class="login-desc">Control oficial de Fichas Técnicas & Certificaciones</p>
+
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label class="form-label">USUARIO</label>
+          <input type="text" id="adminUser" class="input-field" placeholder="Ingresa tu usuario" required autocomplete="username">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">CONTRASEÑA</label>
+          <input type="password" id="adminPass" class="input-field" placeholder="••••••••" required autocomplete="current-password">
+        </div>
+
+        <button type="submit" class="btn-login">ACCEDER AL PANEL</button>
+
+        <div class="login-error" id="loginError">
+          ⚠️ Usuario o contraseña incorrectos. Verifica tus credenciales.
+        </div>
+      </form>
+
+      <a href="index.html" class="login-footer-link">← Volver al sitio público de Preinducol</a>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       2. PANEL DASHBOARD ADMINISTRATIVO
+       ========================================================================= -->
+  <div id="dashboardView">
+    
+    <!-- Navbar del Administrador -->
+    <header class="admin-navbar">
+      <div class="nav-brand-group">
+        <img src="assets/logo.png" alt="Preinducol" class="admin-nav-logo">
+        <span class="admin-nav-title">GESTIÓN DE FICHAS TÉCNICAS</span>
+      </div>
+
+      <div class="admin-nav-user-badge">
+        <div class="user-pill">
+          <span>👤 Operador:</span>
+          <strong id="loggedUserDisplay">camilomatiz115</strong>
+        </div>
+        <button class="btn-logout" onclick="handleLogout()">Cerrar Sesión</button>
+      </div>
+    </header>
+
+    <main class="admin-content">
+      
+      <!-- Topbar con Botón Crear -->
+      <div class="dashboard-topbar">
+        <div class="topbar-titles">
+          <h1>Fichas Técnicas Registradas</h1>
+          <p>Crea, actualiza o elimina las fichas oficiales. Los cambios impactan el menú del sitio en tiempo real.</p>
+        </div>
+
+        <div class="topbar-actions">
+          <a href="index.html" target="_blank" class="btn-view-site">Ver Sitio Web ↗</a>
+          <button class="btn-new-ft" onclick="openCreateModal()">
+            <span style="font-size: 1.2rem; line-height: 1;">+</span>
+            <span>Nueva Ficha Técnica</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Tarjetas Métricas -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">📄</div>
+          <div>
+            <div class="stat-num" id="totalFichasCount">4</div>
+            <div class="stat-label">FICHAS ACTIVAS EN CATÁLOGO</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">🏷️</div>
+          <div>
+            <div class="stat-num" id="totalCategoriesCount">2</div>
+            <div class="stat-label">LÍNEAS DE PRODUCTO</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">🔄</div>
+          <div>
+            <div class="stat-num" id="lastUpdatedDate">Hoy</div>
+            <div class="stat-label">ÚLTIMA SINCRONIZACIÓN</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Barra de Filtro / Búsqueda -->
+      <div class="admin-filter-bar">
+        <div class="admin-search-wrap">
+          <svg class="search-icon-svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="adminSearchInput" class="admin-search-input" placeholder="Buscar por código (ej: FT-RUB20) o nombre de producto..." oninput="handleSearch(this.value)">
+        </div>
+      </div>
+
+      <!-- Tabla Principal de Fichas -->
+      <div class="fichas-table-wrap">
+        <table class="fichas-table">
+          <thead>
+            <tr>
+              <th>CÓDIGO</th>
+              <th>TÍTULO DE PRODUCTO</th>
+              <th>CATEGORÍA</th>
+              <th>CALIBRE</th>
+              <th>PDF ADJUNTO</th>
+              <th>ACCIONES</th>
+            </tr>
+          </thead>
+          <tbody id="fichasTableBody">
+            <!-- Renderizado dinámico vía JavaScript -->
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- =========================================================================
+       3. MODAL DE CREACIÓN / EDICIÓN DE FICHA TÉCNICA
+       ========================================================================= -->
+  <div class="modal-overlay" id="editModalOverlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalFormTitle">Nueva Ficha Técnica</h3>
+        <button class="btn-close-modal" onclick="closeEditModal()">×</button>
+      </div>
+
+      <form id="fichaForm" onsubmit="handleSaveFicha(event)">
+        <div class="modal-body">
+          <input type="hidden" id="formFichaId">
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">CÓDIGO DE FICHA *</label>
+              <input type="text" id="formCodigo" class="input-field" placeholder="ej: FT-RUB20" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">CATEGORÍA *</label>
+              <select id="formCategoria" class="input-field" required>
+                <option value="hogar">Látex Hogar & Aseo</option>
+                <option value="industrial">Látex Industrial</option>
+                <option value="nitrilo">Nitrilo Químico</option>
+                <option value="cuero">Cuero & Soldadura</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">TÍTULO COMPLETO DEL PRODUCTO *</label>
+            <input type="text" id="formTitulo" class="input-field" placeholder="ej: Guante de Látex Ruberplus™ Calibre 20" required>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">CALIBRE / GROSOR *</label>
+              <input type="text" id="formCalibre" class="input-field" placeholder="ej: Calibre 20 (0.50 mm)" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">LONGITUD *</label>
+              <input type="text" id="formLongitud" class="input-field" placeholder="ej: 30 cm (12 pulgadas)" required>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">COLOR / ACABADO</label>
+              <input type="text" id="formColor" class="input-field" placeholder="ej: Amarillo / Bicolor">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">FECHA DE REVISIÓN</label>
+              <input type="text" id="formFechaRev" class="input-field" placeholder="ej: Octubre 2026">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">DESCRIPCIÓN TÉCNICA Y APLICACIONES</label>
+            <textarea id="formDescripcion" class="input-field" rows="3" placeholder="Detalle técnico, pruebas de elongación, bactericida, etc."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">ARCHIVO PDF OFICIAL</label>
+            <div class="file-dropzone" onclick="document.getElementById('formPdfFile').click()">
+              <input type="file" id="formPdfFile" accept="application/pdf" style="display: none;" onchange="handleFileSelect(this)">
+              <div id="dropzoneText">
+                📂 <strong>Haz clic para cargar el PDF oficial</strong>
+                <p style="font-size: 0.78rem; color: var(--c-text-muted); margin-top: 4px;">Máximo 8 MB • Formato .PDF</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-cancel" onclick="closeEditModal()">Cancelar</button>
+          <button type="submit" class="btn-save" id="btnSaveSubmit">Guardar Ficha</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="admin-toast" id="adminToast">Ficha guardada exitosamente</div>
+
+  <!-- =========================================================================
+       LÓGICA DEL PANEL ADMINISTRATIVO (COMPARTIDO CON EL SITIO PRINCIPAL)
+       ========================================================================= -->
+  <script>
+    const STORAGE_KEY = 'preinducol_fichas_tecnicas_db';
+    const SESSION_AUTH_KEY = 'preinducol_admin_auth_user';
+
+    // Credenciales oficiales requeridas
+    const VALID_USER = 'camilomatiz115';
+    const VALID_PASS = '12345';
+
+    let currentFichas = [];
+    let pendingPdfBase64 = null;
+    let pendingPdfName = '';
+
+    // Fichas iniciales de fábrica si el almacenamiento está vacío
+    const INITIAL_FICHAS = [
+      {
+        id: 'ft-rub20',
+        codigo: 'FT-RUB20',
+        titulo: 'Guante de Látex Ruberplus™ Calibre 20',
+        categoria: 'hogar',
+        categoriaNombre: 'Látex Hogar & Aseo',
+        calibre: 'Calibre 20 Parejo (0.50 mm)',
+        longitud: '30 cm (12 pulgadas)',
+        color: 'Amarillo / Bicolor',
+        descripcion: 'Guante ergonómico de alta pureza con labrado antideslizante en palma y dedos. Formulado con bactericida activo que inhibe 99.9% de hongos y bacterias.',
+        fechaRev: 'Enero 2026',
+        pdfNombre: 'Ficha_Tecnica_Ruberplus_Cal20_Preinducol.pdf'
+      },
+      {
+        id: 'ft-rub25',
+        codigo: 'FT-RUB25',
+        titulo: 'Guante de Látex Ruberplus™ Semipesado Calibre 25',
+        categoria: 'industrial',
+        categoriaNombre: 'Látex Industrial',
+        calibre: 'Calibre 25 (0.63 mm)',
+        longitud: '30 cm',
+        color: 'Negro / Rojo Bicolor',
+        descripcion: 'Guante semipesado diseñado para trabajo industrial continuo, agroindustria, plantas florícolas y aseo severo.',
+        fechaRev: 'Febrero 2026',
+        pdfNombre: 'Ficha_Tecnica_Ruberplus_Cal25_Preinducol.pdf'
+      },
+      {
+        id: 'ft-ind25',
+        codigo: 'FT-IND25',
+        titulo: 'Guante Industrial Indumax™ Químico Calibre 25',
+        categoria: 'industrial',
+        categoriaNombre: 'Látex Industrial',
+        calibre: 'Calibre 25 Parejo',
+        longitud: '35 cm con manga extendida',
+        color: 'Verde Oscuro / Negro',
+        descripcion: 'Protección para inmersión industrial en ácidos diluidos, álcalis, soluciones cáusticas y detergentes agresivos.',
+        fechaRev: 'Enero 2026',
+        pdfNombre: 'Ficha_Tecnica_Indumax_Cal25_Preinducol.pdf'
+      },
+      {
+        id: 'ft-rub50',
+        codigo: 'FT-RUB50',
+        titulo: 'Guante Extrapesado Rubber 50™ Máxima Protección',
+        categoria: 'industrial',
+        categoriaNombre: 'Látex Industrial',
+        calibre: 'Calibre 50 Extrapesado (1.25 mm)',
+        longitud: '38 cm (15 pulgadas)',
+        color: 'Ámbar / Naranja',
+        descripcion: 'Guante extrapesado para faenas severas, desbaste, manipulación de tanques, curtido de pieles y trabajo pesado.',
+        fechaRev: 'Marzo 2026',
+        pdfNombre: 'Ficha_Tecnica_Rubber50_Extrapesado_Preinducol.pdf'
+      }
+    ];
+
+    function checkAuth() {
+      const authUser = sessionStorage.getItem(SESSION_AUTH_KEY);
+      if (authUser === VALID_USER) {
+        showDashboard();
+      } else {
+        showLogin();
+      }
+    }
+
+    function showLogin() {
+      document.getElementById('loginView').style.display = 'flex';
+      document.getElementById('dashboardView').style.display = 'none';
+    }
+
+    function showDashboard() {
+      document.getElementById('loginView').style.display = 'none';
+      document.getElementById('dashboardView').style.display = 'flex';
+      loadFichasData();
+      renderTable(currentFichas);
+    }
+
+    function handleLogin(e) {
+      e.preventDefault();
+      const user = document.getElementById('adminUser').value.trim();
+      const pass = document.getElementById('adminPass').value;
+      const errorBox = document.getElementById('loginError');
+
+      if (user === VALID_USER && pass === VALID_PASS) {
+        errorBox.style.display = 'none';
+        sessionStorage.setItem(SESSION_AUTH_KEY, user);
+        showDashboard();
+      } else {
+        errorBox.style.display = 'block';
+      }
+    }
+
+    function handleLogout() {
+      sessionStorage.removeItem(SESSION_AUTH_KEY);
+      showLogin();
+    }
+
+    function loadFichasData() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          currentFichas = JSON.parse(raw);
+        } else {
+          currentFichas = [...INITIAL_FICHAS];
+          saveFichasData();
+        }
+      } catch (err) {
+        console.warn('Error cargando fichas:', err);
+        currentFichas = [...INITIAL_FICHAS];
+      }
+      updateStats();
+    }
+
+    function saveFichasData() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(currentFichas));
+      updateStats();
+    }
+
+    function updateStats() {
+      document.getElementById('totalFichasCount').textContent = currentFichas.length;
+      const uniqueCats = new Set(currentFichas.map(f => f.categoria));
+      document.getElementById('totalCategoriesCount').textContent = uniqueCats.size;
+    }
+
+    function renderTable(list) {
+      const tbody = document.getElementById('fichasTableBody');
+      if (!list || list.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="6" style="text-align: center; padding: 40px; color: var(--c-text-muted);">
+              No se encontraron fichas técnicas con ese criterio de búsqueda.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = list.map(f => `
+        <tr>
+          <td><span class="code-badge">${f.codigo || 'S/C'}</span></td>
+          <td><strong>${f.titulo}</strong></td>
+          <td><span class="cat-badge">${f.categoriaNombre || f.categoria}</span></td>
+          <td>${f.calibre || 'Estándar'}</td>
+          <td>
+            <div class="pdf-indicator">
+              <span>📄</span>
+              <span title="${f.pdfNombre || 'PDF predeterminado'}">${f.pdfNombre ? f.pdfNombre.substring(0, 24) + '...' : 'PDF Oficial'}</span>
+            </div>
+          </td>
+          <td>
+            <div class="table-actions">
+              <button class="btn-action-icon" onclick="openEditModal('${f.id}')">✏️ Editar</button>
+              <button class="btn-action-icon btn-action-delete" onclick="handleDeleteFicha('${f.id}')">🗑️ Borrar</button>
+            </div>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function handleSearch(val) {
+      const q = val.toLowerCase().trim();
+      if (!q) {
+        renderTable(currentFichas);
+        return;
+      }
+      const filtered = currentFichas.filter(f => 
+        (f.codigo && f.codigo.toLowerCase().includes(q)) ||
+        (f.titulo && f.titulo.toLowerCase().includes(q)) ||
+        (f.categoria && f.categoria.toLowerCase().includes(q))
+      );
+      renderTable(filtered);
+    }
+
+    function openCreateModal() {
+      document.getElementById('modalFormTitle').textContent = 'Subir Nueva Ficha Técnica';
+      document.getElementById('formFichaId').value = '';
+      document.getElementById('fichaForm').reset();
+      pendingPdfBase64 = null;
+      pendingPdfName = '';
+      document.getElementById('dropzoneText').innerHTML = `
+        📂 <strong>Haz clic para cargar el PDF oficial</strong>
+        <p style="font-size: 0.78rem; color: var(--c-text-muted); margin-top: 4px;">Máximo 8 MB • Formato .PDF</p>
+      `;
+      document.getElementById('editModalOverlay').classList.add('active');
+    }
+
+    function openEditModal(id) {
+      const ficha = currentFichas.find(f => f.id === id);
+      if (!ficha) return;
+
+      document.getElementById('modalFormTitle').textContent = `Editar: ${ficha.codigo}`;
+      document.getElementById('formFichaId').value = ficha.id;
+      document.getElementById('formCodigo').value = ficha.codigo || '';
+      document.getElementById('formCategoria').value = ficha.categoria || 'industrial';
+      document.getElementById('formTitulo').value = ficha.titulo || '';
+      document.getElementById('formCalibre').value = ficha.calibre || '';
+      document.getElementById('formLongitud').value = ficha.longitud || '';
+      document.getElementById('formColor').value = ficha.color || '';
+      document.getElementById('formFechaRev').value = ficha.fechaRev || 'Octubre 2026';
+      document.getElementById('formDescripcion').value = ficha.descripcion || '';
+
+      pendingPdfBase64 = ficha.pdfData || null;
+      pendingPdfName = ficha.pdfNombre || '';
+
+      document.getElementById('dropzoneText').innerHTML = `
+        ✅ <strong>Archivo actual: ${pendingPdfName || 'PDF asignado'}</strong>
+        <p style="font-size: 0.78rem; color: var(--c-text-muted); margin-top: 4px;">Haz clic si deseas reemplazarlo</p>
+      `;
+
+      document.getElementById('editModalOverlay').classList.add('active');
+    }
+
+    function closeEditModal() {
+      document.getElementById('editModalOverlay').classList.remove('active');
+    }
+
+    function handleFileSelect(input) {
+      const file = input.files[0];
+      if (!file) return;
+
+      pendingPdfName = file.name;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        pendingPdfBase64 = e.target.result;
+        document.getElementById('dropzoneText').innerHTML = `
+          ✅ <strong>Archivo cargado: ${file.name}</strong> (${(file.size / 1024).toFixed(1)} KB)
+        `;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function handleSaveFicha(e) {
+      e.preventDefault();
+      const id = document.getElementById('formFichaId').value;
+      const codigo = document.getElementById('formCodigo').value.trim().toUpperCase();
+      const categoria = document.getElementById('formCategoria').value;
+      const catMap = {
+        'hogar': 'Látex Hogar & Aseo',
+        'industrial': 'Látex Industrial',
+        'nitrilo': 'Nitrilo Químico',
+        'cuero': 'Cuero & Soldadura'
+      };
+
+      const fichaData = {
+        codigo: codigo,
+        titulo: document.getElementById('formTitulo').value.trim(),
+        categoria: categoria,
+        categoriaNombre: catMap[categoria] || 'General',
+        calibre: document.getElementById('formCalibre').value.trim(),
+        longitud: document.getElementById('formLongitud').value.trim(),
+        color: document.getElementById('formColor').value.trim(),
+        fechaRev: document.getElementById('formFechaRev').value.trim() || 'Octubre 2026',
+        descripcion: document.getElementById('formDescripcion').value.trim(),
+        pdfData: pendingPdfBase64,
+        pdfNombre: pendingPdfName || `${codigo}_Preinducol.pdf`
+      };
+
+      if (id) {
+        // Editar existente
+        const index = currentFichas.findIndex(f => f.id === id);
+        if (index !== -1) {
+          currentFichas[index] = { ...currentFichas[index], ...fichaData };
+          showToast(`Ficha ${codigo} actualizada con éxito`);
+        }
+      } else {
+        // Crear nueva
+        const newId = 'ft-' + Date.now();
+        currentFichas.unshift({ id: newId, ...fichaData });
+        showToast(`Ficha ${codigo} creada y sincronizada con el menú`);
+      }
+
+      saveFichasData();
+      renderTable(currentFichas);
+      closeEditModal();
+    }
+
+    function handleDeleteFicha(id) {
+      const ficha = currentFichas.find(f => f.id === id);
+      if (!ficha) return;
+
+      if (confirm(`¿Estás seguro de eliminar la ficha técnica "${ficha.codigo} - ${ficha.titulo}"? Esta acción se reflejará en el menú del sitio web.`)) {
+        currentFichas = currentFichas.filter(f => f.id !== id);
+        saveFichasData();
+        renderTable(currentFichas);
+        showToast(`Ficha ${ficha.codigo} eliminada`);
+      }
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('adminToast');
+      toast.textContent = `✅ ${msg}`;
+      toast.style.display = 'block';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 3500);
+    }
+
+    // Inicializar comprobando autenticación
+    document.addEventListener('DOMContentLoaded', checkAuth);
+  </script>
+</body>
+</html>

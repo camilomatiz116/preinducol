@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preinducol S.A.S. — Fichas Técnicas Oficiales</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+
+  <!-- Tipografía -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/fichas.css">
+
+  <style>
+    /* Estilos específicos de la página dedicada fichas.html */
+    .fichas-page-hero {
+      background: radial-gradient(circle at 50% 0%, rgba(5, 150, 105, 0.08) 0%, transparent 60%), #ffffff;
+      padding: 110px 24px 50px;
+      text-align: center;
+      border-bottom: 1px solid #f1f5f9;
+      position: relative;
+    }
+
+    .fichas-page-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    .fichas-breadcrumb-bar {
+      max-width: 1280px;
+      margin: 0 auto 20px;
+      text-align: left;
+    }
+
+    .badge-pill-red {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #dc2626;
+      background: #fee2e2;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .page-main-title {
+      font-family: var(--f-headline, 'Space Grotesk', sans-serif);
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+
+    .page-main-subtitle {
+      font-size: 1.05rem;
+      color: #64748b;
+      max-width: 650px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .nav-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #475569;
+      text-decoration: none;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      padding: 6px 16px;
+      border-radius: 999px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-back-link:hover {
+      background: #059669;
+      color: #ffffff;
+      border-color: #059669;
+    }
+  </style>
+</head>
+<body class="preinducol-portal">
+
+  <!-- =========================================================================
+       CABECERA Y NAVBAR DE LA PÁGINA
+       ========================================================================= -->
+  <header class="navbar-pro navbar-studds" id="siteHeader">
+    <div class="nav-wrapper">
+      
+      <nav class="nav-links-left">
+        <ul class="nav-menu-list">
+          <li><a href="index.html#inicio" class="nav-anchor">Inicio</a></li>
+          <li><a href="quienes-somos.html" class="nav-anchor">Quiénes Somos</a></li>
+          <li><a href="catalogo.html" class="nav-anchor">Catálogo</a></li>
+        </ul>
+      </nav>
+
+      <a href="index.html" class="nav-brand-center" title="Preinducol S.A.S. - Inicio">
+        <div class="logo-box">
+          <img src="assets/logo.png" alt="Preinducol S.A.S." class="main-logo">
+        </div>
+      </a>
+
+      <div class="nav-right-cluster">
+        <nav class="nav-links-right">
+          <ul class="nav-menu-list">
+            <li class="nav-ft-item">
+              <a href="fichas.html" class="nav-anchor active anchor-ft-highlight">
+                <span>Fichas Técnicas</span>
+                <span class="badge-ft-count" id="menuFtCount">4</span>
+              </a>
+            </li>
+            <li><a href="planta.html" class="nav-anchor">Planta</a></li>
+            <li><a href="index.html#contacto" class="nav-anchor">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       HERO PRINCIPAL DE LA PÁGINA DE FICHAS TÉCNICAS
+       ========================================================================= -->
+  <section class="fichas-page-hero">
+    <div class="container-max">
+      <div class="fichas-breadcrumb-bar">
+        <a href="index.html" class="nav-back-link">← Volver al Inicio</a>
+      </div>
+      <span class="badge-pill-red">DOCUMENTACIÓN TÉCNICA OFICIAL</span>
+      <h1 class="page-main-title">Fichas Técnicas Oficiales Preinducol S.A.S.</h1>
+      <p class="page-main-subtitle">
+        Descarga o consulta en línea la ficha técnica oficial de cada línea de producto. Información avalada por nuestro departamento de ingeniería y control de calidad.
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       CONTENIDO PRINCIPAL: CATÁLOGO DE FICHAS
+       ========================================================================= -->
+  <main class="fichas-page-container">
+    
+    <!-- Barra de Búsqueda y Pestañas de Filtros -->
+    <div class="ft-search-filters-row">
+      <div class="ft-search-box">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" id="ftPageSearchInput" placeholder="Buscar por código (ej: FT-RUB20), producto, calibre o norma...">
+        <button class="btn-clear-search hidden" id="btnClearSearch">&times;</button>
+      </div>
+
+      <div class="ft-filter-tabs" id="ftPageFilterTabs">
+        <button class="ft-tab active" data-category="all">Todas (<span id="countCatAll">0</span>)</button>
+        <button class="ft-tab" data-category="hogar">Látex Hogar & Aseo (<span id="countCatHogar">0</span>)</button>
+        <button class="ft-tab" data-category="industrial">Látex Industrial (<span id="countCatIndustrial">0</span>)</button>
+        <button class="ft-tab" data-category="nitrilo">Nitrilo (<span id="countCatNitrilo">0</span>)</button>
+        <button class="ft-tab" data-category="cuero">Cuero (<span id="countCatCuero">0</span>)</button>
+      </div>
+    </div>
+
+    <!-- Cuadrícula Dinámica de Tarjetas de Fichas -->
+    <div class="fichas-cards-grid" id="fichasPageGrid"></div>
+
+    <!-- Estado Vacío -->
+    <div class="ft-empty-state hidden" id="ftPageEmptyState">
+      <div class="empty-icon">📄</div>
+      <h3>No se encontraron fichas técnicas</h3>
+      <p>Prueba con otros términos de búsqueda o selecciona otra categoría.</p>
+    </div>
+
+  </main>
+
+  <!-- =========================================================================
+       VISOR DE PDF OFICIAL
+       ========================================================================= -->
+  <div class="pdf-viewer-modal hidden" id="pdfViewerModal">
+    <div class="pdf-viewer-container">
+      <div class="pdf-viewer-header">
+        <div class="pdf-viewer-title-group">
+          <span class="pdf-badge">DOCUMENTO CERTIFICADO</span>
+          <h3 id="pdfViewerTitle">Ficha Técnica Oficial</h3>
+          <span class="pdf-code" id="pdfViewerCode">FT-RUB20</span>
+        </div>
+        <div class="pdf-viewer-actions">
+          <a href="#" class="btn-pdf-download" id="btnPdfDownloadLink" download>⬇ Descargar PDF</a>
+          <button class="btn-close-pdf" id="btnClosePdfViewer" onclick="closePdfViewer()">×</button>
+        </div>
+      </div>
+      <div class="pdf-sheet-frame" id="pdfSheetFrame"></div>
+    </div>
+  </div>
+
+  <!-- Pie de Página -->
+  <footer style="background:#0b1329;color:#94a3b8;padding:40px 24px;text-align:center;font-size:0.86rem;border-top:1px solid rgba(255,255,255,0.08);">
+    <p>© 2026 Preinducol S.A.S. — Todos los derechos reservados. Industria Colombiana de Guantes de Látex.</p>
+  </footer>
+
+  <!-- =========================================================================
+       LÓGICA DE LA PÁGINA (CONECTADA A LOCALSTORAGE)
+       ========================================================================= -->
+  <script>
+    const STORAGE_KEY = 'preinducol_fichas_tecnicas_db';
+
+    const DEFAULT_FICHAS = [
+      {
+        id: 'ft-rub20',
+        codigo: 'FT-RUB20',
+        titulo: 'Guante de Látex Ruberplus™ Calibre 20',
+        categoria: 'hogar',
+        categoriaNombre: 'Látex Hogar & Aseo',
+        calibre: 'Calibre 20 Parejo (0.50 mm)',
+        longitud: '30 cm (12 pulgadas)',
+        color: 'Amarillo / Bicolor',
+        descripcion: 'Guante ergonómico con labrado antideslizante en palma y dedos. Formulado con bactericida activo que inhibe 99.9% de hongos y bacterias.',
+        fechaRev: 'Enero 2026',
+        pdfNombre: 'Ficha_Tecnica_Ruberplus_Cal20_Preinducol.pdf'
+      },
+      {
+        id: 'ft-rub25',
+        codigo: 'FT-RUB25',
+        titulo: 'Guante de Látex Ruberplus™ Semipesado Calibre 25',
+        categoria: 'industrial',
+        categoriaNombre: 'Látex Industrial',
+        calibre: 'Calibre 25 (0.63 mm)',
+        longitud: '30 cm',
+        color: 'Negro / Rojo Bicolor',
+        descripcion: 'Guante semipesado diseñado para trabajo industrial continuo, agroindustria, plantas florícolas y aseo severo.',
+        fechaRev: 'Febrero 2026',
+        pdfNombre: 'Ficha_Tecnica_Ruberplus_Cal25_Preinducol.pdf'
+      },
+      {
+        id: 'ft-ind25',
+        codigo: 'FT-IND25',
+        titulo: 'Guante Industrial Indumax™ Químico Calibre 25',
+        categoria: 'industrial',
+        categoriaNombre: 'Látex Industrial',
+        calibre: 'Calibre 25 Parejo',
+        longitud: '35 cm con manga extendida',
+        color: 'Verde Oscuro / Negro',
+        descripcion: 'Protección para inmersión industrial en ácidos diluidos, álcalis, soluciones cáusticas y detergentes agresivos.',
+        fechaRev: 'Enero 2026',
+        pdfNombre: 'Ficha_Tecnica_Indumax_Cal25_Preinducol.pdf'
+      },
+      {
+        id: 'ft-rub50',
+        codigo: 'FT-RUB50',
+        titulo: 'Guante Extrapesado Rubber 50™ Máxima Protección',
+        categoria: 'industrial',
+        categoriaNombre: 'Látex Industrial',
+        calibre: 'Calibre 50 Extrapesado (1.25 mm)',
+        longitud: '38 cm (15 pulgadas)',
+        color: 'Ámbar / Naranja',
+        descripcion: 'Guante extrapesado para faenas severas, desbaste, manipulación de tanques, curtido de pieles y trabajo pesado.',
+        fechaRev: 'Marzo 2026',
+        pdfNombre: 'Ficha_Tecnica_Rubber50_Extrapesado_Preinducol.pdf'
+      }
+    ];
+
+    let currentCategory = 'all';
+    let searchQuery = '';
+
+    function getFichas() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) return JSON.parse(raw);
+      } catch (e) {}
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(DEFAULT_FICHAS));
+      return DEFAULT_FICHAS;
+    }
+
+    function renderCards() {
+      const list = getFichas();
+      const grid = document.getElementById('fichasPageGrid');
+      const empty = document.getElementById('ftPageEmptyState');
+      const badge = document.getElementById('menuFtCount');
+      if (badge) badge.textContent = list.length;
+
+      // Actualizar contadores de categorías
+      document.getElementById('countCatAll').textContent = list.length;
+      document.getElementById('countCatHogar').textContent = list.filter(f => f.categoria === 'hogar').length;
+      document.getElementById('countCatIndustrial').textContent = list.filter(f => f.categoria === 'industrial').length;
+      document.getElementById('countCatNitrilo').textContent = list.filter(f => f.categoria === 'nitrilo').length;
+      document.getElementById('countCatCuero').textContent = list.filter(f => f.categoria === 'cuero').length;
+
+      const filtered = list.filter(f => {
+        const matchCat = (currentCategory === 'all') || (f.categoria === currentCategory);
+        const q = searchQuery.toLowerCase().trim();
+        const matchSearch = !q ||
+          (f.codigo && f.codigo.toLowerCase().includes(q)) ||
+          (f.titulo && f.titulo.toLowerCase().includes(q)) ||
+          (f.calibre && f.calibre.toLowerCase().includes(q)) ||
+          (f.descripcion && f.descripcion.toLowerCase().includes(q));
+        return matchCat && matchSearch;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        empty.classList.remove('hidden');
+        return;
+      }
+
+      empty.classList.add('hidden');
+
+      grid.innerHTML = filtered.map(ficha => `
+        <article class="ft-card" data-category="${ficha.categoria}">
+          <div class="ft-card-top">
+            <span class="ft-card-cat">${ficha.categoriaNombre || ficha.categoria}</span>
+            <span class="ft-card-code">${ficha.codigo}</span>
+          </div>
+
+          <h3 class="ft-card-title">${ficha.titulo}</h3>
+          <p class="ft-card-desc">${ficha.descripcion || ''}</p>
+
+          <div class="ft-specs-list">
+            <div class="ft-spec-item">
+              <span class="spec-label">CALIBRE</span>
+              <strong class="spec-value">${ficha.calibre || 'Estándar'}</strong>
+            </div>
+            <div class="ft-spec-item">
+              <span class="spec-label">LONGITUD</span>
+              <strong class="spec-value">${ficha.longitud || '30 cm'}</strong>
+            </div>
+            <div class="ft-spec-item">
+              <span class="spec-label">COLOR</span>
+              <strong class="spec-value">${ficha.color || 'Estándar'}</strong>
+            </div>
+            <div class="ft-spec-item">
+              <span class="spec-label">REVISIÓN</span>
+              <strong class="spec-value">${ficha.fechaRev || '2026'}</strong>
+            </div>
+          </div>
+
+          <div class="ft-card-footer">
+            <button class="btn-ft-view" onclick="openPdfViewer('${ficha.id}')">
+              <span>📄 Ver Ficha Técnica</span>
+            </button>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function openPdfViewer(id) {
+      const list = getFichas();
+      const ficha = list.find(f => f.id === id);
+      if (!ficha) return;
+
+      const modal = document.getElementById('pdfViewerModal');
+      const title = document.getElementById('pdfViewerTitle');
+      const code = document.getElementById('pdfViewerCode');
+      const dlLink = document.getElementById('btnPdfDownloadLink');
+      const frame = document.getElementById('pdfSheetFrame');
+
+      title.textContent = ficha.titulo;
+      code.textContent = ficha.codigo;
+
+      if (ficha.pdfData) {
+        dlLink.href = ficha.pdfData;
+        dlLink.download = ficha.pdfNombre || `${ficha.codigo}_Preinducol.pdf`;
+        frame.innerHTML = `<iframe src="${ficha.pdfData}" style="width:100%;height:650px;border:none;"></iframe>`;
+      } else {
+        const dummyPdfUrl = 'data:text/plain;charset=utf-8,' + encodeURIComponent(`PREINDUCOL S.A.S.\nFICHA TÉCNICA: ${ficha.codigo}\nPRODUCTO: ${ficha.titulo}\nCALIBRE: ${ficha.calibre}\nDESCRIPCIÓN: ${ficha.descripcion}`);
+        dlLink.href = dummyPdfUrl;
+        dlLink.download = `${ficha.codigo}_Preinducol.txt`;
+
+        frame.innerHTML = `
+          <div class="technical-document-paper">
+            <div class="doc-header-row">
+              <img src="assets/logo.png" alt="Preinducol" style="height:44px;">
+              <div style="text-align:right;">
+                <h4 style="color:#0f172a;margin:0;">PREINDUCOL S.A.S.</h4>
+                <p style="margin:2px 0;font-size:0.8rem;color:#64748b;">NIT 800.123.456-7 • Rionegro, Colombia</p>
+                <strong style="color:#059669;font-size:0.85rem;">${ficha.codigo}</strong>
+              </div>
+            </div>
+            <hr style="margin:16px 0;border:none;border-top:1px solid #e2e8f0;">
+            <h2 style="color:#0f172a;font-size:1.4rem;margin-bottom:8px;">${ficha.titulo}</h2>
+            <p style="color:#475569;font-size:0.9rem;line-height:1.6;margin-bottom:20px;">${ficha.descripcion}</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;background:#f8fafc;padding:16px;border-radius:12px;border:1px solid #e2e8f0;margin-bottom:20px;">
+              <div><span style="font-size:0.75rem;color:#64748b;">CALIBRE:</span> <br><strong>${ficha.calibre}</strong></div>
+              <div><span style="font-size:0.75rem;color:#64748b;">LONGITUD:</span> <br><strong>${ficha.longitud}</strong></div>
+              <div><span style="font-size:0.75rem;color:#64748b;">COLOR:</span> <br><strong>${ficha.color}</strong></div>
+              <div><span style="font-size:0.75rem;color:#64748b;">FECHA REVISIÓN:</span> <br><strong>${ficha.fechaRev}</strong></div>
+            </div>
+            <div style="border-left:3px solid #059669;padding-left:12px;font-size:0.82rem;color:#475569;">
+              Documento emitido por el Departamento de Ingeniería y Control de Calidad de Preinducol S.A.S.
+            </div>
+          </div>
+        `;
+      }
+
+      modal.classList.remove('hidden');
+    }
+
+    function closePdfViewer() {
+      document.getElementById('pdfViewerModal').classList.add('hidden');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCards();
+
+      // Buscador
+      const searchInput = document.getElementById('ftPageSearchInput');
+      const btnClear = document.getElementById('btnClearSearch');
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          searchQuery = e.target.value;
+          if (btnClear) {
+            if (searchQuery) btnClear.classList.remove('hidden');
+            else btnClear.classList.add('hidden');
+          }
+          renderCards();
+        });
+      }
+
+      if (btnClear && searchInput) {
+        btnClear.addEventListener('click', () => {
+          searchInput.value = '';
+          searchQuery = '';
+          btnClear.classList.add('hidden');
+          renderCards();
+        });
+      }
+
+      // Tabs de categoría
+      const tabs = document.querySelectorAll('#ftPageFilterTabs .ft-tab');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          currentCategory = tab.getAttribute('data-category');
+          renderCards();
+        });
+      });
+
+      // Atajo secreto de admin: Ctrl + Shift + A
+      document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+          window.location.href = 'admin.html';
+        }
+        if (e.key === 'Escape') {
+          closePdfViewer();
+        }
+      });
+
+      // Escuchar cambios de admin en tiempo real
+      window.addEventListener('storage', (e) => {
+        if (e.key === STORAGE_KEY) {
+          renderCards();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

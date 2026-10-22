@@ -1,4 +1,4 @@
-﻿/**
+/**
  * PREINDUCOL S.A.S. - MÓDULO: EMPRESA, PLANTA, CONTACTO & COTIZACIONES
  * Nosotros (Misión/Visión/Valores), Planta de Producción, Sostenibilidad,
  * Formulario de contacto con redirección a WhatsApp y Modal de Cotizaciones.
@@ -8,179 +8,11 @@ window.CompanyModule = (function () {
 
   function render() {
     return `
-  <section class="section-block" id="nosotros">
-    <div class="container-max">
-      
-      <div class="header-editorial">
-        <div class="badge-pill">
-          <span>ADN PREINDUCOL</span>
-        </div>
-        <h2 class="title-editorial">Trabajamos para Proteger tus Manos en el Hogar y la Industria</h2>
-        <p class="desc-editorial">
-          «En <strong>Preinducol</strong>, no solo fabricamos guantes; creamos confianza, protegemos vidas y construimos un futuro más seguro. Cada pieza es el fruto del esfuerzo colectivo de manos expertas colombianas.»
-        </p>
-      </div>
-
-      <!-- Cuadrícula Misión & Visión Editorial -->
-      <div class="mv-editorial-grid">
-        
-        <div class="mv-editorial-card mission-box">
-          <div class="card-glass-glow"></div>
-          <div class="mv-header-row">
-            <div class="mv-icon-badge icon-green-glow">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <span class="mv-category-tag">MISIÓN CORPORATIVA</span>
-          </div>
-          <h3 class="mv-headline">Soluciones sostenibles para el cuidado del ser humano</h3>
-          <p class="mv-body-text">
-            Somos fabricantes y comercializadores de soluciones sostenibles basados en el cuidado del ser humano que protejan la salud, brinden seguridad y contribuyan a preservar el medio ambiente con pasión, compromiso y transformación.
-          </p>
-          <div class="mv-accent-line"></div>
-        </div>
-
-        <div class="mv-editorial-card vision-box">
-          <div class="card-glass-glow"></div>
-          <div class="mv-header-row">
-            <div class="mv-icon-badge icon-cyan-glow">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24M14.83 9.17l4.24-4.24M14.83 14.83l4.24 4.24M9.17 14.83l-4.24 4.24"/></svg>
-            </div>
-            <span class="mv-category-tag">VISIÓN 2030</span>
-          </div>
-          <h3 class="mv-headline">Liderazgo en Colombia y América Latina</h3>
-          <p class="mv-body-text">
-            Ser la empresa líder en el mercado nacional y latinoamericano que brinde soluciones de protección al servicio y bienestar del ser humano, destacándonos por la innovación tecnológica de nuestros procesos y el respeto ambiental.
-          </p>
-          <div class="mv-accent-line line-cyan"></div>
-        </div>
-
-      </div>
-
-      <!-- 6 Valores Corporativos en Tarjetas Hexa-Tech -->
-      <div class="corporate-values-block">
-        <div class="values-top-bar">
-          <h3 class="values-block-title">Valores Corporativos Preinducol</h3>
-          <p class="values-block-subtitle">El código ético y técnico que rige nuestra producción industrial diaria.</p>
-        </div>
-
-        <div class="values-deck">
-          
-          <div class="value-item">
-            <div class="v-num">01</div>
-            <div class="v-icon">✓</div>
-            <h4>Calidad</h4>
-            <p>Garantizamos excelencia en cada uno de nuestros productos y servicios con rigurosos ensayos de tensión, elasticidad y hermeticidad.</p>
-          </div>
-
-          <div class="value-item">
-            <div class="v-num">02</div>
-            <div class="v-icon">⚡</div>
-            <h4>Innovación</h4>
-            <p>Nos esforzamos por mejorar continuamente nuestros procesos, la ergonomía de nuestros moldes y las fórmulas antibacteriales.</p>
-          </div>
-
-          <div class="value-item">
-            <div class="v-num">03</div>
-            <div class="v-icon">🤝</div>
-            <h4>Colaboración</h4>
-            <p>Promovemos el trabajo conjunto con nuestros clientes, distribuidores y proveedores para alcanzar metas comunes de seguridad.</p>
-          </div>
-
-          <div class="value-item">
-            <div class="v-num">04</div>
-            <div class="v-icon">💬</div>
-            <h4>Servicio al Cliente</h4>
-            <p>Nos dedicamos con cercanía y rapidez a satisfacer y superar las expectativas de quienes confían en nuestros suministros.</p>
-          </div>
-
-          <div class="value-item">
-            <div class="v-num">05</div>
-            <div class="v-icon">👥</div>
-            <h4>Trabajo en Equipo</h4>
-            <p>Creemos firmemente en el respeto mutuo, la cooperación y el talento de operarios, supervisores e ingenieros colombianos.</p>
-          </div>
-
-          <div class="value-item">
-            <div class="v-num">06</div>
-            <div class="v-icon">🌿</div>
-            <h4>Responsabilidad</h4>
-            <p>Actuamos con ética integral, transparencia comercial y compromiso activo en la fabricación de látex biodegradable.</p>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Manifiesto de la Marca -->
-      <div class="brand-manifesto-card">
-        <div class="manifesto-badge">MANIFIESTO INDUSTRIAL PREINDUCOL</div>
-        <blockquote class="manifesto-quote">
-          «Cuando eliges nuestros guantes, no solo adquieres un producto; <strong>te conectas con el alma de Preinducol</strong>. Porque detrás de cada lote hay una historia, y detrás de cada guante, un ser humano comprometido con la seguridad y el bienestar de quienes construyen el mundo.»
-        </blockquote>
-        <div class="manifesto-signature">
-          <div class="sig-line"></div>
-          <span>Familia PREINDUCOL S.A.S. • Industria 100% Colombiana</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
+  <!-- La sección #nosotros (Misión/Visión/Valores/Manifiesto) se trasladó a quienes-somos.html (modules/about.js) -->
 
   <!-- ========================================================================= -->
-  <!-- SECCIÓN PLANTA DE PRODUCCIÓN & PROCESO DE FABRICACIÓN                     -->
+  <!-- SECCIÓN SOSTENIBILIDAD (ENCABEZADO CENTRADO + WENDY Y BLOQUES)            -->
   <!-- ========================================================================= -->
-  <section class="section-block bg-dark-industrial" id="manufactura">
-    <div class="container-max">
-      
-      <div class="header-editorial dark-mode-header">
-        <div class="badge-pill pill-lime">
-          <span>PROCESO DE PRODUCCIÓN</span>
-        </div>
-        <h2 class="title-editorial text-white">Industria 100% Colombiana: Precisión en Cada Par</h2>
-        <p class="desc-editorial text-muted-light">
-          Desde los operadores de maquinaria que dominan la precisión, hasta los expertos en control de calidad que certifican cada lote antes de su empaque.
-        </p>
-      </div>
-
-      <!-- 4 Pasos del Proceso de Fabricación -->
-      <div class="manufacturing-steps-grid">
-        
-        <div class="step-card">
-          <div class="step-counter">ETAPA 01</div>
-          <div class="step-icon-circle">🌱</div>
-          <h4>Látex Natural Puro</h4>
-          <p>Recepción y selección de látex natural extraído responsablemente de plantaciones renovables, libre de impurezas y con alta concentración de sólidos.</p>
-          <span class="step-sub-tag">Materia Prima Renovable</span>
-        </div>
-
-        <div class="step-card">
-          <div class="step-counter">ETAPA 02</div>
-          <div class="step-icon-circle">🧪</div>
-          <h4>Formulación Antibacterial</h4>
-          <p>Compounding especializado con aditivos bactericidas y antioxidantes que garantizan protección higiénica y aceleran la degradación natural posterior.</p>
-          <span class="step-sub-tag">Bioseguridad Activa</span>
-        </div>
-
-        <div class="step-card">
-          <div class="step-counter">ETAPA 03</div>
-          <div class="step-icon-circle">🧤</div>
-          <h4>Inmersión & Labrado</h4>
-          <p>Doble baño de inmersión en moldes anatómicos curvos con grabado en relieve en palma y falanges para conseguir agarre antideslizante y calibre parejo 20.</p>
-          <span class="step-sub-tag">Calibre Parejo Homogéneo</span>
-        </div>
-
-        <div class="step-card">
-          <div class="step-counter">ETAPA 04</div>
-          <div class="step-icon-circle">🔬</div>
-          <h4>Vulcanizado & Certificación</h4>
-          <p>Curado en hornos térmicos controlados, enrollado de orillo en boca, pruebas hidrostáticas de hermeticidad y empaque en cajas de 12 docenas.</p>
-          <span class="step-sub-tag">Inspección de Calidad</span>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
   <section class="section-block" id="sostenibilidad">
     <div class="container-max">
       
@@ -194,44 +26,50 @@ window.CompanyModule = (function () {
         </p>
       </div>
 
-      <div class="sustainability-matrix-grid">
-        
-        <div class="matrix-card card-green-light">
-          <div class="matrix-icon">🌿</div>
-          <span class="matrix-chip">PREINDUCOL RUBERPLUS™</span>
-          <h3>100% Látex Natural Renovable</h3>
-          <p>Obtenido por sangrado del árbol de caucho <em>Hevea brasiliensis</em>. Un recurso 100% biológico, circular y renovable que captura toneladas de carbono en sus plantaciones.</p>
-          <ul class="matrix-bullets">
-            <li>✓ Origen orgánico vegetal sostenible</li>
-            <li>✓ Sin derivados del petróleo</li>
-            <li>✓ Mayor elasticidad y confort térmico</li>
-          </ul>
-        </div>
+      <div class="eco-layout">
+        <aside class="eco-ant-aside">
+          <img src="assets/hormigaplaneta%C3%A7.png" alt="Wendy, la hormiga de Preinducol, abrazando el planeta Tierra" class="eco-ant-img" loading="lazy">
+        </aside>
 
-        <div class="matrix-card card-cyan-light">
-          <div class="matrix-icon">🧬</div>
-          <span class="matrix-chip">FÓRMULA SEGURA</span>
-          <h3>Bactericida Antibacterial Activo</h3>
-          <p>Tratamiento molecular antibacterial que inhibe hongos y bacterias nocivas dentro y fuera del guante, reduciendo riesgos de dermatitis y malos olores en turnos prolongados.</p>
-          <ul class="matrix-bullets">
-            <li>✓ Protección dérmica superior</li>
-            <li>✓ Acción activa contra microbios</li>
-            <li>✓ Hipoalergénico con acabado parejo</li>
-          </ul>
-        </div>
+        <div class="sustainability-matrix-grid">
+          
+          <div class="matrix-card card-green-light">
+            <div class="matrix-icon">🌿</div>
+            <span class="matrix-chip">PREINDUCOL RUBERPLUS™</span>
+            <h3>100% Látex Natural Renovable</h3>
+            <p>Obtenido por sangrado del árbol de caucho <em>Hevea brasiliensis</em>. Un recurso 100% biológico, circular y renovable que captura toneladas de carbono en sus plantaciones.</p>
+            <ul class="matrix-bullets">
+              <li>✓ Origen orgánico vegetal sostenible</li>
+              <li>✓ Sin derivados del petróleo</li>
+              <li>✓ Mayor elasticidad y confort térmico</li>
+            </ul>
+          </div>
 
-        <div class="matrix-card card-lime-light">
-          <div class="matrix-icon">♻️</div>
-          <span class="matrix-chip">CICLO CIRCULAR</span>
-          <h3>Biodegradación Natural Acelerada</h3>
-          <p>A diferencia de los plásticos de un solo uso que tardan 400 años en descomponerse en microplásticos tóxicos, nuestro guante se reintegra al suelo de forma natural sin toxicidad residual.</p>
-          <ul class="matrix-bullets">
-            <li>✓ Cero microplásticos en ríos o mares</li>
-            <li>✓ Desintegración armónica con el suelo</li>
-            <li>✓ Empaques en cajas reciclables</li>
-          </ul>
-        </div>
+          <div class="matrix-card card-cyan-light">
+            <div class="matrix-icon">🧬</div>
+            <span class="matrix-chip">FÓRMULA SEGURA</span>
+            <h3>Bactericida Antibacterial Activo</h3>
+            <p>Tratamiento molecular antibacterial que inhibe hongos y bacterias nocivas dentro y fuera del guante, reduciendo riesgos de dermatitis y malos olores en turnos prolongados.</p>
+            <ul class="matrix-bullets">
+              <li>✓ Protección dérmica superior</li>
+              <li>✓ Acción activa contra microbios</li>
+              <li>✓ Hipoalergénico con acabado parejo</li>
+            </ul>
+          </div>
 
+          <div class="matrix-card card-lime-light">
+            <div class="matrix-icon">♻️</div>
+            <span class="matrix-chip">CICLO CIRCULAR</span>
+            <h3>Biodegradación Natural Acelerada</h3>
+            <p>A diferencia de los plásticos de un solo uso que tardan 400 años en descomponerse en microplásticos tóxicos, nuestro guante se reintegra al suelo de forma natural sin toxicidad residual.</p>
+            <ul class="matrix-bullets">
+              <li>✓ Cero microplásticos en ríos o mares</li>
+              <li>✓ Desintegración armónica con el suelo</li>
+              <li>✓ Empaques en cajas reciclables</li>
+            </ul>
+          </div>
+
+        </div>
       </div>
 
     </div>
@@ -385,15 +223,17 @@ window.CompanyModule = (function () {
 
       </div>
 
-      <!-- Mapa Oficial de Ubicación Preinducol -->
-      <div class="map-wrapper-card">
-        <div class="map-card-bar">
-          <span class="pin-icon">📍</span>
-          <span>Planta y Oficinas Centrales • <strong>PREINDUCOL S.A.S. Colombia</strong></span>
-        </div>
-        <iframe class="map-frame" loading="lazy" src="https://maps.google.com/maps?q=preinducol%20sas&t=m&z=16&output=embed&iwloc=near" title="Ubicación Planta Preinducol SAS Colombia"></iframe>
-      </div>
+    </div>
 
+    <!-- Mapa Oficial de Ubicación Preinducol (Full-Width de lado a lado) -->
+    <div class="map-fullwidth-wrap">
+      <div class="map-card-bar map-bar-fullwidth">
+        <div class="container-max map-bar-inner">
+          <span class="pin-icon">📍</span>
+          <span>Planta y Oficinas Centrales • <strong>PREINDUCOL S.A.S. Colombia</strong> — Calle 63B # 116A - 35 Bodega 5, Engativá, Bogotá</span>
+        </div>
+      </div>
+      <iframe class="map-frame map-frame-fullwidth" loading="lazy" src="https://maps.google.com/maps?q=preinducol%20sas&t=m&z=16&output=embed&iwloc=near" title="Ubicación Planta Preinducol SAS Colombia"></iframe>
     </div>
   </section>
 

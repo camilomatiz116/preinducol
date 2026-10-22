@@ -1,13 +1,21 @@
 /* ============================================================================
-   PREINDUCOL S.A.S. - CSS PROCESO CINEMATOGRÁFICO (BANDA OSCURA STUDDS)
+   PREINDUCOL S.A.S. - CSS PROCESO CINEMATOGRÁFICO (BANDA VERDE CORPORATIVO)
+   Tarjetas Glassmorphism Animadas con Flotación Continua y Pulso de Luz
    ============================================================================ */
 
 .section-studds-dark-band {
-  background: #0f1115;
+  background: linear-gradient(145deg, #064e3b 0%, #047857 55%, #059669 100%);
   color: #ffffff;
   padding: 80px 24px;
   position: relative;
   overflow: hidden;
+}
+
+.dark-band-backdrop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(5, 150, 105, 0.25) 0%, transparent 75%);
+  pointer-events: none;
 }
 
 .studds-cinematic-grid {
@@ -15,52 +23,150 @@
   grid-template-columns: 1fr 1.3fr 1fr;
   gap: 30px;
   align-items: center;
+  position: relative;
+  z-index: 2;
 }
 
+/* --- ANIMACIONES DE FLOTACIÓN CONTINUA --- */
+@keyframes floatSideCard {
+  0% {
+    transform: translateY(0px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  }
+  50% {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35), 0 0 20px rgba(56, 189, 248, 0.2);
+  }
+  100% {
+    transform: translateY(0px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  }
+}
+
+@keyframes floatCenterCard {
+  0% {
+    transform: translateY(0px) scale(1);
+    box-shadow: 0 0 35px rgba(2, 132, 199, 0.4), 0 20px 45px rgba(0, 0, 0, 0.35);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.015);
+    box-shadow: 0 0 50px rgba(56, 189, 248, 0.65), 0 25px 50px rgba(0, 0, 0, 0.45);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+    box-shadow: 0 0 35px rgba(2, 132, 199, 0.4), 0 20px 45px rgba(0, 0, 0, 0.35);
+  }
+}
+
+@keyframes pulseGlowBadge {
+  0%, 100% {
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.5);
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(56, 189, 248, 0.95);
+    transform: translateX(-50%) scale(1.06);
+  }
+}
+
+/* Tarjetas Laterales (Etapa 01 y Etapa 04): Fondo Blanco Limpio y Elegante */
 .cine-card-photo {
-  background: #181c24;
-  border-radius: 18px;
-  padding: 28px 24px;
-  border: 1px solid #282f3c;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px 26px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15), 0 4px 10px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+  animation: floatSideCard 4.5s ease-in-out infinite;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.studds-cinematic-grid > .cine-card-photo:last-child {
+  animation-delay: 2.25s; /* Desfase orgánico */
+}
+
+/* Destello sutil interactivo */
+.cine-card-photo::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 35%,
+    rgba(2, 132, 199, 0.08) 50%,
+    transparent 65%
+  );
+  transform: rotate(25deg);
+  transition: transform 0.7s ease, opacity 0.4s ease;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.cine-card-photo:hover {
+  transform: translateY(-10px) scale(1.02) !important;
+  border-color: #38bdf8;
+  background: #ffffff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 25px rgba(56, 189, 248, 0.3);
+}
+
+.cine-card-photo:hover::after {
+  transform: rotate(25deg) translate(25%, 25%);
+  opacity: 1;
 }
 
 .cine-tag {
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 1.5px;
-  color: #dc2626;
+  color: #0284c7;
+  text-transform: uppercase;
 }
 
 .cine-card-photo h4 {
   font-family: var(--f-display);
-  font-size: 1.2rem;
-  color: #ffffff;
+  font-size: 1.25rem;
+  color: #0f172a;
+  font-weight: 800;
 }
 
 .cine-card-photo p {
-  font-size: 0.84rem;
-  color: #94a3b8;
-  line-height: 1.5;
+  font-size: 0.88rem;
+  color: #334155;
+  line-height: 1.55;
 }
 
-/* Tarjeta Central Destacada con Marco Rojo */
+/* Tarjeta Central Destacada con Marco Azul (Proceso Certificado) */
 .cine-card-center-highlight {
   display: flex;
   justify-content: center;
 }
 
-.highlight-red-frame {
+.highlight-red-frame,
+.highlight-blue-frame {
   position: relative;
-  border: 4px solid #dc2626;
-  border-radius: 20px;
-  padding: 38px 30px;
-  background: #14171e;
-  box-shadow: 0 0 40px rgba(220, 38, 38, 0.35);
+  border: 3px solid #0284c7;
+  border-radius: 22px;
+  padding: 40px 32px;
+  background: #ffffff;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.16), 0 0 35px rgba(56, 189, 248, 0.35);
   text-align: center;
   max-width: 440px;
+  width: 100%;
+  animation: floatCenterCard 4s ease-in-out infinite;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.highlight-blue-frame:hover {
+  border-color: #0ea5e9;
+  transform: translateY(-12px) scale(1.03) !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.22), 0 0 45px rgba(56, 189, 248, 0.5);
 }
 
 .frame-badge {
@@ -68,36 +174,67 @@
   top: -14px;
   left: 50%;
   transform: translateX(-50%);
-  background: #dc2626;
+  background: linear-gradient(135deg, #0284c7, #38bdf8);
   color: #ffffff;
-  font-size: 0.65rem;
+  font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 1.5px;
-  padding: 4px 14px;
+  padding: 5px 18px;
   border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.5);
+  text-transform: uppercase;
+  animation: pulseGlowBadge 2.8s infinite ease-in-out;
 }
 
 .frame-eyebrow {
   display: block;
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 2px;
-  color: #94a3b8;
+  color: #0284c7;
   margin-bottom: 8px;
 }
 
-.highlight-red-frame h3 {
+.highlight-red-frame h3,
+.highlight-blue-frame h3 {
   font-family: var(--f-headline);
   font-size: 2.2rem;
   letter-spacing: 1px;
-  color: #ffffff;
+  color: #0f172a;
   line-height: 1.1;
   margin-bottom: 12px;
 }
 
-.highlight-red-frame p {
+.highlight-red-frame p,
+.highlight-blue-frame p {
   font-size: 0.88rem;
-  color: #cbd5e1;
-  line-height: 1.5;
+  color: #334155;
+  line-height: 1.55;
   margin-bottom: 22px;
+}
+
+.highlight-red-frame .btn-pill-studds,
+.highlight-blue-frame .btn-pill-studds {
+  background: linear-gradient(135deg, #0284c7, #0369a1) !important;
+  border: 1px solid #38bdf8 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.45);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-block;
+  padding: 10px 26px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.highlight-red-frame .btn-pill-studds:hover,
+.highlight-blue-frame .btn-pill-studds:hover {
+  background: #38bdf8 !important;
+  border-color: #ffffff !important;
+  color: #0f172a !important;
+  box-shadow: 0 6px 24px rgba(56, 189, 248, 0.75);
+  transform: scale(1.06);
 }

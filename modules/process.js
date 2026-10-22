@@ -23,15 +23,15 @@ window.ProcessModule = (function () {
             </div>
           </div>
 
-          <!-- Tarjeta Central Destacada con Marco Rojo (Studds Red Framed Feature Box) -->
+          <!-- Tarjeta Central Destacada con Marco Azul (Proceso Certificado) -->
           <div class="cine-card-center-highlight">
-            <div class="highlight-red-frame">
+            <div class="highlight-blue-frame">
               <div class="frame-badge">PROCESO CERTIFICADO</div>
               <div class="frame-content">
                 <span class="frame-eyebrow">LABORATORIO PREINDUCOL</span>
                 <h3>ENSAYOS MECÁNICOS Y QUÍMICOS</h3>
                 <p>Pruebas continuas de elongación superior al 700%, resistencia a la tracción y hermeticidad electrónica cero fugas.</p>
-                <a href="#manufactura" class="btn-pill-studds btn-pill-accent btn-pill-red">
+                <a href="planta.html" class="btn-pill-studds btn-pill-accent btn-pill-blue">
                   <span>conocer planta</span>
                 </a>
               </div>

@@ -190,7 +190,7 @@ window.CategoriesModule = (function () {
               </div>
 
               <!-- Franja Inferior: Enlace directo al Laboratorio 3D -->
-              <a href="#visor3d" class="bottom-action-banner" title="Abrir Laboratorio 3D de Inspección">
+              <a href="visor3d.html?producto=ruberplus-20" class="bottom-action-banner" title="Abrir Laboratorio 3D de Inspección">
                 <div class="action-banner-text">
                   <span class="play-circle-icon">▶</span>
                   <span>VER LABORATORIO 3D Y CONTROL DE CALIDAD EN ACCIÓN</span>

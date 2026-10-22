@@ -14,8 +14,8 @@ window.NavbarModule = (function () {
         <nav class="nav-links-left" id="navMenuLeft">
           <ul class="nav-menu-list">
             <li><a href="#inicio" class="nav-anchor active">Inicio</a></li>
-            <li><a href="#categorias" class="nav-anchor">Categorías</a></li>
-            <li><a href="#catalogo" class="nav-anchor">Catálogo</a></li>
+            <li><a href="quienes-somos.html" class="nav-anchor">Quiénes Somos</a></li>
+            <li><a href="catalogo.html" class="nav-anchor">Catálogo</a></li>
           </ul>
         </nav>
 
@@ -31,12 +31,12 @@ window.NavbarModule = (function () {
           <nav class="nav-links-right" id="navMenuRight">
             <ul class="nav-menu-list">
               <li class="nav-ft-item">
-                <a href="#fichas-tecnicas" class="nav-anchor anchor-ft-highlight">
+                <a href="fichas.html" class="nav-anchor anchor-ft-highlight">
                   <span>Fichas Técnicas</span>
                   <span class="badge-ft-count" id="menuFtCount">4</span>
                 </a>
               </li>
-              <li><a href="#manufactura" class="nav-anchor">Planta</a></li>
+              <li><a href="planta.html" class="nav-anchor">Planta</a></li>
               <li><a href="#contacto" class="nav-anchor">Contacto</a></li>
             </ul>
           </nav>
@@ -57,16 +57,12 @@ window.NavbarModule = (function () {
       <div class="mobile-drawer" id="mobileDrawer" style="display: none;">
         <ul class="mobile-menu-list">
           <li><a href="#inicio" class="nav-anchor">Inicio</a></li>
-          <li><a href="#categorias" class="nav-anchor">Categorías</a></li>
-          <li><a href="#fichas-tecnicas" class="nav-anchor">Fichas Técnicas (<span class="mobile-ft-count">4</span>)</a></li>
-          <li><a href="#catalogo" class="nav-anchor">Catálogo</a></li>
-          <li><a href="#manufactura" class="nav-anchor">Planta & Proceso</a></li>
-          <li><a href="#nosotros" class="nav-anchor">Nosotros</a></li>
+          <li><a href="quienes-somos.html" class="nav-anchor">Quiénes Somos</a></li>
+          <li><a href="catalogo.html" class="nav-anchor">Catálogo</a></li>
+          <li><a href="fichas.html" class="nav-anchor">Fichas Técnicas (<span class="mobile-ft-count">4</span>)</a></li>
+          <li><a href="planta.html" class="nav-anchor">Planta & Proceso</a></li>
           <li><a href="#contacto" class="nav-anchor">Contacto & Cotizaciones</a></li>
         </ul>
-        <button class="btn-admin-ft-quick full-width" id="btnOpenAdminMobile">
-          ⚙️ Administrar Fichas Técnicas (Admin)
-        </button>
       </div>
     </header>
     `;
@@ -100,6 +96,13 @@ window.NavbarModule = (function () {
       });
     }
 
+    // Atajo de teclado secreto para administración (Ctrl + Shift + A)
+    document.addEventListener('keydown', (e) => {
+      if (e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+        window.location.href = 'admin.html';
+      }
+    });
+
     // Scroll spy para marcar enlace activo
     const sections = document.querySelectorAll('section[id]');
     const navAnchors = document.querySelectorAll('.nav-links-left .nav-anchor, .nav-links-right .nav-anchor');
@@ -128,16 +131,14 @@ window.NavbarModule = (function () {
       }
     });
 
-    // Botones rápidos para abrir el admin
-    const btnQuick = document.getElementById('btnOpenAdminQuick');
-    const btnMobileAdmin = document.getElementById('btnOpenAdminMobile');
-    const openAdminHandler = () => {
-      if (window.FichasModule && typeof window.FichasModule.openAdminModal === 'function') {
-        window.FichasModule.openAdminModal();
+    // Cargar conteo inicial de fichas técnicas
+    try {
+      const raw = localStorage.getItem('preinducol_fichas_tecnicas_db');
+      if (raw) {
+        const list = JSON.parse(raw);
+        updateFtBadge(list.length);
       }
-    };
-    if (btnQuick) btnQuick.addEventListener('click', openAdminHandler);
-    if (btnMobileAdmin) btnMobileAdmin.addEventListener('click', openAdminHandler);
+    } catch (e) {}
   }
 
   function updateFtBadge(count) {

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preinducol S.A.S. — Laboratorio de Inspección 3D Holográfica</title>
+  <meta name="description" content="Laboratorio de inspección técnica 3D de guantes Preinducol. Rota en 360 grados, cambia colores y revisa la ficha técnica en tiempo real.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/visor3d.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    body.preinducol-portal {
+      background-color: #f8fafc;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .visor-page-header {
+      background: radial-gradient(circle at 50% 0%, rgba(5, 150, 105, 0.08) 0%, transparent 60%), #ffffff;
+      padding: 95px 24px 30px;
+      border-bottom: 1px solid #e2e8f0;
+      text-align: center;
+    }
+
+    .visor-nav-bar {
+      max-width: 1400px;
+      margin: 0 auto 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav-back-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #334155;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 6px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-nav-back:hover {
+      background: #0f172a;
+      color: #ffffff;
+      border-color: #0f172a;
+    }
+
+    .visor-page-container {
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 30px 24px 60px;
+      flex-grow: 1;
+    }
+
+    /* Selector de Productos Rápido en Píldoras */
+    .product-switcher-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 0 auto 28px;
+      max-width: 1200px;
+    }
+
+    .product-pill-btn {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      color: #475569;
+      font-family: var(--f-body, sans-serif);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+
+    .product-pill-btn:hover {
+      background: #f8fafc;
+      border-color: #94a3b8;
+      color: #0f172a;
+    }
+
+    .product-pill-btn.active {
+      background: #059669;
+      border-color: #059669;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25);
+    }
+
+    /* Hotspot 3D Pins */
+    .hotspot-3d {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 20;
+      padding: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .hotspot-3d:hover {
+      transform: translate(-50%, -50%) scale(1.12);
+    }
+
+    .pin-ring {
+      width: 22px;
+      height: 22px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pin-pulse {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: rgba(5, 150, 105, 0.4);
+      animation: pinPulse 2s infinite;
+    }
+
+    .pin-core {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #059669;
+      border: 2px solid #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    .pin-label {
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(8px);
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+      pointer-events: none;
+    }
+
+    @keyframes pinPulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+  </style>
+
+  <!-- Three.js y Dependencias Locales -->
+  <script src="assets/vendor/three.min.js"></script>
+  <script src="assets/vendor/OrbitControls.js"></script>
+  <script src="assets/vendor/GLTFLoader.js"></script>
+  <script src="assets/glove_glb_data.js"></script>
+</head>
+<body class="preinducol-portal">
+
+  <!-- =========================================================================
+       1. NAVBAR PRINCIPAL
+       ========================================================================= -->
+  <header class="navbar-pro navbar-studds" id="siteHeader">
+    <div class="nav-wrapper">
+      <nav class="nav-links-left">
+        <ul class="nav-menu-list">
+          <li><a href="index.html#inicio" class="nav-anchor">Inicio</a></li>
+          <li><a href="quienes-somos.html" class="nav-anchor">Quiénes Somos</a></li>
+          <li><a href="catalogo.html" class="nav-anchor">Catálogo</a></li>
+        </ul>
+      </nav>
+
+      <a href="index.html" class="nav-brand-center" title="Preinducol S.A.S. - Inicio">
+        <div class="logo-box">
+          <img src="assets/logo.png" alt="Preinducol S.A.S." class="main-logo">
+        </div>
+      </a>
+
+      <div class="nav-right-cluster">
+        <nav class="nav-links-right">
+          <ul class="nav-menu-list">
+            <li class="nav-ft-item">
+              <a href="fichas.html" class="nav-anchor anchor-ft-highlight">
+                <span>Fichas Técnicas</span>
+                <span class="badge-ft-count" id="menuFtCount">4</span>
+              </a>
+            </li>
+            <li><a href="planta.html" class="nav-anchor">Planta</a></li>
+            <li><a href="index.html#contacto" class="nav-anchor">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       2. CABECERA & NAVEGACIÓN DE RETORNO
+       ========================================================================= -->
+  <section class="visor-page-header">
+    <div class="visor-nav-bar">
+      <div class="nav-back-group">
+        <a href="catalogo.html" class="btn-nav-back">← Volver al Catálogo</a>
+        <a href="index.html" class="btn-nav-back">← Volver a Inicio</a>
+      </div>
+      <div class="lab-live-badge">
+        <span class="pulse-live"></span>
+        <span>LABORATORIO DE INSPECCIÓN TÉCNICA 3D EN TIEMPO REAL</span>
+      </div>
+    </div>
+
+    <h1 class="lab-title" style="margin-bottom: 8px;">Inspección Holográfica 360°</h1>
+    <p class="lab-subtitle" style="margin: 0 auto;">
+      Manipula el modelo 3D oficial, examina las especificaciones técnicas en cada pin de control y selecciona acabados autorizados.
+    </p>
+  </section>
+
+  <!-- =========================================================================
+       3. CONTENIDO: ESCENARIO 3D & FICHA TÉCNICA
+       ========================================================================= -->
+  <main class="visor-page-container">
+
+    <!-- Selector Rápido de Productos -->
+    <div class="product-switcher-bar" id="productSwitcherBar">
+      <button class="product-pill-btn" data-product="ruberplus-20">Ruberplus™ Cal. 20</button>
+      <button class="product-pill-btn" data-product="ruberplus-25">Ruberplus™ Cal. 25</button>
+      <button class="product-pill-btn" data-product="indumax">Indumax™ Industrial</button>
+      <button class="product-pill-btn" data-product="rubber-50">Rubber 50™ (Cal. 50)</button>
+      <button class="product-pill-btn" data-product="mosquetero">Guante Mosquetero™</button>
+      <button class="product-pill-btn" data-product="corrugado">Corrugado™</button>
+      <button class="product-pill-btn" data-product="nitrilo">Nitrilo Industrial</button>
+      <button class="product-pill-btn" data-product="cuero-vaqueta">Cuero Vaqueta</button>
+      <button class="product-pill-btn" data-product="cuero-carnaza">Cuero Carnaza</button>
+    </div>
+
+    <div class="lab-layout-grid">
+      
+      <!-- Escenario WebGL 3D -->
+      <div class="stage-wrapper" id="stageWrapper">
+        <div class="stage-bracket b-tl"></div>
+        <div class="stage-bracket b-tr"></div>
+        <div class="stage-bracket b-bl"></div>
+        <div class="stage-bracket b-br"></div>
+
+        <!-- Barra Superior con Vistas -->
+        <div class="stage-toolbar">
+          <div class="view-preset-group">
+            <button class="tool-btn active" id="btnViewFront">Palma (Frente)</button>
+            <button class="tool-btn" id="btnViewBack">Dorso (Reverso)</button>
+            <button class="tool-btn" id="btnViewSide">Perfil Lateral</button>
+          </div>
+
+          <div class="view-actions-group">
+            <button class="tool-btn icon-only" id="btnAutoSpin" title="Rotación continua 360°">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            </button>
+            <button class="tool-btn icon-only" id="btnResetCamera" title="Restablecer vista original">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><polyline points="3 3 3 8 8 8"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Selector de Colores Dinámico -->
+        <div class="material-picker" id="materialPickerContainer"></div>
+
+        <!-- Viewport Three.js -->
+        <div class="webgl-viewport" id="webglViewport" style="height: 600px; width: 100%; position: relative;">
+          <div class="loading-overlay" id="loadingOverlay">
+            <div class="spinner"></div>
+            <p>Cargando modelo 3D de alta precisión...</p>
+          </div>
+        </div>
+
+        <!-- Pines Hotspots -->
+        <div class="hotspots-overlay" id="hotspotsOverlay"></div>
+
+        <!-- Instrucciones -->
+        <div class="stage-instructions">
+          <span class="instruction-item"><strong>Arrastrar:</strong> Rotar 360°</span>
+          <span class="instruction-separator">•</span>
+          <span class="instruction-item"><strong>Rueda:</strong> Zoom</span>
+          <span class="instruction-separator">•</span>
+          <span class="instruction-item"><strong>Pines:</strong> Detalles</span>
+        </div>
+      </div>
+
+      <!-- Panel Lateral: Ficha Técnica Oficial -->
+      <aside class="details-panel">
+        <div class="feature-card">
+          <div class="card-header">
+            <div class="zone-badge" id="zoneBadge">FICHA TÉCNICA OFICIAL</div>
+            <span class="lab-model-tag" id="labModelTag"></span>
+          </div>
+
+          <div class="card-content">
+            <h2 class="feature-title" id="featureTitle" style="font-size: 1.5rem; margin-bottom: 8px;"></h2>
+            <p class="feature-desc" id="featureDesc" style="font-size: 0.95rem; line-height: 1.6; color: #475569; margin-bottom: 20px;"></p>
+
+            <!-- Grilla de Especificaciones -->
+            <div class="specs-grid" id="specsGrid"></div>
+
+            <!-- Resistencia Química -->
+            <div class="chemical-guide-card">
+              <div class="chem-row positive">
+                <div class="chem-indicator">✓</div>
+                <div class="chem-info">
+                  <strong>Alta Resistencia a:</strong>
+                  <span id="chemPositiveText"></span>
+                </div>
+              </div>
+              <div class="chem-row negative">
+                <div class="chem-indicator">⚠️</div>
+                <div class="chem-info">
+                  <strong>Poca Resistencia a:</strong>
+                  <span id="chemNegativeText"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Aplicaciones -->
+            <div class="app-applications-box" style="margin-top: 16px; background: #f8fafc; padding: 14px; border-radius: 12px; border: 1px solid #e2e8f0;">
+              <span class="app-label" style="font-size: 0.75rem; font-weight: 800; color: #059669; letter-spacing: 0.05em;">APLICACIONES CERTIFICADAS:</span>
+              <p id="appText" style="margin: 4px 0 0; font-size: 0.88rem; color: #334155; line-height: 1.5;"></p>
+            </div>
+
+            <!-- Botón de Cotización Directa -->
+            <div class="action-cta-box" style="margin-top: 20px;">
+              <button class="btn-quote" id="btnQuoteProduct3D" style="width: 100%; justify-content: center;">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>Solicitar Cotización de este Producto</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       4. FOOTER CORPORATIVO
+       ========================================================================= -->
+  <footer class="footer-master">
+    <div class="container-max">
+      <div class="footer-columns-grid">
+        <div class="f-col-brand">
+          <img src="assets/logo.png" alt="Preinducol S.A.S." class="footer-brand-logo">
+          <p class="f-brand-desc">
+            Fabricantes colombianos líderes en bioseguridad y protección manual. Desarrollamos guantes de látex 100% natural, nitrilo y cuero para el hogar, la industria química, alimentos y trabajo pesado.
+          </p>
+        </div>
+        <div class="f-col">
+          <h4 class="f-title">Navegación</h4>
+          <ul class="f-list">
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="catalogo.html">Catálogo de Guantes</a></li>
+            <li><a href="fichas.html">Fichas Técnicas</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="f-col">
+          <h4 class="f-title">Canales Directos</h4>
+          <div class="f-contacts">
+            <p><strong>Comercial:</strong> +57 311 842 0561</p>
+            <p><strong>Servicio al Cliente:</strong> +57 313 895 7129</p>
+            <p><strong>Ubicación:</strong> Bogotá D.C. & Rionegro, Colombia</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-legal-bar">
+        <p>Copyright &copy; 2026 <strong>PREINDUCOL S.A.S.</strong> Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botón Flotante WhatsApp Oficial -->
+  <a href="https://wa.me/573118420561?text=Hola%20Preinducol,%20deseo%20solicitar%20asesor%C3%ADa%20técnica%20del%20visor%203D" target="_blank" rel="noopener noreferrer" class="wa-floating-trigger" title="Chatear en WhatsApp">
+    <div class="wa-bubble-prompt">
+      <span class="prompt-status">En línea</span>
+      <span>¿Dudas sobre especificaciones? <strong>Escríbenos aquí</strong></span>
+    </div>
+    <div class="wa-icon-glow">
+      <svg viewBox="0 0 24 24" width="34" height="34" fill="currentColor">
+        <path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.979-.276-.1-.476-.15-.677.15-.2.3-.777.98-.953 1.18-.175.2-.351.226-.652.076-.3-.15-1.268-.468-2.416-1.493-.893-.799-1.496-1.786-1.672-2.087-.176-.301-.019-.464.132-.614.136-.135.301-.351.452-.527.15-.175.2-.301.3-.501.1-.2.05-.376-.025-.526-.075-.15-.677-1.631-.928-2.233-.244-.585-.493-.506-.677-.515l-.578-.01c-.2 0-.526.075-.802.376-.276.3-1.053 1.029-1.053 2.509 0 1.48 1.078 2.909 1.229 3.11.15.2 2.122 3.24 5.141 4.544.718.31 1.279.496 1.716.635.722.23 1.379.197 1.899.12.579-.087 1.78-.727 2.03-1.429.25-.702.25-1.304.175-1.43-.075-.125-.276-.2-.577-.35zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.662 1.438 5.176L2 22l4.982-1.398A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.176c-1.597 0-3.097-.47-4.364-1.284l-.313-.199-3.238.908.913-3.155-.205-.327A8.14 8.14 0 0 1 3.824 12c0-4.509 3.667-8.176 8.176-8.176 4.509 0 8.176 3.667 8.176 8.176 0 4.509-3.667 8.176-8.176 8.176z"/>
+      </svg>
+    </div>
+  </a>
+
+  <!-- Módulos del Visor 3D -->
+  <script src="modules/visor3d-data.js"></script>
+  <script src="modules/visor3d.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Iniciar motor 3D
+      const engine = window.Visor3DModule.mount('webglViewport');
+
+      // 2. Marcar producto activo en píldoras
+      const urlParams = new URLSearchParams(window.location.search);
+      const activeProd = urlParams.get('producto') || 'ruberplus-20';
+
+      const buttons = document.querySelectorAll('.product-pill-btn');
+      buttons.forEach(btn => {
+        const prod = btn.getAttribute('data-product');
+        btn.classList.toggle('active', prod === activeProd);
+
+        btn.addEventListener('click', () => {
+          buttons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          if (engine) engine.changeProduct(prod);
+          const newUrl = new URL(window.location);
+          newUrl.searchParams.set('producto', prod);
+          window.history.replaceState({}, '', newUrl);
+        });
+      });
+
+      // 3. Sincronizar badge de Fichas
+      try {
+        const raw = localStorage.getItem('preinducol_fichas_tecnicas_db');
+        if (raw) {
+          const count = JSON.parse(raw).length;
+          const badge = document.getElementById('menuFtCount');
+          if (badge) badge.textContent = count;
+        }
+      } catch (e) {}
+
+      // Atajo secreto admin
+      document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+          window.location.href = 'admin.html';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

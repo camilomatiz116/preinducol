@@ -230,13 +230,6 @@
     }
   </style>
 
-  <!-- Three.js y Extensiones Locales -->
-  <script src="assets/vendor/three.min.js"></script>
-  <script src="assets/vendor/OrbitControls.js"></script>
-  <script src="assets/vendor/GLTFLoader.js"></script>
-
-  <!-- Modelo 3D Profesional Base64 para ejecución instantánea offline -->
-  <script src="assets/glove_glb_data.js"></script>
 </head>
 <body class="preinducol-portal">
 
@@ -259,8 +252,8 @@
         <nav class="nav-links-left" id="navMenuLeft">
           <ul class="nav-menu-list">
             <li><a href="#inicio" class="nav-anchor active">Inicio</a></li>
-            <li><a href="#categorias" class="nav-anchor">Categorías</a></li>
-            <li><a href="#catalogo" class="nav-anchor">Catálogo</a></li>
+            <li><a href="quienes-somos.html" class="nav-anchor">Quiénes Somos</a></li>
+            <li><a href="catalogo.html" class="nav-anchor">Catálogo</a></li>
           </ul>
         </nav>
 
@@ -276,12 +269,12 @@
           <nav class="nav-links-right" id="navMenuRight">
             <ul class="nav-menu-list">
               <li class="nav-ft-item">
-                <a href="#fichas-tecnicas" class="nav-anchor anchor-ft-highlight">
+                <a href="fichas.html" class="nav-anchor anchor-ft-highlight">
                   <span>Fichas Técnicas</span>
                   <span class="badge-ft-count" id="menuFtCount">4</span>
                 </a>
               </li>
-              <li><a href="#manufactura" class="nav-anchor">Planta</a></li>
+              <li><a href="planta.html" class="nav-anchor">Planta</a></li>
               <li><a href="#contacto" class="nav-anchor">Contacto</a></li>
             </ul>
           </nav>
@@ -302,16 +295,12 @@
       <div class="mobile-drawer" id="mobileDrawer" style="display: none;">
         <ul class="mobile-menu-list">
           <li><a href="#inicio" class="nav-anchor">Inicio</a></li>
-          <li><a href="#categorias" class="nav-anchor">Categorías</a></li>
-          <li><a href="#fichas-tecnicas" class="nav-anchor">Fichas Técnicas (<span class="mobile-ft-count">4</span>)</a></li>
-          <li><a href="#catalogo" class="nav-anchor">Catálogo</a></li>
-          <li><a href="#manufactura" class="nav-anchor">Planta & Proceso</a></li>
-          <li><a href="#nosotros" class="nav-anchor">Nosotros</a></li>
+          <li><a href="quienes-somos.html" class="nav-anchor">Quiénes Somos</a></li>
+          <li><a href="catalogo.html" class="nav-anchor">Catálogo</a></li>
+          <li><a href="fichas.html" class="nav-anchor">Fichas Técnicas (<span class="mobile-ft-count">4</span>)</a></li>
+          <li><a href="planta.html" class="nav-anchor">Planta & Proceso</a></li>
           <li><a href="#contacto" class="nav-anchor">Contacto & Cotizaciones</a></li>
         </ul>
-        <button class="btn-admin-ft-quick full-width" id="btnOpenAdminMobile">
-          ⚙️ Administrar Fichas Técnicas (Admin)
-        </button>
       </div>
     </header>
   </div>
@@ -320,29 +309,17 @@
     <!-- 2. Hero Editorial Studds Reference (Franja roja central & Guante foco) -->
     <div id="hero-mount"></div>
 
-    <!-- 3. Categorías de Producto (Banda Taupe con Repisa Flotante y Hormiga2) -->
+    <!-- 3. Categorías de Producto (Banda Taupe con Repisa Flotante, Hormiga y Slide Azul) -->
     <div id="categories-mount"></div>
 
-    <!-- 4. Proceso de Manufactura (Banda Cinematográfica Oscura con Marco Rojo) -->
+    <!-- 4. Proceso de Manufactura (Banda Verde Corporativo con Marco Azul Proceso Certificado) -->
     <div id="process-mount"></div>
 
-    <!-- 5. Carrusel de Modelos y Variaciones -->
-    <div id="variations-mount"></div>
-
-    <!-- 6. Centro de Fichas Técnicas & Gestor Administrativo de PDF -->
-    <div id="fichas-mount"></div>
-
-    <!-- 7. Catálogo Tradicional Filtrable -->
-    <div id="catalog-mount"></div>
-
-    <!-- 8. Visor e Inspección 3D Holográfica Ruberplus™ -->
-    <div id="visor3d-mount"></div>
-
-    <!-- 9. Empresa (Misión/Visión/Valores), Planta, Sostenibilidad y Contacto -->
+    <!-- 5. Empresa (Misión/Visión/Valores), Planta, Sostenibilidad y Contacto -->
     <div id="company-mount"></div>
   </main>
 
-  <!-- 10. Pie de Página y Trigger Flotante WhatsApp -->
+  <!-- 6. Pie de Página y Trigger Flotante WhatsApp -->
   <div id="footer-mount"></div>
 
   <!-- ========================================================================= -->
@@ -352,10 +329,6 @@
   <script src="modules/hero.js"></script>
   <script src="modules/categories.js"></script>
   <script src="modules/process.js"></script>
-  <script src="modules/variations.js"></script>
-  <script src="modules/fichas.js"></script>
-  <script src="modules/catalog.js"></script>
-  <script src="modules/visor3d.js"></script>
   <script src="modules/company.js"></script>
   <script src="modules/footer.js"></script>
 

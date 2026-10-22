@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preinducol S.A.S. — Catálogo Oficial de Guantes y Soluciones de Protección</title>
+  <meta name="description" content="Catálogo completo de guantes de látex 100% natural, nitrilo, vaqueta y carnaza fabricados por Preinducol S.A.S. Rionegro y Bogotá, Colombia.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+
+  <!-- Tipografías de Alta Gama -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos Maestros y de Componentes -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/catalog.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    /* ============================================================================
+       ESTILOS DEDICADOS PARA LA PÁGINA INDEPENDIENTE catalogo.html
+       ============================================================================ */
+    body.preinducol-portal {
+      background-color: var(--c-bg-canvas, #ffffff);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .catalogo-page-hero {
+      background: radial-gradient(circle at 50% 0%, rgba(220, 38, 38, 0.05) 0%, rgba(5, 150, 105, 0.04) 50%, transparent 80%), #ffffff;
+      padding: 110px 24px 44px;
+      text-align: center;
+      border-bottom: 1px solid #f1f5f9;
+      position: relative;
+    }
+
+    .catalogo-breadcrumb-bar {
+      max-width: 1320px;
+      margin: 0 auto 24px;
+      text-align: left;
+    }
+
+    .nav-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #475569;
+      text-decoration: none;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      padding: 7px 18px;
+      border-radius: 999px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-back-link:hover {
+      background: #0f172a;
+      color: #ffffff;
+      border-color: #0f172a;
+      transform: translateX(-3px);
+    }
+
+    .badge-pill-portfolio {
+      display: inline-block;
+      font-family: var(--f-mono, monospace);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #059669;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      padding: 6px 18px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .catalogo-page-title {
+      font-family: var(--f-headline, 'Space Grotesk', sans-serif);
+      font-size: 2.9rem;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.8px;
+      margin-bottom: 14px;
+      line-height: 1.15;
+    }
+
+    .catalogo-page-subtitle {
+      font-size: 1.08rem;
+      color: #64748b;
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .catalogo-page-container {
+      max-width: 1320px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 44px 24px 80px;
+      flex-grow: 1;
+    }
+
+    /* Barra de Búsqueda Rápida de Productos */
+    .catalog-search-wrap {
+      max-width: 580px;
+      margin: 0 auto 34px;
+      position: relative;
+    }
+
+    .catalog-search-input {
+      width: 100%;
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 999px;
+      padding: 14px 22px 14px 48px;
+      font-size: 0.95rem;
+      font-family: var(--f-body, sans-serif);
+      color: #0f172a;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+      outline: none;
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+    }
+
+    .catalog-search-input:focus {
+      border-color: #059669;
+      box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.12);
+    }
+
+    .search-icon-svg {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94a3b8;
+      pointer-events: none;
+    }
+
+    .btn-clear-search {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #f1f5f9;
+      border: none;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.75rem;
+      color: #64748b;
+      transition: all 0.15s ease;
+    }
+
+    .btn-clear-search:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .btn-clear-search.hidden {
+      display: none;
+    }
+
+    /* Mensaje sin resultados */
+    .no-results-box {
+      text-align: center;
+      padding: 60px 20px;
+      background: #f8fafc;
+      border: 1.5px dashed #cbd5e1;
+      border-radius: 20px;
+      display: none;
+      margin: 20px auto;
+      max-width: 600px;
+    }
+
+    .no-results-box.visible {
+      display: block;
+    }
+
+    .no-results-icon {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    /* Franja de Cotización Mayorista al Pie del Catálogo */
+    .catalogo-wholesale-banner {
+      margin-top: 70px;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      border-radius: 24px;
+      padding: 40px 48px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.25);
+    }
+
+    .wholesale-info h3 {
+      font-family: var(--f-headline, 'Space Grotesk', sans-serif);
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin: 0 0 10px;
+      color: #ffffff;
+    }
+
+    .wholesale-info p {
+      margin: 0;
+      color: #94a3b8;
+      font-size: 1rem;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    .wholesale-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+
+    .btn-wholesale-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #059669;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px 28px;
+      border-radius: 999px;
+      transition: all 0.2s ease;
+      box-shadow: 0 8px 20px rgba(5, 150, 105, 0.35);
+    }
+
+    .btn-wholesale-wa:hover {
+      background: #047857;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(5, 150, 105, 0.45);
+    }
+
+    .btn-wholesale-contact {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.2s ease;
+    }
+
+    .btn-wholesale-contact:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: #ffffff;
+    }
+
+    @media (max-width: 900px) {
+      .catalogo-wholesale-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 32px 24px;
+      }
+      .wholesale-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+      .btn-wholesale-wa, .btn-wholesale-contact {
+        width: 100%;
+        justify-content: center;
+      }
+      .catalogo-page-title {
+        font-size: 2.1rem;
+      }
+    }
+  </style>
+</head>
+<body class="preinducol-portal">
+
+  <!-- =========================================================================
+       1. CABECERA Y NAVBAR MAESTRO STUDDS
+       ========================================================================= -->
+  <header class="navbar-pro navbar-studds" id="siteHeader">
+    <div class="nav-wrapper">
+      
+      <!-- Navegación Izquierda -->
+      <nav class="nav-links-left" id="navMenuLeft">
+        <ul class="nav-menu-list">
+          <li><a href="index.html#inicio" class="nav-anchor">Inicio</a></li>
+          <li><a href="quienes-somos.html" class="nav-anchor">Quiénes Somos</a></li>
+          <li><a href="catalogo.html" class="nav-anchor active">Catálogo</a></li>
+        </ul>
+      </nav>
+
+      <!-- Logotipo Central Destacado -->
+      <a href="index.html" class="nav-brand-center" title="Preinducol S.A.S. - Inicio">
+        <div class="logo-box">
+          <img src="assets/logo.png" alt="Preinducol S.A.S." class="main-logo">
+        </div>
+      </a>
+
+      <!-- Cluster Derecho: Enlaces + Botones de Acción -->
+      <div class="nav-right-cluster">
+        <nav class="nav-links-right" id="navMenuRight">
+          <ul class="nav-menu-list">
+            <li class="nav-ft-item">
+              <a href="fichas.html" class="nav-anchor anchor-ft-highlight">
+                <span>Fichas Técnicas</span>
+                <span class="badge-ft-count" id="menuFtCount">4</span>
+              </a>
+            </li>
+            <li><a href="planta.html" class="nav-anchor">Planta</a></li>
+            <li><a href="index.html#contacto" class="nav-anchor">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="mobile-hamburger" id="mobileToggle" aria-label="Abrir Menú">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Menú Móvil Desplegable -->
+    <div class="mobile-drawer" id="mobileDrawer" style="display: none;">
+      <ul class="mobile-menu-list">
+        <li><a href="index.html#inicio" class="nav-anchor">Inicio</a></li>
+        <li><a href="quienes-somos.html" class="nav-anchor">Quiénes Somos</a></li>
+        <li><a href="catalogo.html" class="nav-anchor active">Catálogo</a></li>
+        <li><a href="fichas.html" class="nav-anchor">Fichas Técnicas (<span class="mobile-ft-count">4</span>)</a></li>
+        <li><a href="planta.html" class="nav-anchor">Planta & Proceso</a></li>
+        <li><a href="index.html#contacto" class="nav-anchor">Contacto & Cotizaciones</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       2. HERO EDITORIAL DEDICADO DE LA PÁGINA DE CATÁLOGO
+       ========================================================================= -->
+  <section class="catalogo-page-hero">
+    <div class="container-max">
+      <div class="catalogo-breadcrumb-bar">
+        <a href="index.html" class="nav-back-link">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          <span>Volver al Inicio</span>
+        </a>
+      </div>
+      <span class="badge-pill-portfolio">PORTAFOLIO OFICIAL PREINDUCOL</span>
+      <h1 class="catalogo-page-title">Catálogo de Guantes y Soluciones de Protección</h1>
+      <p class="catalogo-page-subtitle">
+        Especializados para trabajo doméstico, aseo institucional, industria química, alimentaria, metalmecánica y construcción.
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       3. CONTENIDO PRINCIPAL: CATÁLOGO FILTRABLE CON TARJETAS
+       ========================================================================= -->
+  <main class="catalogo-page-container">
+    
+    <!-- Barra de Búsqueda Rápida en Vivo -->
+    <div class="catalog-search-wrap">
+      <svg class="search-icon-svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input type="text" id="catalogSearchInput" class="catalog-search-input" placeholder="Buscar por nombre, calibre, material o aplicación...">
+      <button id="btnClearSearch" class="btn-clear-search hidden" title="Limpiar búsqueda">✕</button>
+    </div>
+
+    <!-- Pestañas de Filtro por Categorías -->
+    <div class="catalog-filters-strip">
+      <button class="filter-tab active" data-filter="all">
+        <span>Todos los Productos</span>
+        <span class="filter-count" id="countAll">9</span>
+      </button>
+      <button class="filter-tab" data-filter="hogar">
+        <span>Látex Hogar & Aseo</span>
+        <span class="filter-count" id="countHogar">2</span>
+      </button>
+      <button class="filter-tab" data-filter="industrial">
+        <span>Látex Industrial</span>
+        <span class="filter-count" id="countIndustrial">4</span>
+      </button>
+      <button class="filter-tab" data-filter="nitrilo">
+        <span>Nitrilo & Bioseguridad</span>
+        <span class="filter-count" id="countNitrilo">1</span>
+      </button>
+      <button class="filter-tab" data-filter="cuero">
+        <span>Cuero & Soldadura</span>
+        <span class="filter-count" id="countCuero">2</span>
+      </button>
+    </div>
+
+    <!-- Estado vacío de búsqueda -->
+    <div class="no-results-box" id="noResultsBox">
+      <span class="no-results-icon">🔍</span>
+      <h3 style="margin: 0 0 8px; color: #0f172a;">No se encontraron productos coincidentes</h3>
+      <p style="margin: 0; color: #64748b; font-size: 0.95rem;">Intenta con otro término o selecciona "Todos los Productos".</p>
+    </div>
+
+    <!-- Deck de Productos: 9 Tarjetas Oficiales -->
+    <div class="products-deck" id="catalogGrid">
+      
+      <!-- CARD 1: RUBERPLUS™ (INSIGNIA) -->
+      <article class="product-tile featured-tile tile-amber" data-category="hogar" data-keywords="ruberplus guante latex calibre 20 parejo hogar aseo institucional biodegradable amarillo">
+        <div class="tile-header-tags">
+          <span class="badge-highlight-gold">★ PRODUCTO INSIGNIA</span>
+          <span class="badge-calibre-chip">CALIBRE 20 PAREJO</span>
+        </div>
+
+        <div class="tile-image-stage">
+          <img src="assets/guante_palma.png" alt="Guante Ruberplus Preinducol" class="tile-product-img">
+          <div class="tile-eco-badge">🌱 100% Biodegradable</div>
+        </div>
+
+        <div class="tile-body">
+          <div class="tile-category">LÍNEA HOGAR E INDUSTRIA</div>
+          <h3 class="tile-title">Guante Ruberplus™</h3>
+          <p class="tile-desc">
+            Látex natural para mayor suavidad, labrado especial antideslizante en dedos y palma, calibre parejo y diseño anatómico curvo de descanso.
+          </p>
+
+          <!-- Medidores de Rendimiento Técnico -->
+          <div class="tile-performance-bars">
+            <div class="perf-bar-row">
+              <span class="perf-label">Agarre Antideslizante</span>
+              <div class="perf-meter"><div class="perf-fill" style="width: 98%;"></div></div>
+              <span class="perf-score">98%</span>
+            </div>
+            <div class="perf-bar-row">
+              <span class="perf-label">Resistencia Cáusticos/Jabón</span>
+              <div class="perf-meter"><div class="perf-fill" style="width: 95%;"></div></div>
+              <span class="perf-score">95%</span>
+            </div>
+            <div class="perf-bar-row">
+              <span class="perf-label">Flexibilidad & Confort</span>
+              <div class="perf-meter"><div class="perf-fill" style="width: 99%;"></div></div>
+              <span class="perf-score">99%</span>
+            </div>
+          </div>
+
+          <!-- Colores Oficiales -->
+          <div class="tile-swatches-row">
+            <span class="swatches-label">Colores:</span>
+            <div class="swatches-list">
+              <span class="swatch-bubble" style="background:#facc15;" title="Amarillo Clásico"></span>
+              <span class="swatch-bubble" style="background:#0284c7;" title="Azul Institucional"></span>
+              <span class="swatch-bubble" style="background:#dc2626;" title="Rojo Ruberplus"></span>
+              <span class="swatch-bubble" style="background:#15803d;" title="Verde Preinducol"></span>
+            </div>
+            <span class="tile-length-badge">30 cm Oficial</span>
+          </div>
+
+          <div class="tile-footer-actions">
+            <a href="visor3d.html?producto=ruberplus-20" class="btn-tile-3d" title="Inspeccionar en 3D">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              <span>Inspeccionar 3D</span>
+            </a>
+            <button class="btn-tile-quote" data-product="Guante Ruberplus Calibre 20">Cotizar Pedido</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 2: RUBERPLUS™ 25 -->
+      <article class="product-tile tile-blue" data-category="hogar" data-keywords="ruberplus calibre 25 reforzado latex semipesado institucional hoteles hospitales aseo pesado">
+        <div class="tile-header-tags">
+          <span class="badge-calibre-chip">CALIBRE 25 REFORZADO</span>
+        </div>
+
+        <div class="tile-image-stage">
+          <img src="assets/guante_dorso.png" alt="Guante Ruberplus Calibre 25" class="tile-product-img">
+        </div>
+
+        <div class="tile-body">
+          <div class="tile-category">LÁTEX SEMIPESADO</div>
+          <h3 class="tile-title">Ruberplus™ Calibre 25</h3>
+          <p class="tile-desc">
+            Espesor aumentado para labores institucionales que requieren mayor resistencia a la fricción y desinfectantes concentrados en hoteles, hospitales y colegios.
+          </p>
+
+          <ul class="tile-specs-list">
+            <li><span>📏 Largo:</span> 30 cm con orillo</li>
+            <li><span>🛡️ Calibre:</span> 25 Parejo Homogéneo</li>
+            <li><span>🧼 Aplicación:</span> Aseo institucional pesado</li>
+          </ul>
+
+          <div class="tile-footer-actions">
+            <a href="visor3d.html?producto=ruberplus-25" class="btn-tile-3d" title="Inspeccionar en 3D">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              <span>Inspeccionar 3D</span>
+            </a>
+            <button class="btn-tile-quote" data-product="Ruberplus Calibre 25">Cotizar Ruberplus 25</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 3: INDUMAX™ INDUSTRIAL -->
+      <article class="product-tile tile-emerald" data-category="industrial" data-keywords="indumax calibre 25 latex industrial severo quimica agroindustria floricultura alimentos">
+        <div class="tile-header-tags">
+          <span class="badge-industrial-chip">USO INDUSTRIAL SEVERO</span>
+          <span class="badge-calibre-chip">CALIBRE 25</span>
+        </div>
+
+        <div class="tile-image-stage">
+          <img src="assets/guante_palma.png" alt="Guante Indumax 25" class="tile-product-img">
+        </div>
+
+        <div class="tile-body">
+          <div class="tile-category">LÍNEA INDUSTRIAL</div>
+          <h3 class="tile-title">Guante Indumax™</h3>
+          <p class="tile-desc">
+            Formulación robusta desarrollada para manipulación continua en fábricas químicas, agroindustria, floricultura y procesamiento de alimentos.
+          </p>
+
+          <ul class="tile-specs-list">
+            <li><span>🏭 Destino:</span> Plantas de producción e industria</li>
+            <li><span>🧪 Resistencia:</span> Ácidos diluidos y cáusticos</li>
+            <li><span>👌 Suavidad:</span> Interior satinado antifatiga</li>
+          </ul>
+
+          <div class="tile-footer-actions">
+            <a href="visor3d.html?producto=indumax" class="btn-tile-3d" title="Inspeccionar en 3D">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              <span>Inspeccionar 3D</span>
+            </a>
+            <button class="btn-tile-quote" data-product="Guante Indumax Industrial">Cotizar Indumax™</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 4: RUBBER 50™ (CALIBRE 50 EXTREMO) -->
+      <article class="product-tile tile-red" data-category="industrial" data-keywords="rubber 50 calibre 50 extra pesado latex proteccion quimica inmersion tanques acidos">
+        <div class="tile-header-tags">
+          <span class="badge-extreme-chip">CALIBRE 50 EXTRA PESADO</span>
+        </div>
+
+        <div class="tile-image-stage">
+          <img src="assets/guante_dorso.png" alt="Guante Rubber 50 Calibre 50" class="tile-product-img">
+        </div>
+
+        <div class="tile-body">
+          <div class="tile-category">PROTECCIÓN QUÍMICA EXTENSA</div>
+          <h3 class="tile-title">Rubber 50™ (Calibre 50)</h3>
+          <p class="tile-desc">
+            Espesor de alta graduación para inmersión química severa, curtiembres, industria petrolera y limpieza de tanques con ácidos concentrados.
+          </p>
+
+          <ul class="tile-specs-list">
+            <li><span>🧱 Calibre:</span> 50 Extra Grueso</li>
+            <li><span>⚡ Máxima Densidad:</span> Barrera impenetrable</li>
+            <li><span>📦 Presentación:</span> Docena sellada</li>
+          </ul>
+
+          <div class="tile-footer-actions">
+            <a href="visor3d.html?producto=rubber-50" class="btn-tile-3d" title="Inspeccionar en 3D">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              <span>Inspeccionar 3D</span>
+            </a>
+            <button class="btn-tile-quote" data-product="Guante Rubber 50 Calibre 50">Cotizar Calibre 50</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 5: MOSQUETERO™ MANGA LARGA -->
+      <article class="product-tile tile-purple" data-category="industrial" data-keywords="mosquetero manga larga extendida antebrazo inmersion tanques quimicos latex">
+        <div class="tile-header-tags">
+          <span class="badge-industrial-chip">MANGA LARGA EXTENDIDA</span>
+        </div>
+
+        <div class="tile-image-stage">
+          <img src="assets/guante_palma.png" alt="Guante Mosquetero" class="tile-product-img">
+        </div>
+
+        <div class="tile-body">
+          <div class="tile-category">INMERSIÓN PROFUNDA</div>
+          <h3 class="tile-title">Guante Mosquetero™</h3>
+          <p class="tile-desc">
+            Longitud especial extendida que protege completamente la mano, muñeca y antebrazo contra salpicaduras profundas de líquidos y químicos.
+          </p>
+
+          <ul class="tile-specs-list">
+            <li><span>📏 Longitud:</span> Cobertura total de antebrazo</li>
+            <li><span>🌊 Uso:</span> Inmersión en tanques y fosas</li>
+            <li><span>🛑 Terminación:</span> Orillo rígido antiescurrimiento</li>
+          </ul>
+
+          <div class="tile-footer-actions">
+            <a href="visor3d.html?producto=mosquetero" class="btn-tile-3d" title="Inspeccionar en 3D">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              <span>Inspeccionar 3D</span>
+            </a>
+            <button class="btn-tile-quote" data-product="Guante Mosquetero Manga Larga">Cotizar Mosquetero</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 6: CORRUGADO ANTIDESLIZANTE -->
+      <article class="product-tile tile-orange" data-category="industrial" data-keywords="corrugado antideslizante alto agarre traccion vidrios pescado alimentos latex textura">
+        <div class="tile-header-tags">
+          <span class="badge-highlight-gold">ALTO AGARRE</span>
+        </div>
+
+        <div class="tile-image-stage">
+          <img src="assets/guante_dorso.png" alt="Guante Corrugado Antideslizante" class="tile-product-img">
+        </div>
+
+        <div class="tile-body">
+          <div class="tile-category">SUPERFICIE TEXTURIZADA</div>
+          <h3 class="tile-title">Guante Corrugado™</h3>
+          <p class="tile-desc">
+            Grabado de alta tracción para sujeción firme de piezas resbaladizas, vidrios mojados, láminas metálicas aceitosas y faenas de pesca.
+          </p>
+
+          <ul class="tile-specs-list">
+            <li><span>🖐️ Relieve:</span> Acabado corrugado de alta fricción</li>
+            <li><span>💧 Comportamiento:</span> Cero deslizamiento en húmedo</li>
+            <li><span>🐟 Destino:</span> Manejo de alimentos y vidrios</li>
+          </ul>
+
+          <div class="tile-footer-actions">
+            <a href="visor3d.html?producto=corrugado" class="btn-tile-3d" title="Inspeccionar en 3D">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              <span>Inspeccionar 3D</span>
+            </a>
+            <button class="btn-tile-quote" data-product="Guante Corrugado Antideslizante">Cotizar Corrugado</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 7: GUANTES DE NITRILO -->
+      <article class="product-tile tile-cyan" data-category="nitrilo" data-keywords="nitrilo industrial bioseguridad solventes hidrocarburos libre de latex carnes lacteos">
+        <div class="tile-header-tags">
+          <span class="badge-cyan-chip">100% LIBRE DE LÁTEX</span>
+        </div>
+
+        <div class="tile-image-stage">
+          <img src="assets/guante_palma.png" alt="Guantes de Nitrilo Preinducol" class="tile-product-img">
+        </div>
+
+        <div class="tile-body">
+          <div class="tile-category">BIOSEGURIDAD & SOLVENTES</div>
+          <h3 class="tile-title">Guantes de Nitrilo Industrial</h3>
+          <p class="tile-desc">
+            Alta resistencia química frente a solventes aromáticos, hidrocarburos, aceites y grasas animales. Totalmente libre de alérgenos de látex y talco.
+          </p>
+
+          <ul class="tile-specs-list">
+            <li><span>🧪 Resistencia:</span> Grasas animales, solventes y derivados</li>
+            <li><span>🥩 Industria:</span> Frigoríficos, lácteos y químicos</li>
+            <li><span>✨ Propiedad:</span> No genera alergias cutáneas</li>
+          </ul>
+
+          <div class="tile-footer-actions">
+            <a href="visor3d.html?producto=nitrilo" class="btn-tile-3d" title="Inspeccionar en 3D">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              <span>Inspeccionar 3D</span>
+            </a>
+            <button class="btn-tile-quote" data-product="Guantes de Nitrilo Industrial">Cotizar Nitrilo</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 8: CUERO VAQUETA -->
+      <article class="product-tile tile-leather" data-category="cuero" data-keywords="cuero vaqueta res vacuno mecanica tuberias carga transporte logistica">
+        <div class="tile-header-tags">
+          <span class="badge-leather-chip">CUERO VACUNO SELECCIONADO</span>
+        </div>
+
+        <div class="tile-image-stage">
+          <img src="assets/guante_dorso.png" alt="Guantes Cuero Vaqueta" class="tile-product-img">
+        </div>
+
+        <div class="tile-body">
+          <div class="tile-category">LÍNEA CUERO INDUSTRIAL</div>
+          <h3 class="tile-title">Guantes Cuero Vaqueta</h3>
+          <p class="tile-desc">
+            Confección en cuero vacuno suave de primera calidad. Excelente flexibilidad para operaciones mecánicas, montaje de tuberías, conducción y carga.
+          </p>
+
+          <ul class="tile-specs-list">
+            <li><span>🐄 Material:</span> Vaqueta de res de alta tenacidad</li>
+            <li><span>🚚 Áreas:</span> Transporte, logística y mantenimiento</li>
+            <li><span>🧵 Costura:</span> Hilo poliéster reforzado</li>
+          </ul>
+
+          <div class="tile-footer-actions">
+            <a href="visor3d.html?producto=cuero-vaqueta" class="btn-tile-3d" title="Inspeccionar en 3D">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              <span>Inspeccionar 3D</span>
+            </a>
+            <button class="btn-tile-quote" data-product="Guantes Cuero Vaqueta">Cotizar Vaqueta</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 9: CUERO CARNAZA (SOLDADURA) -->
+      <article class="product-tile tile-dark" data-category="cuero" data-keywords="cuero carnaza soldadura termica chispas calor abrasión corte metalmecanica">
+        <div class="tile-header-tags">
+          <span class="badge-leather-chip">PROTECCIÓN TÉRMICA SEVERA</span>
+        </div>
+
+        <div class="tile-image-stage">
+          <img src="assets/guante_palma.png" alt="Guantes Cuero Carnaza" class="tile-product-img">
+        </div>
+
+        <div class="tile-body">
+          <div class="tile-category">METALMECÁNICA & SOLDADURA</div>
+          <h3 class="tile-title">Guantes Cuero Carnaza</h3>
+          <p class="tile-desc">
+            Protección mecánica y térmica pesada contra chispas de soldadura de electrodo y MIG, corte de piezas con oxicorte y calor radiante.
+          </p>
+
+          <ul class="tile-specs-list">
+            <li><span>🔥 Resistencia:</span> Chispas incandescentes y calor</li>
+            <li><span>⚡ Diseño:</span> Manga larga de seguridad 14 pulgadas</li>
+            <li><span>🛡️ Abrasión:</span> Máximo rendimiento al corte</li>
+          </ul>
+
+          <div class="tile-footer-actions">
+            <a href="visor3d.html?producto=cuero-carnaza" class="btn-tile-3d" title="Inspeccionar en 3D">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              <span>Inspeccionar 3D</span>
+            </a>
+            <button class="btn-tile-quote" data-product="Guantes Cuero Carnaza Soldadura">Cotizar Carnaza</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Franja de Cotización Mayorista al Pie del Catálogo -->
+    <div class="catalogo-wholesale-banner">
+      <div class="wholesale-info">
+        <h3>¿Requieres Dotación Industrial por Mayor o Marca Propia?</h3>
+        <p>
+          Atendemos empresas, distribuidores, cadenas de aseo e industrias en todo el territorio colombiano. Despachos rápidos y garantía directa de fábrica Preinducol.
+        </p>
+      </div>
+      <div class="wholesale-actions">
+        <a href="https://wa.me/573118420561?text=Hola%20Preinducol,%20deseo%20solicitar%20cotizaci%C3%B3n%20por%20mayor%20del%20cat%C3%A1logo" target="_blank" rel="noopener noreferrer" class="btn-wholesale-wa">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.979-.276-.1-.476-.15-.677.15-.2.3-.777.98-.953 1.18-.175.2-.351.226-.652.076-.3-.15-1.268-.468-2.416-1.493-.893-.799-1.496-1.786-1.672-2.087-.176-.301-.019-.464.132-.614.136-.135.301-.351.452-.527.15-.175.2-.301.3-.501.1-.2.05-.376-.025-.526-.075-.15-.677-1.631-.928-2.233-.244-.585-.493-.506-.677-.515l-.578-.01c-.2 0-.526.075-.802.376-.276.3-1.053 1.029-1.053 2.509 0 1.48 1.078 2.909 1.229 3.11.15.2 2.122 3.24 5.141 4.544.718.31 1.279.496 1.716.635.722.23 1.379.197 1.899.12.579-.087 1.78-.727 2.03-1.429.25-.702.25-1.304.175-1.43-.075-.125-.276-.2-.577-.35zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.662 1.438 5.176L2 22l4.982-1.398A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.176c-1.597 0-3.097-.47-4.364-1.284l-.313-.199-3.238.908.913-3.155-.205-.327A8.14 8.14 0 0 1 3.824 12c0-4.509 3.667-8.176 8.176-8.176 4.509 0 8.176 3.667 8.176 8.176 0 4.509-3.667 8.176-8.176 8.176z"/></svg>
+          <span>Cotizar en WhatsApp</span>
+        </a>
+        <a href="index.html#contacto" class="btn-wholesale-contact">Formulario de Contacto</a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- =========================================================================
+       4. PIE DE PÁGINA CORPORATIVO
+       ========================================================================= -->
+  <footer class="footer-master">
+    <div class="container-max">
+      
+      <div class="footer-columns-grid">
+        
+        <div class="f-col-brand">
+          <img src="assets/logo.png" alt="Preinducol S.A.S." class="footer-brand-logo">
+          <p class="f-brand-desc">
+            Fabricantes colombianos líderes en bioseguridad y protección manual. Desarrollamos guantes de látex 100% natural, nitrilo y cuero para el hogar, la industria química, alimentos y trabajo pesado.
+          </p>
+          <div class="colombia-pride-pill">
+            <span>🇨🇴 Hecho en Colombia con Calidad de Exportación</span>
+          </div>
+        </div>
+
+        <div class="f-col">
+          <h4 class="f-title">Navegación</h4>
+          <ul class="f-list">
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+            <li><a href="catalogo.html">Catálogo de Guantes</a></li>
+            <li><a href="fichas.html">Fichas Técnicas</a></li>
+            <li><a href="planta.html">Planta & Proceso</a></li>
+            <li><a href="index.html#contacto">Contacto & Cotizaciones</a></li>
+          </ul>
+        </div>
+
+        <div class="f-col">
+          <h4 class="f-title">Líneas de Producción</h4>
+          <ul class="f-list">
+            <li><a href="catalogo.html">Guante Ruberplus™ Cal. 20</a></li>
+            <li><a href="catalogo.html">Ruberplus™ Calibre 25</a></li>
+            <li><a href="catalogo.html">Guante Indumax™ Industrial</a></li>
+            <li><a href="catalogo.html">Rubber 50™ Trabajo Pesado</a></li>
+            <li><a href="catalogo.html">Guante Mosquetero™</a></li>
+            <li><a href="catalogo.html">Guantes de Nitrilo y Cuero</a></li>
+          </ul>
+        </div>
+
+        <div class="f-col">
+          <h4 class="f-title">Canales Directos</h4>
+          <div class="f-contacts">
+            <p><strong>Comercial:</strong> +57 311 842 0561</p>
+            <p><strong>Servicio al Cliente:</strong> +57 313 895 7129</p>
+            <p><strong>Ubicación:</strong> Bogotá D.C. & Rionegro, Colombia</p>
+            <p><strong>Horario:</strong> Lunes a Viernes 8:00 AM – 5:30 PM</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-legal-bar">
+        <p>Copyright &copy; 2026 <strong>PREINDUCOL S.A.S.</strong> Todos los derechos reservados.</p>
+        <div class="f-legal-badges">
+          <span>Látex 100% Biodegradable</span>
+          <span>•</span>
+          <span>Acción Antibacterial Activa</span>
+          <span>•</span>
+          <span>Industria Colombiana</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Botón Flotante WhatsApp Oficial -->
+  <a href="https://wa.me/573118420561?text=Hola%20Preinducol,%20deseo%20solicitar%20informaci%C3%B3n%20comercial%20y%20cotizaciones" target="_blank" rel="noopener noreferrer" class="wa-floating-trigger" title="Chatear con Preinducol en WhatsApp">
+    <div class="wa-bubble-prompt">
+      <span class="prompt-status">En línea</span>
+      <span>¿Necesitas asesoría técnica o cotización? <strong>Escríbenos aquí</strong></span>
+    </div>
+    <div class="wa-icon-glow">
+      <svg viewBox="0 0 24 24" width="34" height="34" fill="currentColor">
+        <path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.979-.276-.1-.476-.15-.677.15-.2.3-.777.98-.953 1.18-.175.2-.351.226-.652.076-.3-.15-1.268-.468-2.416-1.493-.893-.799-1.496-1.786-1.672-2.087-.176-.301-.019-.464.132-.614.136-.135.301-.351.452-.527.15-.175.2-.301.3-.501.1-.2.05-.376-.025-.526-.075-.15-.677-1.631-.928-2.233-.244-.585-.493-.506-.677-.515l-.578-.01c-.2 0-.526.075-.802.376-.276.3-1.053 1.029-1.053 2.509 0 1.48 1.078 2.909 1.229 3.11.15.2 2.122 3.24 5.141 4.544.718.31 1.279.496 1.716.635.722.23 1.379.197 1.899.12.579-.087 1.78-.727 2.03-1.429.25-.702.25-1.304.175-1.43-.075-.125-.276-.2-.577-.35zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.662 1.438 5.176L2 22l4.982-1.398A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.176c-1.597 0-3.097-.47-4.364-1.284l-.313-.199-3.238.908.913-3.155-.205-.327A8.14 8.14 0 0 1 3.824 12c0-4.509 3.667-8.176 8.176-8.176 4.509 0 8.176 3.667 8.176 8.176 0 4.509-3.667 8.176-8.176 8.176z"/>
+      </svg>
+    </div>
+  </a>
+
+  <!-- =========================================================================
+       5. LÓGICA INTERACTIVA DEL CATÁLOGO & SINCRONIZACIÓN
+       ========================================================================= -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterTabs = document.querySelectorAll('.filter-tab');
+      const productTiles = document.querySelectorAll('.product-tile');
+      const searchInput = document.getElementById('catalogSearchInput');
+      const btnClearSearch = document.getElementById('btnClearSearch');
+      const noResultsBox = document.getElementById('noResultsBox');
+
+      let currentFilter = 'all';
+      let currentQuery = '';
+
+      function applyFilterAndSearch() {
+        let visibleCount = 0;
+        const q = currentQuery.trim().toLowerCase();
+
+        productTiles.forEach(tile => {
+          const category = tile.getAttribute('data-category');
+          const title = (tile.querySelector('.tile-title')?.textContent || '').toLowerCase();
+          const desc = (tile.querySelector('.tile-desc')?.textContent || '').toLowerCase();
+          const keywords = (tile.getAttribute('data-keywords') || '').toLowerCase();
+          const matchesCategory = (currentFilter === 'all' || category === currentFilter);
+          const matchesSearch = !q || title.includes(q) || desc.includes(q) || keywords.includes(q);
+
+          if (matchesCategory && matchesSearch) {
+            tile.style.display = 'flex';
+            tile.style.opacity = '1';
+            visibleCount++;
+          } else {
+            tile.style.display = 'none';
+          }
+        });
+
+        if (visibleCount === 0) {
+          noResultsBox.classList.add('visible');
+        } else {
+          noResultsBox.classList.remove('visible');
+        }
+      }
+
+      // Manejo de tabs de filtro
+      filterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          filterTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          currentFilter = tab.getAttribute('data-filter') || 'all';
+          applyFilterAndSearch();
+        });
+      });
+
+      // Manejo de búsqueda en tiempo real
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          currentQuery = e.target.value;
+          if (currentQuery) {
+            btnClearSearch.classList.remove('hidden');
+          } else {
+            btnClearSearch.classList.add('hidden');
+          }
+          applyFilterAndSearch();
+        });
+      }
+
+      if (btnClearSearch && searchInput) {
+        btnClearSearch.addEventListener('click', () => {
+          searchInput.value = '';
+          currentQuery = '';
+          btnClearSearch.classList.add('hidden');
+          applyFilterAndSearch();
+          searchInput.focus();
+        });
+      }
+
+      // Cotizar productos directamente hacia WhatsApp
+      const quoteButtons = document.querySelectorAll('.btn-tile-quote');
+      quoteButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const productName = btn.getAttribute('data-product') || 'Guantes de Protección';
+          const waMsg = `Hola Preinducol S.A.S., deseo solicitar información, ficha técnica y cotización comercial para el producto: ${productName}.`;
+          const waUrl = `https://wa.me/573118420561?text=${encodeURIComponent(waMsg)}`;
+          window.open(waUrl, '_blank');
+        });
+      });
+
+      // Menú móvil
+      const mobileToggle = document.getElementById('mobileToggle');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      if (mobileToggle && mobileDrawer) {
+        mobileToggle.addEventListener('click', () => {
+          const isHidden = mobileDrawer.style.display === 'none';
+          mobileDrawer.style.display = isHidden ? 'block' : 'none';
+          mobileToggle.classList.toggle('open', isHidden);
+        });
+      }
+
+      // Sincronizar badge de Fichas Técnicas desde localStorage
+      function syncBadge() {
+        try {
+          const raw = localStorage.getItem('preinducol_fichas_tecnicas_db');
+          const count = raw ? JSON.parse(raw).length : 4;
+          const badge = document.getElementById('menuFtCount');
+          const mobileBadge = document.querySelector('.mobile-ft-count');
+          if (badge) badge.textContent = count;
+          if (mobileBadge) mobileBadge.textContent = count;
+        } catch (e) {}
+      }
+
+      syncBadge();
+
+      window.addEventListener('storage', (e) => {
+        if (e.key === 'preinducol_fichas_tecnicas_db') {
+          syncBadge();
+        }
+      });
+
+      // Atajo secreto de admin: Ctrl + Shift + A
+      document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+          window.location.href = 'admin.html';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
