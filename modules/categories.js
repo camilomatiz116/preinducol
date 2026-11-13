@@ -1,19 +1,21 @@
 /**
  * PREINDUCOL S.A.S. - MÓDULO: CATEGORÍAS (SHOWCASE LÍNEA LÁTEX 100% NATURAL)
  * Exclusivamente las 3 líneas oficiales de Látex Preinducol:
- * 1. Rubberplus Guantes (assets/ima92.png) - Producto Insignia Multiuso
+ * 1. Rubberplus Guantes (assets/ima92.png) - Producto Insignia Multiuso + Galería 12 Fotos
  * 2. Guantes Preindumax (assets/ima91.png) - Línea Industrial Severo
  * 3. Flexi Guantes (assets/ima93.png) - Línea Hogar & Alta Sensibilidad
  *
  * Características:
  * - Cambio de información limpio y elegante in-situ (sin desplazamientos que desborden texto)
  * - Wendy (Hormiga 3) a escala grande
- * - Slide automático cíclico cada 4 segundos
- * - Pausa en hover e interacción manual fluida
+ * - Al hacer clic en cualquier foto o acabado, Wendy desaparece suavemente y el guante toma todo el espacio en grande (sin montarse)
+ * - Botón de alternancia rápida para volver a ver a Wendy en cualquier momento
+ * - Tira de miniaturas de fotos oficiales de Ruberplus
+ * - Slide automático cíclico cada 5 segundos (se pausa con la interacción)
  */
 window.CategoriesModule = (function () {
   const mountId = 'categories-mount';
-  const AUTO_INTERVAL_MS = 4000; // 4 segundos entre cambios de guante
+  const AUTO_INTERVAL_MS = 5000;
 
   const CAT_SHOWCASES = [
     {
@@ -25,9 +27,29 @@ window.CategoriesModule = (function () {
       subtitle: 'LÁTEX INDUSTRIAL & HOGAR',
       desc: 'El guante preferido en Colombia. Fabricado con látex 100% natural biodegradable de calibre parejo. Suavidad superior, diseño anatómico curvo de descanso y labrado antideslizante tipo panal de abeja.',
       hotspotText: '100% Látex Natural • Biodegradable',
+      gloveImg: 'assets/fotosguantes/ruberplus_transparent/Bright Yellow Textured Rubber Glove.png',
+      gloveTitle: 'Amarillo Clásico • Cal. 20',
       colors: [
-        { name: 'Amarillo Clásico', class: 'dot-yellow' },
-        { name: 'Bicolor Satinado', class: 'dot-bicolor' }
+        { name: 'Amarillo Clásico', class: 'dot-yellow', img: 'assets/fotosguantes/ruberplus_transparent/Bright Yellow Textured Rubber Glove.png' },
+        { name: 'Azul Grip', class: 'dot-blue', img: 'assets/fotosguantes/ruberplus_transparent/Guante azul con textura de agarre.png' },
+        { name: 'Verde Aseo', class: 'dot-green', img: 'assets/fotosguantes/ruberplus_transparent/Guante de limpieza verde texturizado.png' },
+        { name: 'Rojo Resistencia', class: 'dot-red', img: 'assets/fotosguantes/ruberplus_transparent/Guante rojo de limpieza con textura y talla 8.png' },
+        { name: 'Negro Diamantado', class: 'dot-black', img: 'assets/fotosguantes/ruberplus_transparent/Guante negro largo con textura diamantada.png' },
+        { name: 'Empaque Oficial', class: 'dot-bicolor', img: 'assets/fotosguantes/ruberplus_transparent/ruberpluss.png' }
+      ],
+      photos: [
+        { name: 'Amarillo Clásico', src: 'assets/fotosguantes/ruberplus_transparent/Bright Yellow Textured Rubber Glove.png' },
+        { name: 'Azul Grip', src: 'assets/fotosguantes/ruberplus_transparent/Guante azul con textura de agarre.png' },
+        { name: 'Azul Puño Reforzado', src: 'assets/fotosguantes/ruberplus_transparent/Blue Rubber Glove with Textured Cuff.png' },
+        { name: 'Verde Aseo', src: 'assets/fotosguantes/ruberplus_transparent/Guante de limpieza verde texturizado.png' },
+        { name: 'Rojo Talla 8', src: 'assets/fotosguantes/ruberplus_transparent/Guante rojo de limpieza con textura y talla 8.png' },
+        { name: 'Rojo Studio', src: 'assets/fotosguantes/ruberplus_transparent/Red Rubber Glove Studio Shot.png' },
+        { name: 'Negro Manga Larga', src: 'assets/fotosguantes/ruberplus_transparent/Guante negro largo con textura diamantada.png' },
+        { name: 'Negro Cocina', src: 'assets/fotosguantes/ruberplus_transparent/Guante Negro Texturizado de Cocina.png' },
+        { name: 'Negro Industrial', src: 'assets/fotosguantes/ruberplus_transparent/Black Rubber Glove Product Photo.png' },
+        { name: 'Empaque Oficial', src: 'assets/fotosguantes/ruberplus_transparent/ruberpluss.png' },
+        { name: 'Calibre 32L', src: 'assets/fotosguantes/ruberplus_transparent/ruberplus32l.png' },
+        { name: 'Calibre 64XL', src: 'assets/fotosguantes/ruberplus_transparent/guante64xl.png' }
       ],
       sizes: ['Cal. 20', 'Cal. 25', 'Cal. 35', 'Cal. 50', 'Talla 7', 'Talla 8', 'Talla 9'],
       defaultSize: 'Cal. 25'
@@ -41,10 +63,12 @@ window.CategoriesModule = (function () {
       subtitle: 'LÍNEA INDUSTRIAL PESADA',
       desc: 'Calibre 25 a 50 reforzado para manipulación química moderada, agroindustria, floricultura y faenas industriales exigentes. Interior satinado antifatiga para jornadas continuas.',
       hotspotText: 'Látex Reforzado • Calibre 25 a 50',
+      gloveImg: 'assets/fotosguantes/ruberplus_transparent/Black Rubber Glove Product Photo.png',
+      gloveTitle: 'Negro Industrial • Calibre 25 a 50',
       colors: [
-        { name: 'Negro Industrial', class: 'dot-black' },
-        { name: 'Bicolor Reforzado', class: 'dot-bicolor' },
-        { name: 'Amarillo Cromo', class: 'dot-yellow' }
+        { name: 'Negro Industrial', class: 'dot-black', img: 'assets/fotosguantes/ruberplus_transparent/Black Rubber Glove Product Photo.png' },
+        { name: 'Bicolor Reforzado', class: 'dot-bicolor', img: 'assets/fotosguantes/ruberplus_transparent/ruberpluss.png' },
+        { name: 'Amarillo Cromo', class: 'dot-yellow', img: 'assets/fotosguantes/ruberplus_transparent/Bright Yellow Textured Rubber Glove.png' }
       ],
       sizes: ['Cal. 25', 'Cal. 35', 'Cal. 40', 'Cal. 50', 'Talla 8', 'Talla 9', 'Talla 10'],
       defaultSize: 'Cal. 35'
@@ -58,9 +82,11 @@ window.CategoriesModule = (function () {
       subtitle: 'EXTRA FLEXIBILIDAD & CONFORT',
       desc: 'Formulación ultraelástica para máxima sensibilidad táctil y confort superior en labores domésticas, aseo general, manipulación de alimentos y hotelería. Alta resistencia al desgarro.',
       hotspotText: 'Alta Sensibilidad • Tacto Sedoso',
+      gloveImg: 'assets/guante.png',
+      gloveTitle: 'Flexi Guantes • Sensibilidad Superior',
       colors: [
-        { name: 'Amarillo Hogar', class: 'dot-yellow' },
-        { name: 'Bicolor Suave', class: 'dot-bicolor' }
+        { name: 'Amarillo Hogar', class: 'dot-yellow', img: 'assets/fotosguantes/ruberplus/Bright Yellow Textured Rubber Glove.png' },
+        { name: 'Bicolor Suave', class: 'dot-bicolor', img: 'assets/fotosguantes/ruberplus/ruberpluss.png' }
       ],
       sizes: ['Cal. 18', 'Cal. 20', 'Cal. 22', 'Talla 7', 'Talla 8', 'Talla 8.5'],
       defaultSize: 'Cal. 20'
@@ -72,10 +98,11 @@ window.CategoriesModule = (function () {
   let selectedColor = '';
   let autoSlideTimer = null;
   let isHovered = false;
+  let isGloveFocusMode = false;
 
   function renderColorPills(colors) {
     return colors.map((c, idx) => `
-      <button class="color-pill ${idx === 0 ? 'active' : ''}" data-color="${c.name}">
+      <button class="color-pill ${idx === 0 ? 'active' : ''}" data-color="${c.name}" data-img="${c.img || ''}">
         <span class="color-dot ${c.class}"></span>
         <span>${c.name}</span>
       </button>
@@ -88,6 +115,28 @@ window.CategoriesModule = (function () {
         ${s}
       </button>
     `).join('');
+  }
+
+  function renderPhotosStrip(photos) {
+    if (!photos || photos.length === 0) return '';
+    return `
+      <div class="selector-group ruber-gallery-group" id="ruberGalleryGroup">
+        <div class="group-label-flex">
+          <label class="group-label">FOTOS OFICIALES RUBERPLUS™ (${photos.length} MODELOS)</label>
+          <span class="photos-strip-hint">Haz clic para ver foto en grande</span>
+        </div>
+        <div class="cat-photos-strip" id="catPhotosStrip">
+          ${photos.map((p, idx) => `
+            <button class="cat-photo-thumb ${idx === 0 ? 'active' : ''}" 
+                    data-src="${p.src}" 
+                    data-title="${p.name}" 
+                    title="${p.name}">
+              <img src="${p.src}" alt="${p.name}" class="cat-thumb-img" loading="lazy">
+            </button>
+          `).join('')}
+        </div>
+      </div>
+    `;
   }
 
   function render() {
@@ -116,11 +165,11 @@ window.CategoriesModule = (function () {
             </nav>
           </header>
 
-          <!-- 2. Cuerpo Principal Split: Blanco con Hormiga 3 + Diagonal Azul -->
+          <!-- 2. Cuerpo Principal Split: Blanco con Hormiga 3 O Guante en Grande + Diagonal Azul -->
           <div class="card-split-body">
             
-            <!-- Lado Izquierdo: Fondo Limpio con Wendy (Hormiga 3) a Gran Escala -->
-            <div class="split-left-stage">
+            <!-- Lado Izquierdo: Wendy O Guante en Gran Formato (Alternancia Limpia Sin Montarse) -->
+            <div class="split-left-stage" id="splitLeftStage">
               
               <!-- Indicadores verticales (3 líneas de slide automático) -->
               <div class="vertical-dashes" id="verticalDashes">
@@ -129,8 +178,14 @@ window.CategoriesModule = (function () {
                 `).join('')}
               </div>
 
-              <!-- Wendy Hormiga 3 en gran tamaño señalando hacia la derecha -->
-              <div class="mascot-hero-wrap">
+              <!-- Botón flotante para alternar vista entre Wendy y el Guante -->
+              <button class="btn-view-toggle" id="btnViewToggle" type="button" title="Alternar entre Wendy y el Guante">
+                <span class="toggle-icon" id="toggleIcon">🧤</span>
+                <span class="toggle-label" id="toggleLabelText">Ver Guante Ampliado</span>
+              </button>
+
+              <!-- Vista 1: Wendy Hormiga 3 en gran tamaño señalando hacia la derecha -->
+              <div class="mascot-hero-wrap" id="mascotHeroWrap">
                 <img src="assets/hormiga-3.png" alt="Wendy Mascota Preinducol" class="mascot-hero-img" id="mascotHeroImg">
                 
                 <!-- Hotspot interactivo pulsante (+) -->
@@ -141,6 +196,20 @@ window.CategoriesModule = (function () {
                 </div>
                 
                 <div class="mascot-floor-shadow"></div>
+              </div>
+
+              <!-- Vista 2: Escenario del Guante en Grande (Aparece al hacer clic en fotos, sin montarse con Wendy) -->
+              <div class="stage-large-glove" id="stageLargeGlove" title="Fotografía oficial en alta resolución">
+                <div class="glove-aura-glow"></div>
+                <img src="${current.gloveImg}" 
+                     alt="${current.title}" 
+                     class="large-glove-img" 
+                     id="categoryGloveImg">
+                <div class="large-glove-shadow"></div>
+                <div class="large-glove-badge" id="floatingGloveChip">
+                  <span class="badge-dot-live"></span>
+                  <span class="badge-text-val" id="gloveChipText">${current.gloveTitle}</span>
+                </div>
               </div>
 
             </div>
@@ -161,6 +230,11 @@ window.CategoriesModule = (function () {
                 <div class="blue-product-subtitle" id="blueProductSubtitle">${current.subtitle}</div>
                 
                 <p class="blue-product-desc" id="blueProductDesc">${current.desc}</p>
+
+                <!-- Galería Fotográfica de la Línea (Visible en Rubberplus) -->
+                <div id="photosStripContainer">
+                  ${renderPhotosStrip(current.photos)}
+                </div>
 
                 <!-- Selector de Acabados / Colores -->
                 <div class="selector-group">
@@ -211,6 +285,47 @@ window.CategoriesModule = (function () {
     `;
   }
 
+  function toggleGloveMode(forceMode) {
+    if (typeof forceMode === 'boolean') {
+      isGloveFocusMode = forceMode;
+    } else {
+      isGloveFocusMode = !isGloveFocusMode;
+    }
+
+    const stageEl = document.getElementById('splitLeftStage');
+    const toggleIcon = document.getElementById('toggleIcon');
+    const toggleLabel = document.getElementById('toggleLabelText');
+
+    if (stageEl) {
+      if (isGloveFocusMode) {
+        stageEl.classList.add('mode-glove-focus');
+        if (toggleIcon) toggleIcon.textContent = '🐜';
+        if (toggleLabel) toggleLabel.textContent = 'Ver a Wendy';
+      } else {
+        stageEl.classList.remove('mode-glove-focus');
+        if (toggleIcon) toggleIcon.textContent = '🧤';
+        if (toggleLabel) toggleLabel.textContent = 'Ver Guante Ampliado';
+      }
+    }
+  }
+
+  function setGlovePhoto(src, labelText, triggerFocus) {
+    const gloveImg = document.getElementById('categoryGloveImg');
+    const gloveChipText = document.getElementById('gloveChipText');
+    if (gloveImg && src) {
+      gloveImg.classList.remove('glove-pop-anim');
+      void gloveImg.offsetWidth;
+      gloveImg.src = src;
+      gloveImg.classList.add('glove-pop-anim');
+    }
+    if (gloveChipText && labelText) {
+      gloveChipText.textContent = labelText;
+    }
+    if (triggerFocus) {
+      toggleGloveMode(true);
+    }
+  }
+
   function goToSlide(idx) {
     if (idx < 0 || idx >= CAT_SHOWCASES.length) return;
     currentCatIdx = idx;
@@ -237,7 +352,16 @@ window.CategoriesModule = (function () {
       if (descEl) descEl.textContent = current.desc;
       if (hotspotTooltip) hotspotTooltip.textContent = current.hotspotText;
 
-      // 2. Selectores
+      // 2. Galería de fotos (si aplica a esta categoría)
+      const photosContainer = document.getElementById('photosStripContainer');
+      if (photosContainer) {
+        photosContainer.innerHTML = renderPhotosStrip(current.photos);
+      }
+
+      // 3. Guante flotante
+      setGlovePhoto(current.gloveImg, current.gloveTitle, false);
+
+      // 4. Selectores
       const colorsRow = document.getElementById('colorPillsRow');
       if (colorsRow) colorsRow.innerHTML = renderColorPills(current.colors);
 
@@ -247,7 +371,7 @@ window.CategoriesModule = (function () {
       selectedSize = current.defaultSize;
       selectedColor = current.colors[0].name;
 
-      // 3. Tabs superiores y dashes verticales
+      // 5. Tabs superiores y dashes verticales
       document.querySelectorAll('.cat-tab-btn').forEach((btn, i) => {
         btn.classList.toggle('active', i === currentCatIdx);
       });
@@ -279,7 +403,7 @@ window.CategoriesModule = (function () {
   function startAutoSlide() {
     stopAutoSlide();
     autoSlideTimer = setInterval(() => {
-      if (!isHovered) {
+      if (!isHovered && !isGloveFocusMode) {
         nextSlide();
       }
     }, AUTO_INTERVAL_MS);
@@ -307,14 +431,34 @@ window.CategoriesModule = (function () {
 
     // Eventos interactivos
     section.addEventListener('click', (e) => {
+      // Click en botón alternar vista (Wendy <-> Guante)
+      const btnToggle = e.target.closest('#btnViewToggle');
+      if (btnToggle) {
+        e.preventDefault();
+        toggleGloveMode();
+        return;
+      }
+
       // Click en tab superior
       const tabBtn = e.target.closest('.cat-tab-btn');
       if (tabBtn) {
         const idx = parseInt(tabBtn.getAttribute('data-cat-idx'), 10);
         if (!isNaN(idx) && idx !== currentCatIdx) {
+          toggleGloveMode(false); // Vuelve a mostrar a Wendy al cambiar de pestaña
           goToSlide(idx);
           startAutoSlide();
         }
+        return;
+      }
+
+      // Click en miniatura de foto de la tira: activa modo guante en grande
+      const photoThumb = e.target.closest('.cat-photo-thumb');
+      if (photoThumb) {
+        document.querySelectorAll('.cat-photo-thumb').forEach(t => t.classList.remove('active'));
+        photoThumb.classList.add('active');
+        const src = photoThumb.getAttribute('data-src');
+        const title = photoThumb.getAttribute('data-title');
+        setGlovePhoto(src, title, true); // true = activa el guante en grande y oculta la hormiga
         return;
       }
 
@@ -323,19 +467,23 @@ window.CategoriesModule = (function () {
       if (dashItem) {
         const idx = parseInt(dashItem.getAttribute('data-idx'), 10);
         if (!isNaN(idx) && idx !== currentCatIdx) {
+          toggleGloveMode(false);
           goToSlide(idx);
           startAutoSlide();
         }
         return;
       }
 
-      // Click en píldora de color
+      // Click en píldora de color: activa el guante correspondiente
       const colorPill = e.target.closest('.color-pill');
       if (colorPill) {
         document.querySelectorAll('.color-pill').forEach(p => p.classList.remove('active'));
         colorPill.classList.add('active');
         selectedColor = colorPill.getAttribute('data-color') || '';
-        startAutoSlide();
+        const img = colorPill.getAttribute('data-img');
+        if (img) {
+          setGlovePhoto(img, selectedColor, true); // true = activa el guante en grande
+        }
         return;
       }
 
@@ -345,7 +493,6 @@ window.CategoriesModule = (function () {
         document.querySelectorAll('.size-pill').forEach(p => p.classList.remove('active'));
         sizePill.classList.add('active');
         selectedSize = sizePill.getAttribute('data-size') || '';
-        startAutoSlide();
         return;
       }
 
@@ -367,6 +514,7 @@ window.CategoriesModule = (function () {
 
   function selectCategory(idx) {
     if (idx >= 0 && idx < CAT_SHOWCASES.length) {
+      toggleGloveMode(false);
       goToSlide(idx);
       startAutoSlide();
     }
@@ -384,6 +532,7 @@ window.CategoriesModule = (function () {
     mount,
     selectCategory,
     startAutoSlide,
-    stopAutoSlide
+    stopAutoSlide,
+    toggleGloveMode
   };
 })();

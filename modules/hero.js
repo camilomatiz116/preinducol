@@ -33,7 +33,7 @@ window.HeroModule = (function () {
               <span class="brand-text">RUBERPLUS</span>
             </h3>
             <p class="card-short-desc">
-              Látex 100% Biodegradable • Calibre 20 Parejo. Suavidad superior, labrado antideslizante y diseño anatómico curvo de descanso.
+              El guante preferido en Colombia. Fabricado con látex 100% natural biodegradable de calibre parejo. Suavidad superior, diseño anatómico curvo de descanso y labrado antideslizante tipo panal de abeja.
             </p>
             <div class="card-cta-wrap">
               <span class="card-cta-btn">
@@ -73,11 +73,11 @@ window.HeroModule = (function () {
 
             <!-- Contenedor de Poses de la Mascota -->
             <div class="mascot-avatar-stack">
-              <!-- Pose 1 (Intro): Guiño y OK -->
-              <img src="assets/hormiga2 (1).png" alt="Mascota Preinducol Guiño" class="hero-mascot-img mascot-img-intro" id="heroMascotIntro">
+              <!-- Pose 1 (Intro): Hormiga Final -->
+              <img src="assets/hotmigafinal.png" alt="Mascota Preinducol" class="hero-mascot-img mascot-img-intro" id="heroMascotIntro">
               
-              <!-- Pose 2 (Interactivo): Brazos Cruzados -->
-              <img src="assets/hormigabrazos.png" alt="Mascota Preinducol Brazos Cruzados" class="hero-mascot-img mascot-img-showcase" id="heroMascotShowcase">
+              <!-- Pose 2 (Interactivo): Hormiga Final -->
+              <img src="assets/hotmigafinal.png" alt="Mascota Preinducol" class="hero-mascot-img mascot-img-showcase" id="heroMascotShowcase">
             </div>
             
             <!-- Pedestal de sombra y brillo inferior -->
@@ -239,35 +239,20 @@ window.HeroModule = (function () {
           }
         }
 
-        // 2. Desplazar suavemente hasta la sección de catálogo
-        const catalogSec = document.getElementById('catalogo');
-        if (catalogSec) {
-          const navOffset = 90;
-          const targetY = catalogSec.getBoundingClientRect().top + window.pageYOffset - navOffset;
+        // 2. Desplazar suavemente hasta la sección de categorías / descripción
+        const targetSec = document.getElementById('categorias') || document.getElementById('catalogo');
+        if (targetSec) {
+          if (targetSlug === 'ruberplus' && window.CategoriesModule) {
+            window.CategoriesModule.selectCategory(0);
+          } else if (targetSlug === 'indumax' && window.CategoriesModule) {
+            window.CategoriesModule.selectCategory(1);
+          }
+          const navOffset = 70;
+          const targetY = targetSec.getBoundingClientRect().top + window.pageYOffset - navOffset;
           window.scrollTo({
             top: targetY,
             behavior: 'smooth'
           });
-
-          // 3. Resaltar la tarjeta correspondiente en el catálogo
-          setTimeout(() => {
-            let matchingTile = null;
-            if (targetSlug === 'ruberplus') {
-              matchingTile = document.querySelector('.product-tile.featured-tile');
-            } else if (targetSlug === 'indumax') {
-              matchingTile = document.querySelector('.product-tile.tile-emerald');
-            } else if (targetSlug === 'nitrilo') {
-              matchingTile = document.querySelector('.product-tile.tile-cyan');
-            } else if (targetSlug === 'cuero') {
-              matchingTile = document.querySelector('.product-tile.tile-leather');
-            }
-
-            if (matchingTile) {
-              matchingTile.classList.remove('tile-highlight-pulse');
-              void matchingTile.offsetWidth;
-              matchingTile.classList.add('tile-highlight-pulse');
-            }
-          }, 600);
         }
       });
     });
