@@ -137,14 +137,6 @@ window.CategoriesModule = (function () {
     }
   ];
 
-  // Estado del modo foco por cada bloque
-  const gloveFocusState = {
-    'showcase-ruberplus': false,
-    'showcase-preindumax': false,
-    'showcase-flexiguantes': false,
-    'showcase-nitrilo': false
-  };
-
   function renderShowcaseBlock(cat) {
     return `
     <div class="showcase-block ${cat.themeClass} ${cat.layoutReverse ? 'layout-reverse' : ''}" id="${cat.id}">
@@ -152,29 +144,8 @@ window.CategoriesModule = (function () {
         <div class="alpinestars-card">
           <div class="card-split-body">
             
-            <!-- Lado Izquierdo: Wendy O Guante en Grande -->
+            <!-- Lado Escenario: Fotografía Oficial del Guante en Gran Formato -->
             <div class="split-left-stage" id="splitStage_${cat.id}">
-              
-              <!-- Botón flotante para alternar vista -->
-              <button class="btn-view-toggle" data-block-id="${cat.id}" type="button" title="Alternar entre Wendy y el Guante">
-                <span class="toggle-icon">🧤</span>
-                <span class="toggle-label">Ver Guante Ampliado</span>
-              </button>
-
-              <!-- Vista 1: Wendy Hormiga 3 -->
-              <div class="mascot-hero-wrap">
-                <img src="assets/hormiga-3.png" alt="Wendy Mascota Preinducol" class="mascot-hero-img">
-                
-                <div class="hero-hotspot" title="${cat.hotspotText}">
-                  <span class="hotspot-pulse"></span>
-                  <span class="hotspot-icon">+</span>
-                  <span class="hotspot-tooltip">${cat.hotspotText}</span>
-                </div>
-                
-                <div class="mascot-floor-shadow"></div>
-              </div>
-
-              <!-- Vista 2: Guante en Gran Formato -->
               <div class="stage-large-glove" title="Fotografía oficial en alta resolución">
                 <div class="glove-aura-glow"></div>
                 <img src="${cat.defaultGloveImg}" 
@@ -187,10 +158,9 @@ window.CategoriesModule = (function () {
                   <span class="badge-text-val" id="gloveLabel_${cat.id}">${cat.defaultGloveTitle}</span>
                 </div>
               </div>
-
             </div>
 
-            <!-- Lado Derecho: Bloque Poligonal Diagonal con su Color Propio -->
+            <!-- Lado Contenido: Bloque Poligonal Diagonal con su Color Propio -->
             <div class="split-right-diagonal">
               <div class="diagonal-blue-content">
                 
@@ -304,32 +274,6 @@ window.CategoriesModule = (function () {
     `;
   }
 
-  function toggleBlockGloveMode(blockId, forceMode) {
-    if (typeof forceMode === 'boolean') {
-      gloveFocusState[blockId] = forceMode;
-    } else {
-      gloveFocusState[blockId] = !gloveFocusState[blockId];
-    }
-
-    const stageEl = document.getElementById(`splitStage_${blockId}`);
-    const toggleBtn = document.querySelector(`.btn-view-toggle[data-block-id="${blockId}"]`);
-    if (stageEl) {
-      if (gloveFocusState[blockId]) {
-        stageEl.classList.add('mode-glove-focus');
-        if (toggleBtn) {
-          toggleBtn.querySelector('.toggle-icon').textContent = '🐜';
-          toggleBtn.querySelector('.toggle-label').textContent = 'Ver a Wendy';
-        }
-      } else {
-        stageEl.classList.remove('mode-glove-focus');
-        if (toggleBtn) {
-          toggleBtn.querySelector('.toggle-icon').textContent = '🧤';
-          toggleBtn.querySelector('.toggle-label').textContent = 'Ver Guante Ampliado';
-        }
-      }
-    }
-  }
-
   function setBlockGlovePhoto(blockId, src, labelText) {
     const gloveImg = document.getElementById(`gloveImg_${blockId}`);
     const gloveLabel = document.getElementById(`gloveLabel_${blockId}`);
@@ -342,7 +286,6 @@ window.CategoriesModule = (function () {
     if (gloveLabel && labelText) {
       gloveLabel.textContent = labelText;
     }
-    toggleBlockGloveMode(blockId, true);
   }
 
   function initListeners() {
@@ -370,15 +313,6 @@ window.CategoriesModule = (function () {
 
     // 2. Interacciones dentro de los bloques
     container.addEventListener('click', (e) => {
-      // Alternar entre Wendy y el Guante
-      const toggleBtn = e.target.closest('.btn-view-toggle');
-      if (toggleBtn) {
-        e.preventDefault();
-        const blockId = toggleBtn.getAttribute('data-block-id');
-        if (blockId) toggleBlockGloveMode(blockId);
-        return;
-      }
-
       // Clic en miniatura de foto
       const thumbBtn = e.target.closest('.cat-photo-thumb');
       if (thumbBtn) {
