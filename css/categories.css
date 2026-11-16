@@ -68,6 +68,7 @@
 .chip-yellow { background: #d97706; box-shadow: 0 0 6px rgba(217, 119, 6, 0.6); }
 .chip-green { background: #059669; box-shadow: 0 0 6px rgba(5, 150, 105, 0.6); }
 .chip-red { background: #dc2626; box-shadow: 0 0 6px rgba(220, 38, 38, 0.6); }
+.chip-purple { background: #7c3aed; box-shadow: 0 0 6px rgba(124, 58, 237, 0.6); }
 
 .cat-nav-anchor.active[data-target="showcase-ruberplus"] {
   color: #0056cc;
@@ -91,6 +92,12 @@
   color: #dc2626;
   background: #fef2f2;
   border: 1px solid #fecaca;
+}
+
+.cat-nav-anchor.active[data-target="showcase-nitrilo"] {
+  color: #6d28d9;
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
 }
 
 .showcase-outer-wrap {
@@ -593,6 +600,24 @@
   color: #fff1f2;
 }
 
+/* 5. TEMA PÚRPURA / NITRILO (GUANTES NITRILO) */
+.showcase-block.theme-purple .split-right-diagonal {
+  background: linear-gradient(145deg, #7c3aed 0%, #6d28d9 55%, #4c1d95 100%);
+  background-image: 
+    radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.22) 0%, transparent 45%),
+    linear-gradient(145deg, #7c3aed 0%, #6d28d9 55%, #4c1d95 100%);
+}
+.showcase-block.theme-purple .blue-eyebrow-tag {
+  color: #ddd6fe;
+  text-shadow: 0 0 12px rgba(221, 214, 254, 0.4);
+}
+.showcase-block.theme-purple .group-label {
+  color: #ddd6fe;
+}
+.showcase-block.theme-purple .blue-product-desc {
+  color: #f5f3ff;
+}
+
 /* ============================================================================
    DISEÑO EDITORIAL INVERTIDO / ZIG-ZAG (EJ. PREINDUMAX)
    - Contenido e Información en Bloque Diagonal al Lado Izquierdo
@@ -873,6 +898,8 @@
 .color-dot.dot-blue { background: #0284c7; }
 .color-dot.dot-gray { background: #94a3b8; }
 .color-dot.dot-red { background: #ef4444; }
+.color-dot.dot-purple { background: #9333ea; }
+.color-dot.dot-pink { background: #ec4899; }
 
 .size-pills-row {
   display: flex;

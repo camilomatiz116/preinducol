@@ -140,6 +140,34 @@ window.CategoriesModule = (function () {
       ],
       sizes: ['Cal. 20', 'Cal. 25', 'Cal. 35', 'Cal. 50', 'Talla 7', 'Talla 8', 'Talla 9'],
       defaultSize: 'Cal. 25'
+    },
+    {
+      id: 'showcase-nitrilo',
+      themeClass: 'theme-purple',
+      tabName: 'Guantes Nitrilo',
+      brandImg: 'assets/logo.png',
+      eyebrow: '100% NITRILO SINTÉTICO • CERTIFICADO EN 1186 • LIBRE DE LÁTEX',
+      title: 'GUANTES NITRILO™',
+      subtitle: 'PROTECTED HANDS • BIOSEGURIDAD & ALTA RESISTENCIA',
+      desc: 'Guantes de examen descartables de un solo uso, ambidiestros, sin polvo y no estériles con certificación europea EN 1186. Desarrollados para brindar máxima protección de barrera biológica y química en salud, estética, alimentos y mecánica ligera. Disponibles en línea Economic y Premium Quality.',
+      hotspotText: '100% Nitrilo Sintético • Libre de Polvo',
+      defaultGloveImg: 'assets/fotosguantes/nitrilo_transparent/guante_nitrilo_negro.png',
+      defaultGloveTitle: 'Negro Professional • Talla M',
+      threeDSlug: 'nitrilo-100',
+      colors: [
+        { name: 'Negro', class: 'dot-black', img: 'assets/fotosguantes/nitrilo_transparent/guante_nitrilo_negro.png' },
+        { name: 'Rosado', class: 'dot-pink', img: 'assets/fotosguantes/nitrilo_transparent/guante_nitrilo_rosado.png' },
+        { name: 'Morado', class: 'dot-purple', img: 'assets/fotosguantes/nitrilo_transparent/guante_nitrilo_morado.png' },
+        { name: 'Azul', class: 'dot-blue', img: 'assets/fotosguantes/nitrilo_transparent/guante_nitrilo_azul_hd.png' }
+      ],
+      photos: [
+        { name: 'Negro Professional', src: 'assets/fotosguantes/nitrilo_transparent/guante_nitrilo_negro.png' },
+        { name: 'Rosado Premium', src: 'assets/fotosguantes/nitrilo_transparent/guante_nitrilo_rosado.png' },
+        { name: 'Morado Light Purple', src: 'assets/fotosguantes/nitrilo_transparent/guante_nitrilo_morado.png' },
+        { name: 'Azul Heavy Duty', src: 'assets/fotosguantes/nitrilo_transparent/guante_nitrilo_azul_hd.png' }
+      ],
+      sizes: ['Talla S (Small)', 'Talla M (Medium)', 'Talla L (Large)', 'Caja x 100 U.', 'Caja HD x 50 U.'],
+      defaultSize: 'Talla M (Medium)'
     }
   ];
 
@@ -148,7 +176,8 @@ window.CategoriesModule = (function () {
     'showcase-ruberplus': false,
     'showcase-preindumax': false,
     'showcase-flexiguantes': false,
-    'showcase-guanteslatex': false
+    'showcase-guanteslatex': false,
+    'showcase-nitrilo': false
   };
 
   function renderShowcaseBlock(cat) {
@@ -298,10 +327,13 @@ window.CategoriesModule = (function () {
           <a href="#showcase-guanteslatex" class="cat-nav-anchor" data-target="showcase-guanteslatex">
             <span class="tab-chip-color chip-red"></span> GUANTES LÁTEX
           </a>
+          <a href="#showcase-nitrilo" class="cat-nav-anchor" data-target="showcase-nitrilo">
+            <span class="tab-chip-color chip-purple"></span> GUANTES NITRILO
+          </a>
         </nav>
       </header>
 
-      <!-- Las 4 Líneas Oficiales Separadas con su Propia Identidad Cromática -->
+      <!-- Portafolio de Líneas Oficiales con Identidad Cromática Propia -->
       <div class="showcases-stack-wrapper">
         ${SHOWCASES_DATA.map(cat => renderShowcaseBlock(cat)).join('')}
       </div>
