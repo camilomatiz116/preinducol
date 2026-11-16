@@ -105,6 +105,41 @@ window.CategoriesModule = (function () {
       ],
       sizes: ['Cal. 18', 'Cal. 20', 'Cal. 22', 'Talla 7', 'Talla 8', 'Talla 8.5'],
       defaultSize: 'Cal. 20'
+    },
+    {
+      id: 'showcase-guanteslatex',
+      themeClass: 'theme-red',
+      layoutReverse: true,
+      tabName: 'Guantes Látex',
+      brandImg: 'assets/logo.png',
+      eyebrow: '100% LÁTEX NATURAL • LÍNEA MULTIUSO & PROFESIONAL',
+      title: 'GUANTES LÁTEX',
+      subtitle: 'PROTECCIÓN INTEGRAL & MÁXIMA ELASTICIDAD',
+      desc: 'Elaborados con látex 100% natural centrifugado de alta pureza. Ofrecen resistencia confiable a sustancias químicas ligeras, abrasión y rasgaduras, con textura antideslizante para un agarre firme en húmedo o seco y ribete enrollado antidesgarre.',
+      hotspotText: '100% Látex Natural • Alta Pureza',
+      defaultGloveImg: 'assets/fotosguantes/ruberplus_transparent/Guante rojo de limpieza con textura y talla 8.png',
+      defaultGloveTitle: 'Rojo Resistencia • Calibre 25',
+      threeDSlug: 'ruberplus-20',
+      colors: [
+        { name: 'Rojo Resistencia', class: 'dot-red', img: 'assets/fotosguantes/ruberplus_transparent/Guante rojo de limpieza con textura y talla 8.png' },
+        { name: 'Amarillo Clásico', class: 'dot-yellow', img: 'assets/fotosguantes/ruberplus_transparent/Bright Yellow Textured Rubber Glove.png' },
+        { name: 'Azul Industrial', class: 'dot-blue', img: 'assets/fotosguantes/ruberplus_transparent/Guante azul con textura de agarre.png' },
+        { name: 'Verde Aseo', class: 'dot-green', img: 'assets/fotosguantes/ruberplus_transparent/Guante de limpieza verde texturizado.png' },
+        { name: 'Negro Diamantado', class: 'dot-black', img: 'assets/fotosguantes/ruberplus_transparent/Guante negro largo con textura diamantada.png' },
+        { name: 'Empaque Oficial', class: 'dot-bicolor', img: 'assets/fotosguantes/ruberplus_transparent/ruberpluss.png' }
+      ],
+      photos: [
+        { name: 'Rojo Resistencia Talla 8', src: 'assets/fotosguantes/ruberplus_transparent/Guante rojo de limpieza con textura y talla 8.png' },
+        { name: 'Rojo Studio Shot', src: 'assets/fotosguantes/ruberplus_transparent/Red Rubber Glove Studio Shot.png' },
+        { name: 'Amarillo Clásico', src: 'assets/fotosguantes/ruberplus_transparent/Bright Yellow Textured Rubber Glove.png' },
+        { name: 'Azul Grip Reforzado', src: 'assets/fotosguantes/ruberplus_transparent/Guante azul con textura de agarre.png' },
+        { name: 'Azul Puño Texturizado', src: 'assets/fotosguantes/ruberplus_transparent/Blue Rubber Glove with Textured Cuff.png' },
+        { name: 'Verde Aseo Texturizado', src: 'assets/fotosguantes/ruberplus_transparent/Guante de limpieza verde texturizado.png' },
+        { name: 'Negro Manga Larga', src: 'assets/fotosguantes/ruberplus_transparent/Guante negro largo con textura diamantada.png' },
+        { name: 'Calibre 32L Especial', src: 'assets/fotosguantes/ruberplus_transparent/ruberplus32l.png' }
+      ],
+      sizes: ['Cal. 20', 'Cal. 25', 'Cal. 35', 'Cal. 50', 'Talla 7', 'Talla 8', 'Talla 9'],
+      defaultSize: 'Cal. 25'
     }
   ];
 
@@ -112,7 +147,8 @@ window.CategoriesModule = (function () {
   const gloveFocusState = {
     'showcase-ruberplus': false,
     'showcase-preindumax': false,
-    'showcase-flexiguantes': false
+    'showcase-flexiguantes': false,
+    'showcase-guanteslatex': false
   };
 
   function renderShowcaseBlock(cat) {
@@ -244,7 +280,7 @@ window.CategoriesModule = (function () {
     return `
     <section class="section-showcase-alpinestars-multi" id="categorias">
       
-      <!-- Barra de Navegación Rápida Superior entre las 3 Líneas -->
+      <!-- Barra de Navegación Rápida Superior entre las Líneas -->
       <header class="card-internal-nav sticky-categories-nav">
         <div class="nav-latex-title-wrap">
           <span class="latex-eyebrow">100% LÁTEX NATURAL DE ALTA CALIDAD • LÍNEAS OFICIALES PREINDUCOL</span>
@@ -259,10 +295,13 @@ window.CategoriesModule = (function () {
           <a href="#showcase-flexiguantes" class="cat-nav-anchor" data-target="showcase-flexiguantes">
             <span class="tab-chip-color chip-green"></span> FLEXI GUANTES
           </a>
+          <a href="#showcase-guanteslatex" class="cat-nav-anchor" data-target="showcase-guanteslatex">
+            <span class="tab-chip-color chip-red"></span> GUANTES LÁTEX
+          </a>
         </nav>
       </header>
 
-      <!-- Los 3 Modelos Separados con su Propia Identidad Cromática -->
+      <!-- Las 4 Líneas Oficiales Separadas con su Propia Identidad Cromática -->
       <div class="showcases-stack-wrapper">
         ${SHOWCASES_DATA.map(cat => renderShowcaseBlock(cat)).join('')}
       </div>

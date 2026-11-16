@@ -67,6 +67,7 @@
 .chip-blue { background: #0056cc; box-shadow: 0 0 6px rgba(0, 86, 204, 0.6); }
 .chip-yellow { background: #d97706; box-shadow: 0 0 6px rgba(217, 119, 6, 0.6); }
 .chip-green { background: #059669; box-shadow: 0 0 6px rgba(5, 150, 105, 0.6); }
+.chip-red { background: #dc2626; box-shadow: 0 0 6px rgba(220, 38, 38, 0.6); }
 
 .cat-nav-anchor.active[data-target="showcase-ruberplus"] {
   color: #0056cc;
@@ -84,6 +85,12 @@
   color: #047857;
   background: #ecfdf5;
   border: 1px solid #a7f3d0;
+}
+
+.cat-nav-anchor.active[data-target="showcase-guanteslatex"] {
+  color: #dc2626;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
 }
 
 .showcase-outer-wrap {
@@ -567,11 +574,23 @@
 .showcase-block.theme-green .blue-product-desc {
   color: #ecfdf5;
 }
-.showcase-block.theme-green .bottom-action-banner {
-  background: #022c22;
+
+/* 4. TEMA ROJO / CARMESÍ (GUANTES LÁTEX) */
+.showcase-block.theme-red .split-right-diagonal {
+  background: linear-gradient(145deg, #dc2626 0%, #b91c1c 55%, #7f1d1d 100%);
+  background-image: 
+    radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.22) 0%, transparent 45%),
+    linear-gradient(145deg, #dc2626 0%, #b91c1c 55%, #7f1d1d 100%);
 }
-.showcase-block.theme-green .bottom-action-banner:hover {
-  background: #011d16;
+.showcase-block.theme-red .blue-eyebrow-tag {
+  color: #fecaca;
+  text-shadow: 0 0 12px rgba(254, 202, 202, 0.4);
+}
+.showcase-block.theme-red .group-label {
+  color: #fecaca;
+}
+.showcase-block.theme-red .blue-product-desc {
+  color: #fff1f2;
 }
 
 /* ============================================================================
@@ -597,15 +616,14 @@
       linear-gradient(145deg, #d97706 0%, #b45309 55%, #78350f 100%);
   }
 
-  .showcase-block.layout-reverse .diagonal-blue-content {
-    margin-left: auto;
+  .showcase-block.layout-reverse.theme-red .split-right-diagonal {
+    background-image: 
+      radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.22) 0%, transparent 45%),
+      linear-gradient(145deg, #dc2626 0%, #b91c1c 55%, #7f1d1d 100%);
   }
 
-  /* La franja inferior ajusta sus márgenes y paddings invertidos */
-  .showcase-block.layout-reverse .bottom-action-banner {
-    padding: 18px clamp(130px, 11vw, 170px) 18px 70px;
-    margin-left: -70px;
-    margin-right: calc(-1 * clamp(130px, 11vw, 170px));
+  .showcase-block.layout-reverse .diagonal-blue-content {
+    margin-left: auto;
   }
 
   /* El escenario de Wendy pasa al lado derecho (order: 2) */
