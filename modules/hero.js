@@ -246,6 +246,8 @@ window.HeroModule = (function () {
             window.CategoriesModule.selectCategory(0);
           } else if (targetSlug === 'indumax' && window.CategoriesModule) {
             window.CategoriesModule.selectCategory(1);
+          } else if (targetSlug === 'nitrilo' && window.CategoriesModule) {
+            window.CategoriesModule.selectCategory(3);
           }
           const navOffset = 70;
           const targetY = targetSec.getBoundingClientRect().top + window.pageYOffset - navOffset;

@@ -88,16 +88,10 @@
   border: 1px solid #a7f3d0;
 }
 
-.cat-nav-anchor.active[data-target="showcase-guanteslatex"] {
+.cat-nav-anchor.active[data-target="showcase-nitrilo"] {
   color: #dc2626;
   background: #fef2f2;
   border: 1px solid #fecaca;
-}
-
-.cat-nav-anchor.active[data-target="showcase-nitrilo"] {
-  color: #6d28d9;
-  background: #f5f3ff;
-  border: 1px solid #ddd6fe;
 }
 
 .showcase-outer-wrap {
