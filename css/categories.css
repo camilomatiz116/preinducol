@@ -6,13 +6,84 @@
    - Lado derecho: Bloque diagonal en Azul Corporativo Preinducol con selector y CTA
    ============================================================================ */
 
-.section-showcase-alpinestars {
+.section-showcase-alpinestars,
+.section-showcase-alpinestars-multi {
   position: relative;
   background: #ffffff;
   padding: 0;
   width: 100%;
   overflow: hidden;
   border-bottom: 1px solid #e2e8f0;
+}
+
+.showcase-block {
+  width: 100%;
+  position: relative;
+  border-bottom: 1.5px solid #e2e8f0;
+}
+
+.showcase-block:last-child {
+  border-bottom: none;
+}
+
+/* Barra de Navegación Rápida Sticky Superior */
+.sticky-categories-nav {
+  position: sticky;
+  top: 64px;
+  background: rgba(255, 255, 255, 0.96) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  z-index: 50 !important;
+}
+
+.cat-nav-anchor {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-family: var(--f-body);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  transition: all 0.22s ease;
+}
+
+.cat-nav-anchor:hover {
+  color: #0f172a;
+  background: #f1f5f9;
+}
+
+.tab-chip-color {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.chip-blue { background: #0056cc; box-shadow: 0 0 6px rgba(0, 86, 204, 0.6); }
+.chip-yellow { background: #d97706; box-shadow: 0 0 6px rgba(217, 119, 6, 0.6); }
+.chip-green { background: #059669; box-shadow: 0 0 6px rgba(5, 150, 105, 0.6); }
+
+.cat-nav-anchor.active[data-target="showcase-ruberplus"] {
+  color: #0056cc;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+}
+
+.cat-nav-anchor.active[data-target="showcase-preindumax"] {
+  color: #b45309;
+  background: #fef3c7;
+  border: 1px solid #fde68a;
+}
+
+.cat-nav-anchor.active[data-target="showcase-flexiguantes"] {
+  color: #047857;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
 }
 
 .showcase-outer-wrap {
@@ -429,19 +500,154 @@
 
 
 
-/* ================= LADO DERECHO: DIAGONAL AZUL CORPORATIVO ================= */
+/* ================= LADO DERECHO: DIAGONALES DIFERENCIADAS POR COLOR ================= */
 .split-right-diagonal {
   position: relative;
-  background: linear-gradient(145deg, #0056cc 0%, #0043aa 55%, #002c77 100%);
-  background-image: 
-    radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.16) 0%, transparent 45%),
-    linear-gradient(145deg, #0056cc 0%, #0043aa 55%, #002c77 100%);
   clip-path: polygon(7% 0%, 100% 0%, 100% 100%, 0% 100%);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 50px 70px 0 clamp(130px, 11vw, 170px);
   color: #ffffff;
+}
+
+/* 1. TEMA AZUL (RUBERPLUS) */
+.showcase-block.theme-blue .split-right-diagonal,
+.split-right-diagonal {
+  background: linear-gradient(145deg, #0056cc 0%, #0043aa 55%, #002c77 100%);
+  background-image: 
+    radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.16) 0%, transparent 45%),
+    linear-gradient(145deg, #0056cc 0%, #0043aa 55%, #002c77 100%);
+}
+.showcase-block.theme-blue .bottom-action-banner {
+  background: #001f5c;
+}
+.showcase-block.theme-blue .bottom-action-banner:hover {
+  background: #001847;
+}
+
+/* 2. TEMA AMARILLO INDUSTRIAL (PREINDUMAX) */
+.showcase-block.theme-yellow .split-right-diagonal {
+  background: linear-gradient(145deg, #d97706 0%, #b45309 55%, #78350f 100%);
+  background-image: 
+    radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.22) 0%, transparent 45%),
+    linear-gradient(145deg, #d97706 0%, #b45309 55%, #78350f 100%);
+}
+.showcase-block.theme-yellow .blue-eyebrow-tag {
+  color: #fef08a;
+  text-shadow: 0 0 12px rgba(254, 240, 138, 0.4);
+}
+.showcase-block.theme-yellow .group-label {
+  color: #fde68a;
+}
+.showcase-block.theme-yellow .blue-product-desc {
+  color: #fef3c7;
+}
+.showcase-block.theme-yellow .bottom-action-banner {
+  background: #451a03;
+}
+.showcase-block.theme-yellow .bottom-action-banner:hover {
+  background: #2e1002;
+}
+
+/* 3. TEMA VERDE CORPORATIVO (FLEXI GUANTES) */
+.showcase-block.theme-green .split-right-diagonal {
+  background: linear-gradient(145deg, #059669 0%, #047857 55%, #064e3b 100%);
+  background-image: 
+    radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.18) 0%, transparent 45%),
+    linear-gradient(145deg, #059669 0%, #047857 55%, #064e3b 100%);
+}
+.showcase-block.theme-green .blue-eyebrow-tag {
+  color: #a7f3d0;
+  text-shadow: 0 0 12px rgba(167, 243, 208, 0.4);
+}
+.showcase-block.theme-green .group-label {
+  color: #a7f3d0;
+}
+.showcase-block.theme-green .blue-product-desc {
+  color: #ecfdf5;
+}
+.showcase-block.theme-green .bottom-action-banner {
+  background: #022c22;
+}
+.showcase-block.theme-green .bottom-action-banner:hover {
+  background: #011d16;
+}
+
+/* ============================================================================
+   DISEÑO EDITORIAL INVERTIDO / ZIG-ZAG (EJ. PREINDUMAX)
+   - Contenido e Información en Bloque Diagonal al Lado Izquierdo
+   - Wendy Hormiga señalando hacia la izquierda al Lado Derecho
+   ============================================================================ */
+@media (min-width: 1025px) {
+  .showcase-block.layout-reverse .card-split-body {
+    grid-template-columns: 1.15fr 0.95fr;
+  }
+
+  /* El bloque diagonal pasa al lado izquierdo (order: 1) con clip-path invertido */
+  .showcase-block.layout-reverse .split-right-diagonal {
+    order: 1;
+    clip-path: polygon(0% 0%, 93% 0%, 100% 100%, 0% 100%);
+    padding: 50px clamp(130px, 11vw, 170px) 0 70px;
+  }
+
+  .showcase-block.layout-reverse.theme-yellow .split-right-diagonal {
+    background-image: 
+      radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.22) 0%, transparent 45%),
+      linear-gradient(145deg, #d97706 0%, #b45309 55%, #78350f 100%);
+  }
+
+  .showcase-block.layout-reverse .diagonal-blue-content {
+    margin-left: auto;
+  }
+
+  /* La franja inferior ajusta sus márgenes y paddings invertidos */
+  .showcase-block.layout-reverse .bottom-action-banner {
+    padding: 18px clamp(130px, 11vw, 170px) 18px 70px;
+    margin-left: -70px;
+    margin-right: calc(-1 * clamp(130px, 11vw, 170px));
+  }
+
+  /* El escenario de Wendy pasa al lado derecho (order: 2) */
+  .showcase-block.layout-reverse .split-left-stage {
+    order: 2;
+    padding: 30px 80px 30px 30px;
+  }
+
+  /* Wendy mira y señala hacia la izquierda (hacia el bloque amarillo de Preindumax) */
+  .showcase-block.layout-reverse .mascot-hero-img {
+    transform: scaleX(-1);
+  }
+
+  .showcase-block.layout-reverse .mascot-hero-wrap:hover .mascot-hero-img {
+    transform: scaleX(-1) scale(1.025) translateY(-3px);
+  }
+
+  .showcase-block.layout-reverse .split-left-stage.mode-glove-focus .mascot-hero-wrap {
+    transform: translateX(40px) scale(0.9) scaleX(-1);
+  }
+
+  /* Botón alternar vista alineado a la derecha en el stage invertido */
+  .showcase-block.layout-reverse .btn-view-toggle {
+    left: auto;
+    right: 60px;
+  }
+
+  /* Hotspot interactivo ubicado sobre la mano izquierda que ahora apunta a la izquierda */
+  .showcase-block.layout-reverse .hero-hotspot {
+    right: auto;
+    left: 20%;
+  }
+
+  .showcase-block.layout-reverse .hotspot-tooltip {
+    left: auto;
+    right: 38px;
+    transform: translateY(-50%) translateX(8px);
+  }
+
+  .showcase-block.layout-reverse .hero-hotspot:hover .hotspot-tooltip {
+    transform: translateY(-50%) translateX(0);
+  }
 }
 
 /* Contenedor de Información Única que Cambia In-Situ con Fade Suave */
