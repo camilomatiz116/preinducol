@@ -68,7 +68,7 @@
 .chip-yellow { background: #d97706; box-shadow: 0 0 6px rgba(217, 119, 6, 0.6); }
 .chip-green { background: #059669; box-shadow: 0 0 6px rgba(5, 150, 105, 0.6); }
 .chip-red { background: #dc2626; box-shadow: 0 0 6px rgba(220, 38, 38, 0.6); }
-.chip-purple { background: #7c3aed; box-shadow: 0 0 6px rgba(124, 58, 237, 0.6); }
+.chip-leather { background: #854d0e; box-shadow: 0 0 6px rgba(133, 77, 14, 0.6); }
 
 .cat-nav-anchor.active[data-target="showcase-ruberplus"] {
   color: #0056cc;
@@ -92,6 +92,12 @@
   color: #dc2626;
   background: #fef2f2;
   border: 1px solid #fecaca;
+}
+
+.cat-nav-anchor.active[data-target="showcase-cuero"] {
+  color: #854d0e;
+  background: #fefce8;
+  border: 1px solid #fef08a;
 }
 
 .showcase-outer-wrap {
@@ -267,7 +273,9 @@
   justify-content: center;
   width: 100%;
   max-width: 520px;
-  min-height: 580px;
+  height: 540px;
+  min-height: 540px;
+  contain: layout;
   z-index: 5;
   opacity: 1;
   visibility: visible;
@@ -497,7 +505,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 50px 70px 50px clamp(130px, 11vw, 170px);
+  padding: 85px 70px 55px clamp(130px, 11vw, 170px);
   color: #ffffff;
 }
 
@@ -576,22 +584,22 @@
   color: #fff1f2;
 }
 
-/* 5. TEMA PÚRPURA / NITRILO (GUANTES NITRILO) */
-.showcase-block.theme-purple .split-right-diagonal {
-  background: linear-gradient(145deg, #7c3aed 0%, #6d28d9 55%, #4c1d95 100%);
+/* 5. TEMA CUERO VACUNO / CARNAZA (GUANTES DE CUERO) */
+.showcase-block.theme-leather .split-right-diagonal {
+  background: linear-gradient(145deg, #854d0e 0%, #713f12 55%, #3b1d06 100%);
   background-image: 
     radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.22) 0%, transparent 45%),
-    linear-gradient(145deg, #7c3aed 0%, #6d28d9 55%, #4c1d95 100%);
+    linear-gradient(145deg, #854d0e 0%, #713f12 55%, #3b1d06 100%);
 }
-.showcase-block.theme-purple .blue-eyebrow-tag {
-  color: #ddd6fe;
-  text-shadow: 0 0 12px rgba(221, 214, 254, 0.4);
+.showcase-block.theme-leather .blue-eyebrow-tag {
+  color: #fef08a;
+  text-shadow: 0 0 12px rgba(254, 240, 138, 0.4);
 }
-.showcase-block.theme-purple .group-label {
-  color: #ddd6fe;
+.showcase-block.theme-leather .group-label {
+  color: #fde68a;
 }
-.showcase-block.theme-purple .blue-product-desc {
-  color: #f5f3ff;
+.showcase-block.theme-leather .blue-product-desc {
+  color: #fef9c3;
 }
 
 /* ============================================================================
@@ -608,7 +616,7 @@
   .showcase-block.layout-reverse .split-right-diagonal {
     order: 1;
     clip-path: polygon(0% 0%, 93% 0%, 100% 100%, 0% 100%);
-    padding: 50px clamp(130px, 11vw, 170px) 50px 70px;
+    padding: 85px clamp(130px, 11vw, 170px) 55px 70px;
   }
 
   .showcase-block.layout-reverse.theme-yellow .split-right-diagonal {
@@ -653,14 +661,17 @@
 }
 
 .brand-diamond-wrap {
-  margin-bottom: 12px;
+  margin-top: 6px;
+  margin-bottom: 18px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .blue-brand-diamond-badge {
-  height: 48px;
+  height: 52px;
   max-width: 220px;
   object-fit: contain;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
   transition: transform 0.25s ease;
 }
 
@@ -973,47 +984,221 @@
 
 /* ================= ADAPTACIÓN RESPONSIVA ================= */
 @media (max-width: 1024px) {
+  .sticky-categories-nav {
+    top: 58px;
+    padding: 10px 14px 10px;
+  }
+
+  .nav-latex-title-wrap {
+    display: none;
+  }
+
+  .card-category-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 4px 4px 6px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .card-category-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cat-nav-anchor {
+    font-size: 0.78rem;
+    padding: 6px 14px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
   .card-split-body {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+    min-height: auto;
   }
 
-  .split-right-diagonal {
-    clip-path: none;
-    padding: 40px 30px 40px;
+  .split-right-diagonal,
+  .showcase-block.layout-reverse .split-right-diagonal {
+    clip-path: none !important;
+    order: 2 !important;
+    padding: 42px 24px 44px !important;
   }
 
-  .bottom-action-banner {
-    margin-left: -30px;
-    margin-right: -30px;
-    padding: 16px 30px;
-  }
-
-  .split-left-stage {
-    padding: 30px 24px;
+  .split-left-stage,
+  .showcase-block.layout-reverse .split-left-stage {
+    order: 1 !important;
+    padding: 24px 20px 14px !important;
   }
 
   .mascot-hero-img {
-    max-height: 400px;
+    max-height: 380px;
   }
 
   .stage-large-glove {
-    max-height: 400px;
+    max-height: 380px;
+    min-height: 300px;
     height: auto;
   }
   .large-glove-img {
-    max-height: 360px;
+    max-height: 320px;
+  }
+
+  .bottom-action-banner {
+    margin-left: -24px;
+    margin-right: -24px;
+    padding: 16px 24px;
+  }
+
+  .cat-photos-strip {
+    overflow-x: auto;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
   }
 
   .vertical-dashes {
     display: none;
   }
 
-  .card-internal-nav {
-    padding: 16px 20px;
+  .blue-product-title {
+    font-size: 2.7rem;
   }
 
-  .card-category-tabs {
+  .action-footer-row {
+    flex-direction: column;
+    align-items: stretch;
     gap: 16px;
-    justify-content: center;
+    text-align: center;
+  }
+
+  .btn-action-black {
+    width: 100%;
+    text-align: center;
+    padding: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .split-right-diagonal,
+  .showcase-block.layout-reverse .split-right-diagonal {
+    padding: 30px 16px 36px !important;
+  }
+
+  .bottom-action-banner {
+    margin-left: -16px;
+    margin-right: -16px;
+    padding: 14px 16px;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .blue-product-title {
+    font-size: 2.2rem;
+  }
+
+  .blue-product-subtitle {
+    font-size: 1.02rem;
+  }
+
+  .stage-large-glove {
+    max-height: 300px;
+    min-height: 240px;
+  }
+
+  .large-glove-img {
+    max-height: 240px;
+  }
+
+  .brand-diamond-wrap {
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+
+  .blue-brand-diamond-badge {
+    height: 42px;
+    max-width: 170px;
+  }
+
+  .color-pills-row,
+  .size-pills-row {
+    gap: 6px;
+  }
+
+  .color-pill,
+  .size-pill {
+    padding: 5px 10px;
+    font-size: 0.74rem;
+  }
+}
+
+/* ============================================================================
+   ANIMACIÓN DE ENTRADA AL SCROLL (SLIDE-IN DESDE CADA LADO DE LA PANTALLA)
+   Se activa una sola vez al hacer scroll hacia abajo.
+   ============================================================================ */
+
+.showcase-block {
+  overflow: hidden;
+}
+
+.showcase-block .split-left-stage,
+.showcase-block .split-right-diagonal {
+  opacity: 0;
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+/* En bloques estándar (Ruberplus, Flexi, Cuero): el guante entra por la izq y el módulo de color por la der */
+.showcase-block:not(.layout-reverse) .split-left-stage {
+  transform: translateX(-80px);
+  transition-delay: 0.12s;
+}
+.showcase-block:not(.layout-reverse) .split-right-diagonal {
+  transform: translateX(100px);
+  transition-delay: 0.02s;
+}
+
+/* En bloques invertidos (Preindumax, Nitrilo): el módulo de color entra por la izq y el guante por la der */
+.showcase-block.layout-reverse .split-right-diagonal {
+  transform: translateX(-100px);
+  transition-delay: 0.02s;
+}
+.showcase-block.layout-reverse .split-left-stage {
+  transform: translateX(80px);
+  transition-delay: 0.12s;
+}
+
+/* Estado Activo: Ambos componentes entran fluidamente a su posición (0, 0) */
+.showcase-block.is-revealed .split-left-stage,
+.showcase-block.is-revealed .split-right-diagonal {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* En pantallas móviles se hace una entrada vertical suave */
+@media (max-width: 900px) {
+  .showcase-block:not(.layout-reverse) .split-left-stage,
+  .showcase-block.layout-reverse .split-left-stage {
+    transform: translateY(35px);
+    transition-delay: 0.08s;
+  }
+  .showcase-block:not(.layout-reverse) .split-right-diagonal,
+  .showcase-block.layout-reverse .split-right-diagonal {
+    transform: translateY(45px);
+    transition-delay: 0.02s;
+  }
+  .showcase-block.is-revealed .split-left-stage,
+  .showcase-block.is-revealed .split-right-diagonal {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showcase-block .split-left-stage,
+  .showcase-block .split-right-diagonal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }

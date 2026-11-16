@@ -41,16 +41,7 @@ window.AboutModule = (function () {
     <section class="section-about-preinducol" id="historia">
       <div class="container-max">
 
-        <!-- 1. Encabezado Editorial -->
-        <div class="about-section-header">
-          <div class="about-pill-badge"><span>HISTORIA &amp; ADN CORPORATIVO</span></div>
-          <h1 class="about-section-title">Quiénes Somos: La Fuerza del Trabajo Colectivo</h1>
-          <p class="about-section-subtitle">
-            En <strong>Preinducol S.A.S.</strong> no solo fabricamos guantes; forjamos confianza, protegemos vidas y construimos seguridad con el talento de manos colombianas.
-          </p>
-        </div>
-
-        <!-- 2. Historia + Wendy -->
+        <!-- 1. Historia + Wendy -->
         <div class="about-story-grid">
           <div class="about-mascot-stage" id="mascotInteractiveStage">
             <div class="mascot-energy-halo"></div>

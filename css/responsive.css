@@ -115,19 +115,32 @@
 @media (max-width: 900px) {
   .navbar-studds .nav-wrapper {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
-    min-height: 64px;
+    padding: 6px 16px;
+    min-height: 58px;
+    height: auto;
+    margin: 4px auto 0;
   }
 
   .nav-brand-center {
     position: static;
     transform: none;
     padding: 0;
+    width: auto !important;
+    max-width: 220px;
+  }
+
+  .nav-brand-center .logo-box {
+    width: auto;
   }
 
   .nav-brand-center .main-logo {
-    height: 46px;
+    height: 48px;
+    max-height: 48px;
+    width: auto;
+    max-width: 200px;
+    transform: none !important;
   }
 
   .nav-links-left,

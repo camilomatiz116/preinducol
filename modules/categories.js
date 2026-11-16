@@ -134,6 +134,39 @@ window.CategoriesModule = (function () {
       ],
       sizes: ['Talla S (Small)', 'Talla M (Medium)', 'Talla L (Large)', 'Caja x 100 U.', 'Caja HD x 50 U.'],
       defaultSize: 'Talla M (Medium)'
+    },
+    {
+      id: 'showcase-cuero',
+      themeClass: 'theme-leather',
+      tabName: 'Guantes de Cuero',
+      brandImg: 'assets/logo.png',
+      eyebrow: '100% CUERO VACUNO SELECCIONADO • SOLDADURA & TRABAJO PESADO',
+      title: 'GUANTES DE CUERO™',
+      subtitle: 'CUE-40 • PROTECCIÓN TÉRMICA & MECÁNICA SEVERA',
+      desc: 'Fabricados en cuero vacuno y carnaza de primera selección con costuras reforzadas en hilo de alta tenacidad. Máxima resistencia a la abrasión, chispas de soldadura, punzonamiento y manipulación de láminas metálicas en metalmecánica, construcción y faenas industriales exigentes.',
+      hotspotText: '100% Cuero Vacuno • Costura Reforzada',
+      defaultGloveImg: 'assets/fotosguantes/cuero_transparent/Guante de seguridad gris y amarillo.png',
+      defaultGloveTitle: 'Vaqueta Mixta Gris & Amarillo • Talla 9',
+      threeDSlug: 'cuero-40',
+      colors: [
+        { name: 'Vaqueta Amarilla', class: 'dot-yellow', img: 'assets/fotosguantes/cuero_transparent/Guante de seguridad gris y amarillo.png' },
+        { name: 'Carnaza Soldador', class: 'dot-red', img: 'assets/fotosguantes/cuero_transparent/carnaza.png' },
+        { name: 'Vaqueta Gris Claro', class: 'dot-gray', img: 'assets/fotosguantes/cuero_transparent/Guante de trabajo de gamuza gris claro.png' },
+        { name: 'Cuero Negro Industrial', class: 'dot-black', img: 'assets/fotosguantes/cuero_transparent/negros2.png' }
+      ],
+      photos: [
+        { name: 'Vaqueta Mixta Gris y Amarillo', src: 'assets/fotosguantes/cuero_transparent/Guante de seguridad gris y amarillo.png' },
+        { name: 'Vaqueta Reforzada Puño Largo', src: 'assets/fotosguantes/cuero_transparent/Guante amarillo con puño gris y borde naranja.png' },
+        { name: 'Carnaza Soldador Rojo Cobrizo', src: 'assets/fotosguantes/cuero_transparent/carnaza.png' },
+        { name: 'Carnaza Industrial Manga Larga', src: 'assets/fotosguantes/cuero_transparent/carnazootro.png' },
+        { name: 'Gamuza y Vaqueta Gris', src: 'assets/fotosguantes/cuero_transparent/Guante de trabajo de gamuza gris claro.png' },
+        { name: 'Vaqueta Flex Gris', src: 'assets/fotosguantes/cuero_transparent/Guante de trabajo gris claro.png' },
+        { name: 'Vaqueta Taller Clásico', src: 'assets/fotosguantes/cuero_transparent/Guante de trabajo gris sobre fondo blanco.png' },
+        { name: 'Cuero Negro Trabajo Severo', src: 'assets/fotosguantes/cuero_transparent/negros2.png' },
+        { name: 'Cuero Negro Puño Seguro', src: 'assets/fotosguantes/cuero_transparent/negros3.png' }
+      ],
+      sizes: ['Talla 9 (Estándar)', 'Talla 10 (Grande)', 'Manga Corta (25 cm)', 'Manga Larga (35 cm)', 'Puño Soldador (40 cm)'],
+      defaultSize: 'Talla 9 (Estándar)'
     }
   ];
 
@@ -183,6 +216,7 @@ window.CategoriesModule = (function () {
                     ${cat.photos.map((p, idx) => `
                       <button class="cat-photo-thumb ${idx === 0 ? 'active' : ''}" 
                               data-block-id="${cat.id}"
+                              data-idx="${idx}"
                               data-src="${p.src}" 
                               data-title="${p.name}" 
                               title="${p.name}">
@@ -262,6 +296,9 @@ window.CategoriesModule = (function () {
           <a href="#showcase-nitrilo" class="cat-nav-anchor" data-target="showcase-nitrilo">
             <span class="tab-chip-color chip-red"></span> GUANTES NITRILO
           </a>
+          <a href="#showcase-cuero" class="cat-nav-anchor" data-target="showcase-cuero">
+            <span class="tab-chip-color chip-leather"></span> GUANTES DE CUERO
+          </a>
         </nav>
       </header>
 
@@ -272,6 +309,71 @@ window.CategoriesModule = (function () {
 
     </section>
     `;
+  }
+
+  const currentPhotoIdx = {
+    'showcase-ruberplus': 0,
+    'showcase-preindumax': 0,
+    'showcase-flexiguantes': 0,
+    'showcase-nitrilo': 0,
+    'showcase-cuero': 0
+  };
+
+  const autoSlideTimers = {};
+  const isBlockHovered = {};
+
+  function goToBlockPhoto(blockId, nextIdx) {
+    const cat = SHOWCASES_DATA.find(c => c.id === blockId);
+    if (!cat || !cat.photos.length) return;
+
+    const total = cat.photos.length;
+    const idx = ((nextIdx % total) + total) % total;
+    currentPhotoIdx[blockId] = idx;
+
+    const photo = cat.photos[idx];
+    setBlockGlovePhoto(blockId, photo.src, photo.name);
+
+    // Actualizar miniatura activa
+    const thumbs = document.querySelectorAll(`.cat-photo-thumb[data-block-id="${blockId}"]`);
+    thumbs.forEach(t => {
+      const tIdx = parseInt(t.getAttribute('data-idx'), 10);
+      const isActive = tIdx === idx;
+      t.classList.toggle('active', isActive);
+      if (isActive) {
+        const strip = t.parentElement;
+        if (strip && strip.classList.contains('cat-photos-strip')) {
+          const targetLeft = t.offsetLeft - (strip.clientWidth / 2) + (t.clientWidth / 2);
+          strip.scrollTo({ left: targetLeft, behavior: 'smooth' });
+        }
+      }
+    });
+
+    // Actualizar píldora de color si coincide
+    const pills = document.querySelectorAll(`.color-pill[data-block-id="${blockId}"]`);
+    pills.forEach(p => {
+      const pImg = p.getAttribute('data-img');
+      if (pImg === photo.src) {
+        pills.forEach(other => other.classList.remove('active'));
+        p.classList.add('active');
+      }
+    });
+  }
+
+  function startBlockAutoSlide(blockId, intervalMs = 3000) {
+    stopBlockAutoSlide(blockId);
+    autoSlideTimers[blockId] = setInterval(() => {
+      if (!isBlockHovered[blockId]) {
+        const next = (currentPhotoIdx[blockId] || 0) + 1;
+        goToBlockPhoto(blockId, next);
+      }
+    }, intervalMs);
+  }
+
+  function stopBlockAutoSlide(blockId) {
+    if (autoSlideTimers[blockId]) {
+      clearInterval(autoSlideTimers[blockId]);
+      delete autoSlideTimers[blockId];
+    }
   }
 
   function setBlockGlovePhoto(blockId, src, labelText) {
@@ -318,15 +420,10 @@ window.CategoriesModule = (function () {
       if (thumbBtn) {
         e.preventDefault();
         const blockId = thumbBtn.getAttribute('data-block-id');
-        const src = thumbBtn.getAttribute('data-src');
-        const title = thumbBtn.getAttribute('data-title');
-        
-        // Desmarcar otras miniaturas del mismo bloque
-        thumbBtn.parentElement.querySelectorAll('.cat-photo-thumb').forEach(t => t.classList.remove('active'));
-        thumbBtn.classList.add('active');
-        
-        if (blockId && src) {
-          setBlockGlovePhoto(blockId, src, title);
+        const idx = parseInt(thumbBtn.getAttribute('data-idx'), 10);
+        if (blockId && !isNaN(idx)) {
+          goToBlockPhoto(blockId, idx);
+          startBlockAutoSlide(blockId, 3000);
         }
         return;
       }
@@ -343,7 +440,14 @@ window.CategoriesModule = (function () {
         colorPill.classList.add('active');
 
         if (blockId && img) {
-          setBlockGlovePhoto(blockId, img, colorName);
+          const cat = SHOWCASES_DATA.find(c => c.id === blockId);
+          const foundIdx = cat ? cat.photos.findIndex(p => p.src === img) : -1;
+          if (foundIdx !== -1) {
+            goToBlockPhoto(blockId, foundIdx);
+          } else {
+            setBlockGlovePhoto(blockId, img, colorName);
+          }
+          startBlockAutoSlide(blockId, 3000);
         }
         return;
       }
@@ -368,6 +472,22 @@ window.CategoriesModule = (function () {
       }
     });
 
+    // 3. Pausar al pasar el mouse por encima y reanudar al salir
+    document.querySelectorAll('.showcase-block').forEach(block => {
+      const blockId = block.id;
+      block.addEventListener('mouseenter', () => {
+        isBlockHovered[blockId] = true;
+      });
+      block.addEventListener('mouseleave', () => {
+        isBlockHovered[blockId] = false;
+      });
+    });
+
+    // 4. Iniciar slide automático para cada bloque
+    SHOWCASES_DATA.forEach(cat => {
+      startBlockAutoSlide(cat.id, 3000);
+    });
+
     // 3. Resaltar pestaña activa según el scroll
     const handleScrollSpy = () => {
       const scrollPos = window.pageYOffset + 120;
@@ -385,6 +505,28 @@ window.CategoriesModule = (function () {
       });
     };
     window.addEventListener('scroll', handleScrollSpy, { passive: true });
+    // 5. Animación de Entrada al Scroll (Salen desde cada lado una sola vez)
+    const blocks = container.querySelectorAll('.showcase-block');
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            observer.unobserve(entry.target); // Solo se activa una vez al hacer scroll hacia abajo
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '0px 0px -8% 0px',
+        threshold: 0.10
+      });
+
+      blocks.forEach(block => {
+        revealObserver.observe(block);
+      });
+    } else {
+      blocks.forEach(b => b.classList.add('is-revealed'));
+    }
   }
 
   function selectCategory(idx) {

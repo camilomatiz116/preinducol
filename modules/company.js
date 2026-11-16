@@ -28,7 +28,7 @@ window.CompanyModule = (function () {
 
       <div class="eco-layout">
         <aside class="eco-ant-aside">
-          <img src="assets/hormigaplaneta%C3%A7.png" alt="Wendy, la hormiga de Preinducol, abrazando el planeta Tierra" class="eco-ant-img" loading="lazy">
+          <img src="assets/hormiga-planeta.png" alt="Wendy, la hormiga de Preinducol, abrazando el planeta Tierra" class="eco-ant-img" loading="lazy">
         </aside>
 
         <div class="sustainability-matrix-grid">

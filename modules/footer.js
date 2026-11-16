@@ -27,7 +27,6 @@ window.FooterModule = (function () {
             <ul class="f-list">
               <li><a href="#inicio">Inicio</a></li>
               <li><a href="quienes-somos.html">Quiénes Somos</a></li>
-              <li><a href="planta.html">Planta & Proceso</a></li>
               <li><a href="catalogo.html">Catálogo de Guantes</a></li>
               <li><a href="fichas.html">Fichas Técnicas</a></li>
               <li><a href="visor3d.html">Visor 3D Ruberplus™</a></li>

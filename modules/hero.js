@@ -26,7 +26,7 @@ window.HeroModule = (function () {
         <div class="constellation-wing wing-left" id="wingLeft">
           
           <!-- TARJETA 1 (Top Left): RUBERPLUS™ -->
-          <article class="editorial-product-card card-pos-tl" data-category="hogar" data-target="ruberplus" title="Ver descripción de Ruberplus™">
+          <article class="editorial-product-card card-pos-tl" data-category="hogar" data-target="ruberplus" title="Ver descripción de Ruberplus™" role="button" tabindex="0">
             <div class="card-overline">PRODUCTO INSIGNIA</div>
             <h3 class="card-main-title">
               <span class="model-text">CUB-07</span>
@@ -44,7 +44,7 @@ window.HeroModule = (function () {
           </article>
 
           <!-- TARJETA 2 (Bottom Left): INDUMAX™ -->
-          <article class="editorial-product-card card-pos-bl" data-category="industrial" data-target="indumax" title="Ver descripción de Indumax™">
+          <article class="editorial-product-card card-pos-bl" data-category="industrial" data-target="indumax" title="Ver descripción de Indumax™" role="button" tabindex="0">
             <div class="card-overline">LÍNEA INDUSTRIAL SEVERO</div>
             <h3 class="card-main-title">
               <span class="model-text">IND-25</span>
@@ -109,7 +109,7 @@ window.HeroModule = (function () {
         <div class="constellation-wing wing-right" id="wingRight">
           
           <!-- TARJETA 3 (Top Right): NITRILO -->
-          <article class="editorial-product-card card-pos-tr" data-category="nitrilo" data-target="nitrilo" title="Ver descripción de Nitrilo Industrial">
+          <article class="editorial-product-card card-pos-tr" data-category="nitrilo" data-target="nitrilo" title="Ver descripción de Nitrilo Industrial" role="button" tabindex="0">
             <div class="card-overline">BIOSEGURIDAD & SOLVENTES</div>
             <h3 class="card-main-title">
               <span class="model-text">NIT-100</span>
@@ -127,7 +127,7 @@ window.HeroModule = (function () {
           </article>
 
           <!-- TARJETA 4 (Bottom Right): CUERO -->
-          <article class="editorial-product-card card-pos-br" data-category="cuero" data-target="cuero" title="Ver descripción de Guantes de Cuero">
+          <article class="editorial-product-card card-pos-br" data-category="cuero" data-target="cuero" title="Ver descripción de Guantes de Cuero" role="button" tabindex="0">
             <div class="card-overline">SOLDADURA & TRABAJO PESADO</div>
             <h3 class="card-main-title">
               <span class="model-text">CUE-40</span>
@@ -159,13 +159,11 @@ window.HeroModule = (function () {
     const mascotIntro = document.getElementById('heroMascotIntro');
     const mascotShowcase = document.getElementById('heroMascotShowcase');
     const shockwaveEl = document.getElementById('mascotShockwave');
-    // Solo las 4 tarjetas de los productos dentro de las alas navegan al catálogo
     const productCards = document.querySelectorAll('.constellation-wing .editorial-product-card');
 
     let isShowcase = false;
 
     function toggleHeroState() {
-      // Animación de salto de la hormiguita en ambas poses
       [mascotIntro, mascotShowcase].forEach(img => {
         if (img) {
           img.classList.remove('mascot-bouncing');
@@ -175,7 +173,6 @@ window.HeroModule = (function () {
       });
 
       if (!isShowcase) {
-        // Transición de Estado 1 -> Estado 2 (Abre el Menú Interactivo en el Hero)
         if (shockwaveEl) {
           shockwaveEl.classList.remove('shockwave-active');
           void shockwaveEl.offsetWidth;
@@ -188,7 +185,6 @@ window.HeroModule = (function () {
         }
         isShowcase = true;
       } else {
-        // Transición de Estado 2 -> Estado 1 (Regresa hormiga a la izquierda y vuelve el texto)
         if (stageEl) {
           stageEl.classList.remove('state-showcase');
           stageEl.classList.add('state-intro');
@@ -199,7 +195,6 @@ window.HeroModule = (function () {
 
     triggerToggleFn = toggleHeroState;
 
-    // Clic en el bloque "CONOCE NUESTROS PRODUCTOS": abre el menú interactivo directamente
     if (introCallout) {
       introCallout.addEventListener('click', (e) => {
         e.preventDefault();
@@ -215,7 +210,6 @@ window.HeroModule = (function () {
       });
     }
 
-    // Clic en la hormiguita: abre o repliega el menú interactivo
     if (mascotTrigger) {
       mascotTrigger.addEventListener('click', (e) => {
         e.preventDefault();
@@ -224,37 +218,42 @@ window.HeroModule = (function () {
       });
     }
 
-    // Clic en cualquiera de las 4 tarjetas de las alas: navega a la descripción en el catálogo
+    const TARGET_SHOWCASE_MAP = {
+      'ruberplus': 'showcase-ruberplus',
+      'indumax': 'showcase-preindumax',
+      'nitrilo': 'showcase-nitrilo',
+      'cuero': 'showcase-cuero'
+    };
+
     productCards.forEach(card => {
-      card.addEventListener('click', (e) => {
+      function navigateToShowcase(e) {
         e.preventDefault();
-        const category = card.getAttribute('data-category');
+        e.stopPropagation();
         const targetSlug = card.getAttribute('data-target');
+        const targetId = TARGET_SHOWCASE_MAP[targetSlug];
+        const targetEl = (targetId && document.getElementById(targetId)) || document.getElementById('categorias');
 
-        // 1. Activar filtro de categoría en el catálogo
-        if (category) {
-          const filterBtn = document.querySelector(`.filter-tab[data-filter="${category}"]`);
-          if (filterBtn) {
-            filterBtn.click();
-          }
-        }
-
-        // 2. Desplazar suavemente hasta la sección de categorías / descripción
-        const targetSec = document.getElementById('categorias') || document.getElementById('catalogo');
-        if (targetSec) {
-          if (targetSlug === 'ruberplus' && window.CategoriesModule) {
-            window.CategoriesModule.selectCategory(0);
-          } else if (targetSlug === 'indumax' && window.CategoriesModule) {
-            window.CategoriesModule.selectCategory(1);
-          } else if (targetSlug === 'nitrilo' && window.CategoriesModule) {
-            window.CategoriesModule.selectCategory(3);
-          }
-          const navOffset = 70;
-          const targetY = targetSec.getBoundingClientRect().top + window.pageYOffset - navOffset;
+        if (targetEl) {
+          const navOffset = 75;
+          const targetY = targetEl.getBoundingClientRect().top + window.pageYOffset - navOffset;
           window.scrollTo({
             top: targetY,
             behavior: 'smooth'
           });
+
+          if (targetId) {
+            const tabs = document.querySelectorAll('.cat-nav-anchor');
+            tabs.forEach(tab => {
+              tab.classList.toggle('active', tab.getAttribute('data-target') === targetId);
+            });
+          }
+        }
+      }
+
+      card.addEventListener('click', navigateToShowcase);
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          navigateToShowcase(e);
         }
       });
     });

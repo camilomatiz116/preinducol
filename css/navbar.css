@@ -11,8 +11,76 @@
   width: 100%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   overflow: visible !important;
-  padding-top: 10px;
+  padding-top: 0;
   padding-bottom: 14px;
+}
+
+/* ================= FRANJA AZUL SUPERIOR CORPORATIVA ================= */
+.top-brand-bar {
+  background: linear-gradient(90deg, #004299 0%, #0056cc 50%, #004299 100%);
+  color: #ffffff;
+  font-family: var(--f-body, sans-serif);
+  font-size: 0.78rem;
+  letter-spacing: 0.4px;
+  width: 100%;
+  position: relative;
+  z-index: 120;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.top-brand-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 6px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+.top-brand-left,
+.top-brand-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.top-brand-divider {
+  opacity: 0.5;
+  color: #93c5fd;
+  margin: 0 6px;
+  font-size: 0.75rem;
+}
+
+.top-brand-link {
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  transition: opacity 0.18s ease;
+}
+
+.top-brand-link strong {
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.top-brand-link:hover {
+  opacity: 0.88;
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .top-brand-inner {
+    flex-direction: column;
+    gap: 4px;
+    padding: 6px 16px;
+    text-align: center;
+    font-size: 0.72rem;
+  }
 }
 
 .navbar-studds .nav-wrapper {
@@ -22,7 +90,7 @@
   align-items: center;
   max-width: 1400px;
   width: 100%;
-  margin: 0 auto;
+  margin: 6px auto 0;
   height: 64px;
   padding: 0 24px;
   box-sizing: border-box;

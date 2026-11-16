@@ -31,8 +31,8 @@ window.ProcessModule = (function () {
                 <span class="frame-eyebrow">LABORATORIO PREINDUCOL</span>
                 <h3>ENSAYOS MECÁNICOS Y QUÍMICOS</h3>
                 <p>Pruebas continuas de elongación superior al 700%, resistencia a la tracción y hermeticidad electrónica cero fugas.</p>
-                <a href="planta.html" class="btn-pill-studds btn-pill-accent btn-pill-blue">
-                  <span>conocer planta</span>
+                <a href="fichas.html" class="btn-pill-studds btn-pill-accent btn-pill-blue">
+                  <span>Ver Fichas Técnicas</span>
                 </a>
               </div>
             </div>
