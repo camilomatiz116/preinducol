@@ -231,17 +231,6 @@ window.CategoriesModule = (function () {
 
               </div>
 
-              <!-- Franja Inferior: Enlace directo al Laboratorio 3D -->
-              <a href="visor3d.html?producto=${cat.threeDSlug}" class="bottom-action-banner" title="Abrir Laboratorio 3D de Inspección">
-                <div class="action-banner-text">
-                  <span class="play-circle-icon">▶</span>
-                  <span>VER LABORATORIO 3D Y CONTROL DE CALIDAD EN ACCIÓN</span>
-                </div>
-                <div class="action-banner-thumb">
-                  <img src="assets/guante.png" alt="Visor 3D" class="banner-mini-thumb">
-                </div>
-              </a>
-
             </div>
 
           </div>
