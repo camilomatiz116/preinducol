@@ -72,6 +72,10 @@
     padding: 32px 20px;
   }
 
+  .manufacturing-steps-grid {
+    grid-template-columns: 1fr !important;
+  }
+
   .hero-main-title {
     font-size: 2.1rem;
   }
@@ -81,7 +85,7 @@
   }
 
   .values-deck {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 
   .wa-bubble-prompt {

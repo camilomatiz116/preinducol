@@ -986,7 +986,19 @@
 @media (max-width: 1024px) {
   .sticky-categories-nav {
     top: 58px;
-    padding: 10px 14px 10px;
+    padding: 8px 12px 8px;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .card-internal-nav {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 10px 12px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
 
   .nav-latex-title-wrap {
@@ -994,23 +1006,33 @@
   }
 
   .card-category-tabs {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    justify-content: flex-start;
-    gap: 10px;
-    padding: 4px 4px 6px;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    justify-content: flex-start !important;
+    gap: 8px !important;
+    padding: 4px 4px 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
   }
   .card-category-tabs::-webkit-scrollbar {
-    display: none;
+    display: none !important;
   }
 
   .cat-nav-anchor {
-    font-size: 0.78rem;
-    padding: 6px 14px;
-    white-space: nowrap;
-    flex-shrink: 0;
+    font-size: 0.78rem !important;
+    padding: 6px 14px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  .showcase-block .split-left-stage,
+  .showcase-block .split-right-diagonal {
+    opacity: 1 !important;
+    transform: none !important;
   }
 
   .card-split-body {
@@ -1022,13 +1044,13 @@
   .showcase-block.layout-reverse .split-right-diagonal {
     clip-path: none !important;
     order: 2 !important;
-    padding: 42px 24px 44px !important;
+    padding: 36px 20px 40px !important;
   }
 
   .split-left-stage,
   .showcase-block.layout-reverse .split-left-stage {
     order: 1 !important;
-    padding: 24px 20px 14px !important;
+    padding: 24px 16px 14px !important;
   }
 
   .mascot-hero-img {

@@ -50,6 +50,8 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   background-color: var(--c-bg-canvas);
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body.preinducol-portal {
@@ -58,6 +60,8 @@ body.preinducol-portal {
   color: var(--c-text-main);
   line-height: 1.6;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
   position: relative;
   -webkit-font-smoothing: antialiased;
 }
@@ -98,6 +102,12 @@ img {
   pointer-events: none;
   z-index: 0;
   opacity: 0.18;
+}
+
+@media (max-width: 768px) {
+  .glow-orb {
+    display: none !important;
+  }
 }
 
 .orb-primary {

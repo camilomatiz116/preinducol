@@ -743,14 +743,65 @@
     }
 
     @media (max-width: 900px) {
-      .catalog-hero-strip { padding-top: 110px; }
-      .hero-content-limit { flex-direction: column; text-align: center; gap: 24px; }
-      .hero-badge-row, .hero-stats-row { justify-content: center; }
-      .wendy-catalog-hero-img { width: 160px; }
-      .control-inner-row { flex-direction: column; align-items: stretch; }
-      .search-box-pill { max-width: 100%; min-width: 100%; }
-      .catalog-bottom-cta { flex-direction: column; text-align: center; }
-      .btn-cta-large-wa { width: 100%; justify-content: center; }
+      .catalog-editorial-welcome {
+        padding: 50px 16px 30px !important;
+      }
+      .welcome-container-row {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 20px !important;
+      }
+      .welcome-mascot-img {
+        width: 180px !important;
+        max-width: 180px !important;
+      }
+      .welcome-text-col {
+        text-align: center !important;
+        max-width: 100% !important;
+      }
+      .welcome-main-title {
+        font-size: 2.2rem !important;
+        line-height: 1.1 !important;
+      }
+      .catalog-control-shell {
+        top: 60px !important;
+        padding: 10px 14px !important;
+      }
+      .control-inner-row {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+      }
+      .filter-tabs-track {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        gap: 8px !important;
+        padding: 4px 2px 8px !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+      }
+      .filter-tabs-track::-webkit-scrollbar {
+        display: none !important;
+      }
+      .catalog-tab-btn {
+        flex-shrink: 0 !important;
+        padding: 8px 14px !important;
+        font-size: 0.80rem !important;
+      }
+      .catalog-bottom-cta {
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 24px 16px !important;
+      }
+      .btn-cta-large-wa {
+        width: 100% !important;
+        justify-content: center !important;
+      }
     }
   </style>
 </head>

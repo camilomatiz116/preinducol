@@ -193,6 +193,7 @@
   <!-- =========================================================================
        1. NAVBAR PRINCIPAL
        ========================================================================= -->
+  <div id="navbar-mount">
   <header class="navbar-pro navbar-studds" id="siteHeader">
     <div class="nav-wrapper">
       <nav class="nav-links-left">
@@ -222,9 +223,27 @@
             <li><a href="index.html#contacto" class="nav-anchor">Contacto</a></li>
           </ul>
         </nav>
+        <div class="nav-actions">
+          <button class="mobile-hamburger" id="mobileToggle" aria-label="Abrir Menú">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
       </div>
     </div>
+
+    <!-- Menú Móvil Desplegable -->
+    <div class="mobile-drawer" id="mobileDrawer" style="display: none;">
+      <ul class="mobile-menu-list">
+        <li><a href="index.html#inicio" class="nav-anchor">Inicio</a></li>
+        <li><a href="quienes-somos.html" class="nav-anchor">Quiénes Somos</a></li>
+        <li><a href="catalogo.html" class="nav-anchor">Catálogo</a></li>
+        <li><a href="fichas.html" class="nav-anchor">Fichas Técnicas (<span class="mobile-ft-count">4</span>)</a></li>
+        <li><a href="planta.html" class="nav-anchor">Planta</a></li>
+        <li><a href="index.html#contacto" class="nav-anchor">Contacto &amp; Cotizaciones</a></li>
+      </ul>
+    </div>
   </header>
+  </div>
 
   <!-- =========================================================================
        2. CABECERA & NAVEGACIÓN DE RETORNO
@@ -463,6 +482,12 @@
           window.location.href = 'admin.html';
         }
       });
+    });
+  </script>
+  <script src="modules/navbar.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.NavbarModule) window.NavbarModule.mount();
     });
   </script>
 </body>

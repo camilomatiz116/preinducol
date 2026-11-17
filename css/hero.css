@@ -528,68 +528,150 @@
 @media (max-width: 980px) {
   .hero-constellation-stage {
     min-height: auto;
-    padding: 70px 16px 36px;
+    padding: 24px 16px 36px;
+    overflow: hidden;
+  }
+  .hero-constellation-stage.state-intro .constellation-wing {
+    display: none !important;
   }
   .constellation-arena {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 24px;
-    position: relative;
-  }
-  .hero-constellation-stage.state-intro .constellation-center {
-    transform: none;
-  }
-  .hero-intro-callout {
-    position: relative;
-    left: auto;
-    top: auto;
-    transform: none;
-    margin-top: 15px;
-    align-items: center;
-    text-align: center;
-  }
-  .hero-intro-callout:hover {
-    transform: scale(1.04);
-  }
-  .hero-constellation-stage.state-showcase .hero-intro-callout {
-    display: none;
-  }
-  .constellation-wing {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    width: 100%;
     gap: 16px;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
   }
-  .wing-left, .wing-right {
-    align-items: stretch;
+  .constellation-center {
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 0 auto;
+    transform: none !important;
+  }
+  .orbital-centerpiece {
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 0 auto;
   }
   .mascot-avatar-stack {
-    max-width: 360px;
-    height: 460px;
+    width: 100% !important;
+    max-width: 260px !important;
+    height: 320px !important;
+    margin: 0 auto;
   }
   .hero-mascot-img {
-    max-width: 360px;
-    max-height: 460px;
+    max-width: 260px !important;
+    max-height: 320px !important;
+    object-fit: contain !important;
+    left: 50% !important;
+    bottom: 0 !important;
+  }
+  .mascot-energy-ring {
+    width: 260px !important;
+    height: 260px !important;
+  }
+  .mascot-energy-shockwave {
+    width: 320px !important;
+    height: 320px !important;
+  }
+  .mascot-platform-glow {
+    width: 260px !important;
+    max-width: 100% !important;
+  }
+  .mascot-floor-shadow {
+    width: 240px !important;
+    max-width: 100% !important;
+  }
+  .hero-intro-callout {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    margin-top: 8px !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    text-align: center !important;
+    align-items: center !important;
+  }
+  .hero-intro-callout .card-main-title {
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .hero-intro-callout .intro-title-styled {
+    font-size: 2.1rem !important;
+    text-align: center !important;
+  }
+  .hero-intro-callout .card-short-desc {
+    text-align: center !important;
+    max-width: 340px !important;
+    margin: 0 auto 12px !important;
+  }
+  .hero-intro-callout .card-cta-wrap {
+    justify-content: center !important;
+  }
+  .hero-constellation-stage.state-showcase .hero-intro-callout {
+    display: none !important;
+  }
+
+  /* Estado 2 (Showcase revelado en móvil) */
+  .hero-constellation-stage.state-showcase .constellation-center {
+    order: 1;
+    margin-bottom: 12px;
+  }
+  .hero-constellation-stage.state-showcase .constellation-center .mascot-avatar-stack {
+    height: 250px !important;
+    max-width: 220px !important;
+  }
+  .hero-constellation-stage.state-showcase .constellation-center .hero-mascot-img {
+    max-height: 250px !important;
+    max-width: 220px !important;
+  }
+  .hero-constellation-stage.state-showcase .constellation-wing.wing-left {
+    order: 2;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+  .hero-constellation-stage.state-showcase .constellation-wing.wing-right {
+    order: 3;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+  .hero-constellation-stage.state-showcase .editorial-product-card {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    padding: 16px !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04) !important;
+    text-align: left !important;
+    align-items: flex-start !important;
+  }
+  .hero-constellation-stage.state-showcase .constellation-wing.wing-right .editorial-product-card,
+  .hero-constellation-stage.state-showcase .constellation-wing.wing-right .card-overline,
+  .hero-constellation-stage.state-showcase .constellation-wing.wing-right .card-main-title,
+  .hero-constellation-stage.state-showcase .constellation-wing.wing-right .card-short-desc {
+    text-align: left !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+  }
+  .hero-constellation-stage.state-showcase .constellation-wing.wing-right .card-cta-wrap {
+    justify-content: flex-start !important;
   }
 }
 
 @media (max-width: 640px) {
-  .constellation-wing {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-  .constellation-wing.wing-right .editorial-product-card,
-  .constellation-wing.wing-right .card-overline,
-  .constellation-wing.wing-right .card-main-title,
-  .constellation-wing.wing-right .card-short-desc {
-    text-align: left;
-    align-items: flex-start;
-  }
-  .constellation-wing.wing-right .card-cta-wrap {
-    justify-content: flex-start;
-  }
   .hero-intro-title {
-    font-size: 2.2rem;
+    font-size: 2.0rem;
   }
 }

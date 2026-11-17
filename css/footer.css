@@ -86,12 +86,29 @@
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   font-size: 0.82rem;
   color: rgba(255, 255, 255, 0.75);
+  flex-wrap: wrap;
 }
 
 .f-legal-badges {
   display: flex;
   gap: 12px;
   color: rgba(255, 255, 255, 0.7);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .footer-legal-bar {
+    flex-direction: column !important;
+    gap: 16px !important;
+    text-align: center !important;
+    padding: 20px 0 !important;
+  }
+  .f-legal-badges {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    font-size: 0.75rem !important;
+  }
 }
 
 /* ============================================================================
