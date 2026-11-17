@@ -285,19 +285,29 @@ window.CategoriesModule = (function () {
         </div>
         <nav class="card-category-tabs">
           <a href="#showcase-ruberplus" class="cat-nav-anchor active" data-target="showcase-ruberplus">
-            <span class="tab-chip-color chip-blue"></span> RUBBERPLUS GUANTES
+            <span class="tab-chip-color chip-blue"></span>
+            <span class="tab-label-desktop">RUBBERPLUS GUANTES</span>
+            <span class="tab-label-mobile">RUBERPLUS</span>
           </a>
           <a href="#showcase-preindumax" class="cat-nav-anchor" data-target="showcase-preindumax">
-            <span class="tab-chip-color chip-yellow"></span> GUANTES PREINDUMAX
+            <span class="tab-chip-color chip-yellow"></span>
+            <span class="tab-label-desktop">GUANTES PREINDUMAX</span>
+            <span class="tab-label-mobile">PREINDUMAX</span>
           </a>
           <a href="#showcase-flexiguantes" class="cat-nav-anchor" data-target="showcase-flexiguantes">
-            <span class="tab-chip-color chip-green"></span> FLEXI GUANTES
+            <span class="tab-chip-color chip-green"></span>
+            <span class="tab-label-desktop">FLEXI GUANTES</span>
+            <span class="tab-label-mobile">FLEXI GUANTES</span>
           </a>
           <a href="#showcase-nitrilo" class="cat-nav-anchor" data-target="showcase-nitrilo">
-            <span class="tab-chip-color chip-red"></span> GUANTES NITRILO
+            <span class="tab-chip-color chip-red"></span>
+            <span class="tab-label-desktop">GUANTES NITRILO</span>
+            <span class="tab-label-mobile">NITRILO</span>
           </a>
           <a href="#showcase-cuero" class="cat-nav-anchor" data-target="showcase-cuero">
-            <span class="tab-chip-color chip-leather"></span> GUANTES DE CUERO
+            <span class="tab-chip-color chip-leather"></span>
+            <span class="tab-label-desktop">GUANTES DE CUERO</span>
+            <span class="tab-label-mobile">CUERO</span>
           </a>
         </nav>
       </header>

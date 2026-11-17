@@ -982,8 +982,18 @@
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
 }
 
+.tab-label-desktop { display: inline; }
+.tab-label-mobile { display: none; }
+
 /* ================= ADAPTACIÓN RESPONSIVA ================= */
 @media (max-width: 1024px) {
+  .tab-label-desktop { display: none !important; }
+  .tab-label-mobile { display: inline !important; }
+
+  #categorias {
+    scroll-margin-top: 60px !important;
+  }
+
   .showcase-block,
   .showcase-outer-wrap,
   .alpinestars-card {
@@ -1002,12 +1012,12 @@
     background: #ffffff !important;
     box-shadow: none !important;
     border-bottom: 1px solid #edf2f7 !important;
-    padding: 8px 12px 10px !important;
+    padding: 10px 8px 12px !important;
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
     margin: 0 !important;
-    overflow: hidden !important;
+    overflow: visible !important;
   }
 
   .showcase-block {
@@ -1017,9 +1027,9 @@
   .card-internal-nav {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 8px 12px 10px !important;
+    padding: 10px 8px 12px !important;
     box-sizing: border-box !important;
-    overflow: hidden !important;
+    overflow: visible !important;
   }
 
   .nav-latex-title-wrap {
@@ -1028,26 +1038,71 @@
 
   .card-category-tabs {
     display: flex !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    justify-content: flex-start !important;
-    gap: 8px !important;
-    padding: 4px 4px 8px !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
-    scrollbar-width: none !important;
-    -webkit-overflow-scrolling: touch !important;
-  }
-  .card-category-tabs::-webkit-scrollbar {
-    display: none !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
   }
 
   .cat-nav-anchor {
-    font-size: 0.78rem !important;
-    padding: 6px 14px !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.3px !important;
+    padding: 6px 12px !important;
+    border-radius: 999px !important;
+    border: 1.5px solid #cbd5e1 !important;
+    background: #f8fafc !important;
+    color: #334155 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+    text-decoration: none !important;
     white-space: nowrap !important;
     flex-shrink: 0 !important;
+  }
+
+  .cat-nav-anchor.active[data-target="showcase-ruberplus"] {
+    background: #eff6ff !important;
+    border-color: #0056cc !important;
+    color: #0056cc !important;
+    font-weight: 800 !important;
+    box-shadow: 0 2px 8px rgba(0, 86, 204, 0.2) !important;
+  }
+  .cat-nav-anchor.active[data-target="showcase-preindumax"] {
+    background: #fefce8 !important;
+    border-color: #d97706 !important;
+    color: #b45309 !important;
+    font-weight: 800 !important;
+    box-shadow: 0 2px 8px rgba(217, 119, 6, 0.2) !important;
+  }
+  .cat-nav-anchor.active[data-target="showcase-flexiguantes"] {
+    background: #ecfdf5 !important;
+    border-color: #059669 !important;
+    color: #047857 !important;
+    font-weight: 800 !important;
+    box-shadow: 0 2px 8px rgba(5, 150, 105, 0.2) !important;
+  }
+  .cat-nav-anchor.active[data-target="showcase-nitrilo"] {
+    background: #fef2f2 !important;
+    border-color: #dc2626 !important;
+    color: #b91c1c !important;
+    font-weight: 800 !important;
+    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.2) !important;
+  }
+  .cat-nav-anchor.active[data-target="showcase-cuero"] {
+    background: #fefce8 !important;
+    border-color: #854d0e !important;
+    color: #713f12 !important;
+    font-weight: 800 !important;
+    box-shadow: 0 2px 8px rgba(133, 77, 14, 0.2) !important;
   }
 
   .showcase-block .split-left-stage,
