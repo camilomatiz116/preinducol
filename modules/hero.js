@@ -25,15 +25,14 @@ window.HeroModule = (function () {
         <!-- ALA IZQUIERDA: 2 PRODUCTOS (Aparecen en Estado 2) -->
         <div class="constellation-wing wing-left" id="wingLeft">
           
-          <!-- TARJETA 1 (Top Left): RUBERPLUS™ -->
-          <article class="editorial-product-card card-pos-tl" data-category="hogar" data-target="ruberplus" title="Ver descripción de Ruberplus™" role="button" tabindex="0">
-            <div class="card-overline">PRODUCTO INSIGNIA</div>
+          <!-- TARJETA 1 (Top Left): RUBBERPLUS™ -->
+          <article class="editorial-product-card card-pos-tl" data-category="hogar" data-target="ruberplus" title="Ver descripción de Rubberplus™" role="button" tabindex="0">
+            <div class="card-overline">LÍNEA PREMIUM</div>
             <h3 class="card-main-title">
-              <span class="model-text">CUB-07</span>
-              <span class="brand-text">RUBERPLUS</span>
+              <span class="brand-text">RUBBERPLUS</span>
             </h3>
             <p class="card-short-desc">
-              El guante preferido en Colombia. Fabricado con látex 100% natural biodegradable de calibre parejo. Suavidad superior, diseño anatómico curvo de descanso y labrado antideslizante tipo panal de abeja.
+              El guante preferido en Colombia. Fabricado con látex 100% natural biodegradable de calibre parejo, diseño anatómico y labrado antideslizante tipo panal.
             </p>
             <div class="card-cta-wrap">
               <span class="card-cta-btn">
@@ -43,15 +42,14 @@ window.HeroModule = (function () {
             </div>
           </article>
 
-          <!-- TARJETA 2 (Bottom Left): INDUMAX™ -->
-          <article class="editorial-product-card card-pos-bl" data-category="industrial" data-target="indumax" title="Ver descripción de Indumax™" role="button" tabindex="0">
-            <div class="card-overline">LÍNEA INDUSTRIAL SEVERO</div>
+          <!-- TARJETA 2 (Bottom Left): PREINDUMAX™ -->
+          <article class="editorial-product-card card-pos-bl" data-category="industrial" data-target="indumax" title="Ver descripción de Preindumax™" role="button" tabindex="0">
+            <div class="card-overline">LÍNEA ECONÓMICA</div>
             <h3 class="card-main-title">
-              <span class="model-text">IND-25</span>
-              <span class="brand-text">INDUMAX™</span>
+              <span class="brand-text">PREINDUMAX™</span>
             </h3>
             <p class="card-short-desc">
-              Calibre 25 reforzado para manipulación química, agroindustria y floricultura con interior satinado antifatiga.
+              Calibre 25 a 35 reforzado para manipulación química moderada, agroindustria y floricultura con interior satinado antifatiga y orillo enrollado antidesgarre.
             </p>
             <div class="card-cta-wrap">
               <span class="card-cta-btn">
@@ -95,7 +93,7 @@ window.HeroModule = (function () {
             <span class="brand-text">PRODUCTOS</span>
           </h2>
           <p class="card-short-desc">
-            Látex 100% Biodegradable • Calibre Parejo. Suavidad superior, labrado antideslizante y diseño anatómico curvo de descanso.
+            Ingresa aquí y conoce nuestra línea completa de productos: soluciones de máxima calidad, durabilidad y protección pensadas para cada una de tus necesidades.
           </p>
           <div class="card-cta-wrap">
             <span class="card-cta-btn">
@@ -108,15 +106,13 @@ window.HeroModule = (function () {
         <!-- ALA DERECHA: 2 PRODUCTOS (Aparecen en Estado 2 - Alineados a la derecha) -->
         <div class="constellation-wing wing-right" id="wingRight">
           
-          <!-- TARJETA 3 (Top Right): NITRILO -->
-          <article class="editorial-product-card card-pos-tr" data-category="nitrilo" data-target="nitrilo" title="Ver descripción de Nitrilo Industrial" role="button" tabindex="0">
-            <div class="card-overline">BIOSEGURIDAD & SOLVENTES</div>
+          <!-- TARJETA 3 (Top Right): GUANTES DE NITRILO -->
+          <article class="editorial-product-card card-pos-tr" data-category="nitrilo" data-target="nitrilo" title="Ver descripción de Guantes de Nitrilo" role="button" tabindex="0">
             <h3 class="card-main-title">
-              <span class="model-text">NIT-100</span>
-              <span class="brand-text">NITRILO</span>
+              <span class="brand-text">GUANTES DE NITRILO</span>
             </h3>
             <p class="card-short-desc">
-              100% libre de látex y talco. Máxima barrera química contra solventes aromáticos, hidrocarburos, aceites y grasas.
+              Guantes descartables sin polvo con certificación EN 1186. Máxima barrera de protección química y biológica contra solventes, aceites y grasas.
             </p>
             <div class="card-cta-wrap">
               <span class="card-cta-btn">
@@ -126,15 +122,13 @@ window.HeroModule = (function () {
             </div>
           </article>
 
-          <!-- TARJETA 4 (Bottom Right): CUERO -->
-          <article class="editorial-product-card card-pos-br" data-category="cuero" data-target="cuero" title="Ver descripción de Guantes de Cuero" role="button" tabindex="0">
-            <div class="card-overline">SOLDADURA & TRABAJO PESADO</div>
+          <!-- TARJETA 4 (Bottom Right): OTROS PRODUCTOS -->
+          <article class="editorial-product-card card-pos-br" data-category="cuero" data-target="cuero" title="Ver otros productos" role="button" tabindex="0">
             <h3 class="card-main-title">
-              <span class="model-text">CUE-40</span>
-              <span class="brand-text">CUERO</span>
+              <span class="brand-text">OTROS PRODUCTOS</span>
             </h3>
             <p class="card-short-desc">
-              Cuero vacuno seleccionado para metalmecánica, abrasión y faenas de alta resistencia mecánica y térmica.
+              Línea en cuero vacuno y carnaza con costuras reforzadas de alta tenacidad. Máxima resistencia a abrasión, chispas de soldadura y trabajo pesado.
             </p>
             <div class="card-cta-wrap">
               <span class="card-cta-btn">

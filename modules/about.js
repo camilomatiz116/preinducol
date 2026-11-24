@@ -6,8 +6,8 @@
 window.AboutModule = (function () {
   const mountId = 'about-mount';
 
-  const WENDY_MESSAGES = [
-    "«¡Hola! Soy Wendy. En Preinducol cada guante lleva la dedicación de manos colombianas.»",
+  const EMA_MESSAGES = [
+    "«¡Hola! Soy Ema. En Preinducol cada guante lleva la dedicación de manos colombianas.»",
     "«¿Sabías que una hormiga levanta 50 veces su peso? ¡Nuestros guantes resisten igual!»",
     "«¡Cuidamos el planeta con látex 100% natural y biodegradable!»",
     "«La disciplina y el trabajo en equipo son el secreto de nuestra calidad.»"
@@ -15,7 +15,7 @@ window.AboutModule = (function () {
 
   const TIMELINE = [
     { year: '1998', title: 'Un pequeño taller, un gran sueño', text: 'En un modesto taller de Rionegro, una familia antioqueña fabrica sus primeros pares de guantes de látex a mano, con moldes artesanales y mucha disciplina.' },
-    { year: '2004', title: 'Nace Wendy, la hormiguita', text: 'Inspirados en la hormiga —pequeña, incansable y capaz de cargar 50 veces su peso— adoptamos a Wendy como símbolo de fuerza, trabajo en equipo y protección.' },
+    { year: '2004', title: 'Nace Ema, la hormiguita', text: 'Inspirados en la hormiga —pequeña, incansable y capaz de cargar 50 veces su peso— adoptamos a Ema como símbolo de fuerza, trabajo en equipo y protección.' },
     { year: '2010', title: 'Llega la línea Ruberplus™', text: 'Desarrollamos el guante calibre 20 parejo con fórmula antibacterial y labrado antideslizante, que se convierte en el favorito de hogares y empresas de aseo.' },
     { year: '2016', title: 'Planta industrial en Bogotá', text: 'Ampliamos operaciones con hornos de vulcanizado controlado y laboratorio de calidad, sumando las líneas Indumax™, Rubber 50™ y Mosquetero™.' },
     { year: '2021', title: 'Compromiso 100% biodegradable', text: 'Consolidamos el uso de látex natural renovable y empaques reciclables, reafirmando que proteger las manos también es proteger el planeta.' },
@@ -41,16 +41,16 @@ window.AboutModule = (function () {
     <section class="section-about-preinducol" id="historia">
       <div class="container-max">
 
-        <!-- 1. Historia + Wendy -->
+        <!-- 1. Historia + Ema -->
         <div class="about-story-grid">
           <div class="about-mascot-stage" id="mascotInteractiveStage">
             <div class="mascot-energy-halo"></div>
-            <div class="mascot-speech-bubble" id="wendyBubble" title="¡Toca a Wendy!">
-              <span class="bubble-tag">WENDY DICE:</span>
-              <span id="wendyText">${WENDY_MESSAGES[0]}</span>
+            <div class="mascot-speech-bubble" id="emaBubble" title="¡Toca a Ema!">
+              <span class="bubble-tag">EMA DICE:</span>
+              <span id="emaText">${EMA_MESSAGES[0]}</span>
             </div>
             <div class="mascot-character-wrap">
-              <img src="assets/hormiga-3.png" alt="Wendy, mascota oficial Preinducol" class="mascot-animated-img" id="wendyImg">
+              <img src="assets/hormigaseñalando.png" alt="Ema, mascota oficial Preinducol" class="mascot-animated-img" id="emaImg">
               <div class="mascot-ground-shadow"></div>
             </div>
             <div class="mascot-strength-chip">
@@ -80,11 +80,11 @@ window.AboutModule = (function () {
         <div class="about-timeline-block">
           <div class="values-header-strip">
             <h3 class="values-strip-title">Nuestro Camino</h3>
-            <p class="values-strip-desc">Cada paso de Wendy es un hito de nuestra historia.</p>
+            <p class="values-strip-desc">Cada paso de Ema es un hito de nuestra historia.</p>
           </div>
           <div class="timeline-track" id="timelineTrack">
             <div class="tl-line"><div class="tl-line-fill" id="tlLineFill"></div></div>
-            <img src="assets/hormiga-3.png" alt="" aria-hidden="true" class="tl-ant-walker" id="tlAntWalker">
+            <img src="assets/hormigaseñalando.png" alt="" aria-hidden="true" class="tl-ant-walker" id="tlAntWalker">
             ${renderTimeline()}
           </div>
         </div>
@@ -142,12 +142,12 @@ window.AboutModule = (function () {
             <p class="values-block-subtitle">El código ético y técnico que rige nuestra producción industrial diaria.</p>
           </div>
           <div class="values-deck">
-            <div class="value-item"><div class="v-num">01</div><div class="v-icon">✓</div><h4>Calidad</h4><p>Garantizamos excelencia en cada uno de nuestros productos y servicios con rigurosos ensayos de tensión, elasticidad y hermeticidad.</p></div>
-            <div class="value-item"><div class="v-num">02</div><div class="v-icon">⚡</div><h4>Innovación</h4><p>Nos esforzamos por mejorar continuamente nuestros procesos, la ergonomía de nuestros moldes y las fórmulas antibacteriales.</p></div>
-            <div class="value-item"><div class="v-num">03</div><div class="v-icon">🤝</div><h4>Colaboración</h4><p>Promovemos el trabajo conjunto con nuestros clientes, distribuidores y proveedores para alcanzar metas comunes de seguridad.</p></div>
-            <div class="value-item"><div class="v-num">04</div><div class="v-icon">💬</div><h4>Servicio al Cliente</h4><p>Nos dedicamos con cercanía y rapidez a satisfacer y superar las expectativas de quienes confían en nuestros suministros.</p></div>
-            <div class="value-item"><div class="v-num">05</div><div class="v-icon">👥</div><h4>Trabajo en Equipo</h4><p>Creemos firmemente en el respeto mutuo, la cooperación y el talento de operarios, supervisores e ingenieros colombianos.</p></div>
-            <div class="value-item"><div class="v-num">06</div><div class="v-icon">🌿</div><h4>Responsabilidad</h4><p>Actuamos con ética integral, transparencia comercial y compromiso activo en la fabricación de látex biodegradable.</p></div>
+            <div class="value-item"><div class="v-num">01</div><h4>Calidad</h4><p>Garantizamos excelencia en cada uno de nuestros productos y servicios con rigurosos ensayos de tensión, elasticidad y hermeticidad.</p></div>
+            <div class="value-item"><div class="v-num">02</div><h4>Innovación</h4><p>Nos esforzamos por mejorar continuamente nuestros procesos, la ergonomía de nuestros moldes y las fórmulas antibacteriales.</p></div>
+            <div class="value-item"><div class="v-num">03</div><h4>Colaboración</h4><p>Promovemos el trabajo conjunto con nuestros clientes, distribuidores y proveedores para alcanzar metas comunes de seguridad.</p></div>
+            <div class="value-item"><div class="v-num">04</div><h4>Servicio al Cliente</h4><p>Nos dedicamos con cercanía y rapidez a satisfacer y superar las expectativas de quienes confían en nuestros suministros.</p></div>
+            <div class="value-item"><div class="v-num">05</div><h4>Trabajo en Equipo</h4><p>Creemos firmemente en el respeto mutuo, la cooperación y el talento de operarios, supervisores e ingenieros colombianos.</p></div>
+            <div class="value-item"><div class="v-num">06</div><h4>Responsabilidad</h4><p>Actuamos con ética integral, transparencia comercial y compromiso activo en la fabricación de látex biodegradable.</p></div>
           </div>
         </div>
 
@@ -167,26 +167,26 @@ window.AboutModule = (function () {
     `;
   }
 
-  function initWendy() {
-    const wendyImg = document.getElementById('wendyImg');
-    const wendyText = document.getElementById('wendyText');
-    const wendyBubble = document.getElementById('wendyBubble');
-    if (!wendyImg || !wendyText) return;
+  function initEma() {
+    const emaImg = document.getElementById('emaImg');
+    const emaText = document.getElementById('emaText');
+    const emaBubble = document.getElementById('emaBubble');
+    if (!emaImg || !emaText) return;
 
     function cycleMessage() {
-      currentMsgIdx = (currentMsgIdx + 1) % WENDY_MESSAGES.length;
-      wendyText.style.opacity = '0';
+      currentMsgIdx = (currentMsgIdx + 1) % EMA_MESSAGES.length;
+      emaText.style.opacity = '0';
       setTimeout(() => {
-        wendyText.textContent = WENDY_MESSAGES[currentMsgIdx];
-        wendyText.style.opacity = '1';
+        emaText.textContent = EMA_MESSAGES[currentMsgIdx];
+        emaText.style.opacity = '1';
       }, 200);
-      wendyImg.classList.remove('is-jumping');
-      void wendyImg.offsetWidth;
-      wendyImg.classList.add('is-jumping');
+      emaImg.classList.remove('is-jumping');
+      void emaImg.offsetWidth;
+      emaImg.classList.add('is-jumping');
     }
 
-    wendyImg.addEventListener('click', cycleMessage);
-    if (wendyBubble) wendyBubble.addEventListener('click', cycleMessage);
+    emaImg.addEventListener('click', cycleMessage);
+    if (emaBubble) emaBubble.addEventListener('click', cycleMessage);
     setInterval(cycleMessage, 6000);
   }
 
@@ -208,7 +208,8 @@ window.AboutModule = (function () {
       const rect = track.getBoundingClientRect();
       const vh = window.innerHeight;
       const progress = Math.min(1, Math.max(0, (vh * 0.55 - rect.top) / rect.height));
-      const y = progress * (rect.height - 60);
+      const antH = ant.offsetHeight || 130;
+      const y = progress * Math.max(0, rect.height - antH);
       ant.style.transform = `translate(-50%, ${y}px)`;
       if (fill) fill.style.height = (progress * 100) + '%';
       ticking = false;
@@ -223,7 +224,7 @@ window.AboutModule = (function () {
     const container = document.getElementById(mountId);
     if (container) {
       container.innerHTML = render();
-      initWendy();
+      initEma();
       initTimeline();
     }
   }

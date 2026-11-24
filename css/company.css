@@ -229,50 +229,72 @@
   gap: 16px;
 }
 
+@media (max-width: 1200px) {
+  .values-deck {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  .values-deck {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
 .value-item {
+  background: linear-gradient(160deg, #064e3b 0%, #065f46 55%, #047857 100%);
+  border: 1px solid rgba(52, 211, 153, 0.28);
   border-radius: 20px;
-  padding: 24px 18px;
+  padding: 26px 20px;
   display: flex;
   flex-direction: column;
   position: relative;
-  transition: transform var(--tr-fast);
+  color: #ffffff;
+  box-shadow: 0 10px 24px -6px rgba(6, 78, 59, 0.32);
+  transition: transform var(--tr-fast), box-shadow var(--tr-fast), border-color var(--tr-fast);
 }
 
 .value-item:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+  border-color: #34d399;
+  box-shadow: 0 18px 36px -8px rgba(5, 150, 105, 0.45);
 }
 
-.value-item:nth-child(1) { background: #ecfdf5; border: 2px solid #a7f3d0; color: #065f46; }
-.value-item:nth-child(2) { background: #eff6ff; border: 2px solid #bfdbfe; color: #1e40af; }
-.value-item:nth-child(3) { background: #fffbeb; border: 2px solid #fde68a; color: #92400e; }
-.value-item:nth-child(4) { background: #fff1f2; border: 2px solid #fecdd3; color: #9f1239; }
-.value-item:nth-child(5) { background: #f5f3ff; border: 2px solid #ddd6fe; color: #5b21b6; }
-.value-item:nth-child(6) { background: #f7fee7; border: 2px solid #d9f99d; color: #3f6212; }
-
 .v-num {
-  font-family: var(--f-display);
-  font-size: 1.4rem;
+  font-family: var(--f-mono, monospace);
+  font-size: 0.95rem;
   font-weight: 900;
-  margin-bottom: 8px;
-  opacity: 0.6;
+  color: #a7f3d0;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(167, 243, 208, 0.3);
+  padding: 4px 12px;
+  border-radius: 999px;
+  width: fit-content;
+  margin-bottom: 16px;
+  letter-spacing: 0.08em;
 }
 
 .v-icon {
-  font-size: 1.6rem;
-  margin-bottom: 12px;
+  display: none !important;
 }
 
 .value-item h4 {
   font-family: var(--f-display);
-  font-size: 1.15rem;
+  font-size: 1.22rem;
   font-weight: 800;
-  margin-bottom: 8px;
+  color: #ffffff;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
 }
 
 .value-item p {
-  font-size: 0.84rem;
-  line-height: 1.5;
-  opacity: 0.88;
+  font-size: 0.88rem;
+  line-height: 1.58;
+  color: #f1f5f9;
+  opacity: 0.95;
+  margin: 0;
 }
 
 /* ============================================================================
@@ -475,109 +497,259 @@
 }
 
 /* ============================================================================
-   SECCIÓN CONTACTO: DUAL MÓDULO (FORMULARIO BLANCO + CANALES TANGERINE)
+   SECCIÓN CONTACTO: TARJETA UNIFICADA (ESTILO DISPROEL • IDENTIDAD PREINDUCOL)
    ============================================================================ */
-.contact-dual-layout {
-  display: grid;
-  grid-template-columns: 1.25fr 1fr;
-  gap: 32px;
-  margin-bottom: 48px;
-}
-
-.form-capsule {
+.preinducol-contact-card {
+  max-width: 1200px;
+  margin: 0 auto 52px;
   background: #ffffff;
-  border: 1.5px solid var(--c-border-light);
-  border-radius: var(--radius-card);
-  padding: 44px;
-  box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.06);
-}
-
-.form-capsule-head {
-  margin-bottom: 28px;
-}
-
-.form-capsule-head h3 {
-  font-family: var(--f-display);
-  font-size: 1.6rem;
-  font-weight: 800;
-  color: var(--c-text-main);
-  margin-bottom: 8px;
-}
-
-.form-capsule-head p {
-  font-size: 0.92rem;
-  color: var(--c-text-muted);
-}
-
-.form-grid-2 {
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px -15px rgba(15, 23, 42, 0.12);
+  border: 1px solid #e2e8f0;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-  margin-bottom: 18px;
+  grid-template-columns: 1fr 1.22fr;
 }
 
-.field-item {
+/* LADO IZQUIERDO: VISUAL FOTOGRÁFICO CON OVERLAY VERDE CORPORATIVO */
+.contact-side-visual {
+  position: relative;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  display: flex;
+}
+
+.contact-visual-overlay {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(155deg, rgba(6, 78, 59, 0.94) 0%, rgba(4, 120, 87, 0.90) 50%, rgba(6, 78, 59, 0.97) 100%);
+  padding: 56px 46px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  margin-bottom: 18px;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
 
-.field-item label {
-  font-family: var(--f-display);
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--c-text-main);
-}
-
-.field-item input,
-.field-item select,
-.field-item textarea {
-  width: 100%;
-  padding: 12px 16px;
-  background: var(--c-bg-subtle);
-  border: 1.5px solid var(--c-border-light);
-  border-radius: 12px;
-  font-family: var(--f-body);
-  font-size: 0.9rem;
-  color: var(--c-text-main);
-  outline: none;
-  transition: border-color var(--tr-fast);
-}
-
-.field-item input:focus,
-.field-item select:focus,
-.field-item textarea:focus {
-  border-color: #059669;
-  background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
-}
-
-.btn-submit-pro {
-  width: 100%;
-  background: linear-gradient(135deg, #059669 0%, #047857 100%);
-  color: #ffffff;
-  padding: 16px 26px;
-  border: none;
-  border-radius: var(--radius-pill);
-  font-family: var(--f-display);
-  font-size: 1rem;
+.contact-visual-tag {
+  display: inline-block;
+  font-family: var(--f-mono, monospace);
+  font-size: 0.84rem;
   font-weight: 800;
-  display: inline-flex;
+  color: #facc15; /* Acento dorado Disproel */
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.contact-visual-title {
+  font-family: var(--f-headline, 'Space Grotesk', sans-serif);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.15;
+  margin: 0 0 16px;
+  letter-spacing: -0.5px;
+}
+
+.contact-visual-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0 0 36px;
+  max-width: 440px;
+}
+
+/* LISTA DE CONTACTOS CON ÍCONOS CIRCULARES */
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.info-icon-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  color: #facc15;
+  display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.contact-info-item:hover .info-icon-circle {
+  background: rgba(255, 255, 255, 0.24);
+  transform: scale(1.08);
+}
+
+.info-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-label {
+  font-family: var(--f-mono, monospace);
+  font-size: 0.70rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.info-val-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.96rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s ease;
+}
+
+.info-val-link:hover {
+  color: #facc15;
+}
+
+.info-sub-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #a7f3d0;
+  background: rgba(167, 243, 208, 0.18);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.info-val-plain {
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.visual-footer-badge {
+  display: flex;
+  align-items: center;
   gap: 10px;
-  box-shadow: 0 10px 24px rgba(5, 150, 105, 0.32);
-  transition: all var(--tr-fast);
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.col-flag {
+  font-size: 1.25rem;
+}
+
+/* LADO DERECHO: FORMULARIO LIMPIO CON ESTILO DISPROEL */
+.contact-side-form {
+  padding: 56px 52px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.disproel-clean-form {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  width: 100%;
+}
+
+.form-row-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+}
+
+.clean-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.clean-field label {
+  font-family: var(--f-display, sans-serif);
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #1e293b;
+  letter-spacing: 0.5px;
+}
+
+.clean-field input,
+.clean-field select,
+.clean-field textarea {
+  width: 100%;
+  padding: 12px 0 10px 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid #cbd5e1;
+  border-radius: 0;
+  font-family: var(--f-body, sans-serif);
+  font-size: 0.95rem;
+  color: #0f172a;
+  outline: none;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.clean-field select {
   cursor: pointer;
+  padding-right: 18px;
 }
 
-.btn-submit-pro:hover {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+.clean-field input::placeholder,
+.clean-field textarea::placeholder {
+  color: #94a3b8;
+  font-size: 0.90rem;
+}
+
+.clean-field input:focus,
+.clean-field select:focus,
+.clean-field textarea:focus {
+  border-bottom-color: #059669;
+}
+
+.btn-clean-submit {
+  width: 100%;
+  margin-top: 10px;
+  background: #0f172a; /* Botón oscuro formal idéntico a Disproel */
+  color: #ffffff;
+  padding: 18px 28px;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--f-display, sans-serif);
+  font-size: 0.96rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.15);
+}
+
+.btn-clean-submit:hover {
+  background: #059669; /* Verde corporativo Preinducol en hover */
   transform: translateY(-2px);
-  box-shadow: 0 14px 30px rgba(5, 150, 105, 0.42);
+  box-shadow: 0 12px 28px rgba(5, 150, 105, 0.35);
 }
 
+/* CAJA DE ÉXITO */
 .form-success-box {
   background: #ecfdf5;
   border: 2px solid #a7f3d0;
@@ -604,7 +776,7 @@
 }
 
 .form-success-box h4 {
-  font-family: var(--f-display);
+  font-family: var(--f-display, sans-serif);
   font-size: 1.35rem;
   font-weight: 800;
   color: #065f46;
@@ -627,180 +799,23 @@
   border-radius: var(--radius-pill);
   font-weight: 800;
   font-size: 0.92rem;
-}
-
-/* Canales Directos: Preinducol Esmeralda Corporativo de Alta Gama */
-.channels-capsule {
-  background: linear-gradient(145deg, #064e3b 0%, #047857 55%, #059669 100%);
-  border-radius: var(--radius-card);
-  padding: 44px;
-  color: #ffffff;
-  box-shadow: 0 20px 45px -10px rgba(4, 120, 87, 0.35);
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  position: relative;
-  overflow: hidden;
-}
-
-.channels-capsule::before {
-  content: '';
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  width: 180px;
-  height: 180px;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.channels-head h3 {
-  font-family: var(--f-display);
-  font-size: 1.6rem;
-  font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 6px;
-}
-
-.channels-head p {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.rep-card-box {
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 18px;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  transition: transform var(--tr-fast), background var(--tr-fast);
-}
-
-.rep-card-box:hover {
-  background: rgba(255, 255, 255, 0.18);
-  transform: translateY(-2px);
-}
-
-.rep-avatar-wrap {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  background: #ffffff;
-  color: #047857;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.rep-details {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.rep-badge {
-  font-family: var(--f-mono);
-  font-size: 0.68rem;
-  font-weight: 800;
-  color: #a7f3d0;
-  letter-spacing: 0.5px;
-}
-
-.rep-name {
-  font-family: var(--f-display);
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: #ffffff;
-}
-
-.rep-contact-num {
-  font-size: 0.92rem;
-  color: #ffffff;
-  font-weight: 700;
-}
-
-.rep-live-status {
-  font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.9);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 2px;
-}
-
-.dot-live {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #34d399;
-  box-shadow: 0 0 8px #34d399;
-}
-
-.btn-chatear-wa {
-  background: #ffffff;
-  color: #047857;
-  padding: 9px 18px;
-  border-radius: var(--radius-pill);
-  font-family: var(--f-display);
-  font-size: 0.82rem;
-  font-weight: 800;
   text-decoration: none;
-  transition: all var(--tr-fast);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
-.btn-chatear-wa:hover {
-  background: #ecfdf5;
-  color: #065f46;
-  transform: scale(1.06);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
-}
-
-.coverage-banner {
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 16px;
-  padding: 16px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.cov-icon {
-  font-size: 2rem;
-}
-
-.cov-text strong {
-  font-family: var(--f-display);
-  font-size: 0.92rem;
-  color: #ffffff;
-  display: block;
-}
-
-.cov-text p {
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.88);
-  line-height: 1.4;
-}
-
-.business-hours-strip {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 12px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: 0.78rem;
-}
-
-.hours-val {
-  font-weight: 800;
+@media (max-width: 960px) {
+  .preinducol-contact-card {
+    grid-template-columns: 1fr;
+  }
+  .contact-visual-overlay {
+    padding: 40px 24px;
+  }
+  .contact-side-form {
+    padding: 40px 24px;
+  }
+  .form-row-split {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }
 
 /* Mapa de Ubicación (Full-Width de Lado a Lado) */

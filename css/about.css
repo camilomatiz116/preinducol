@@ -556,7 +556,7 @@
   40% { transform: translateY(-26px) scale(1.1) rotate(4deg); }
   100% { transform: translateY(0) scale(1); }
 }
-#wendyText { transition: opacity 0.2s ease; }
+#wendyText, #emaText { transition: opacity 0.2s ease; }
 
 /* 6. Línea de Tiempo — Nuestro Camino */
 .about-timeline-block {
@@ -595,19 +595,20 @@
   position: absolute;
   top: 0;
   left: 50%;
-  width: 64px;
+  width: 135px;
   height: auto;
   z-index: 5;
   transform: translate(-50%, 0);
-  filter: drop-shadow(0 8px 12px rgba(15, 23, 42, 0.25));
+  filter: drop-shadow(0 14px 22px rgba(15, 23, 42, 0.32));
   pointer-events: none;
   will-change: transform;
+  transition: filter 0.3s ease;
 }
 
 .tl-item {
   position: relative;
   width: 50%;
-  padding: 18px 48px;
+  padding: 18px 60px;
   opacity: 0;
   transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -681,11 +682,12 @@
     overflow: hidden;
     padding: 20px 0;
   }
-  .tl-line, .tl-ant-walker { left: 18px !important; }
+  .tl-line { left: 28px !important; }
+  .tl-ant-walker { left: 28px !important; width: 70px !important; }
   .tl-item {
     width: 100% !important;
     left: 0 !important;
-    padding: 14px 0 14px 48px !important;
+    padding: 14px 0 14px 72px !important;
     text-align: left !important;
     transform: none !important;
     opacity: 1 !important;
@@ -696,10 +698,9 @@
     transform: none !important;
     text-align: left !important;
     width: 100% !important;
-    padding: 14px 0 14px 48px !important;
+    padding: 14px 0 14px 72px !important;
   }
-  .tl-left .tl-dot, .tl-right .tl-dot { left: 9px !important; right: auto !important; }
-  .tl-ant-walker { width: 38px !important; }
+  .tl-left .tl-dot, .tl-right .tl-dot { left: 19px !important; right: auto !important; }
 }
 
 /* 5. Adaptabilidad Responsive */

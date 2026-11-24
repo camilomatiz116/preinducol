@@ -53,7 +53,8 @@
     grid-template-columns: 1fr;
   }
 
-  .contact-dual-layout {
+  .contact-dual-layout,
+  .preinducol-contact-card {
     grid-template-columns: 1fr;
   }
 

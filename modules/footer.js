@@ -13,7 +13,9 @@ window.FooterModule = (function () {
         <div class="footer-columns-grid">
           
           <div class="f-col-brand">
-            <img src="assets/logo.png" alt="Preinducol S.A.S." class="footer-brand-logo">
+            <a href="#inicio" class="footer-logo-link" title="Volver al inicio">
+              <img src="assets/logo.png" alt="Preinducol S.A.S." class="footer-brand-logo">
+            </a>
             <p class="f-brand-desc">
               Fabricantes colombianos líderes en bioseguridad y protección manual. Desarrollamos guantes de látex 100% natural, nitrilo y cuero para el hogar, la industria química, alimentos y trabajo pesado.
             </p>
@@ -50,7 +52,7 @@ window.FooterModule = (function () {
           <div class="f-col">
             <h4 class="f-title">Canales Directos</h4>
             <div class="f-contacts">
-              <p><strong>Comercial:</strong> +57 311 842 0561</p>
+              <p><strong>Comercial:</strong> +57 310 674 1977</p>
               <p><strong>Servicio al Cliente:</strong> +57 313 895 7129</p>
               <p><strong>Ubicación:</strong> Bogotá D.C., Colombia</p>
               <p><strong>Horario:</strong> Lunes a Viernes 8:00 AM – 5:30 PM</p>
@@ -74,7 +76,7 @@ window.FooterModule = (function () {
     </footer>
 
     <!-- Botón Flotante WhatsApp Oficial -->
-    <a href="https://wa.me/573118420561?text=Hola%20Preinducol,%20deseo%20solicitar%20informaci%C3%B3n%20comercial%20y%20cotizaciones" target="_blank" rel="noopener noreferrer" class="wa-floating-trigger" title="Chatear con Preinducol en WhatsApp">
+    <a href="https://wa.me/573106741977?text=Hola%20Preinducol,%20deseo%20solicitar%20informaci%C3%B3n%20comercial%20y%20cotizaciones" target="_blank" rel="noopener noreferrer" class="wa-floating-trigger" title="Chatear con Preinducol en WhatsApp">
       <div class="wa-bubble-prompt">
         <span class="prompt-status">En línea</span>
         <span>¿Necesitas asesoría técnica o cotización? <strong>Escríbenos aquí</strong></span>

@@ -28,7 +28,7 @@ window.CompanyModule = (function () {
 
       <div class="eco-layout">
         <aside class="eco-ant-aside">
-          <img src="assets/hormiga-planeta.png" alt="Wendy, la hormiga de Preinducol, abrazando el planeta Tierra" class="eco-ant-img" loading="lazy">
+          <img src="assets/hormiga-planeta.png" alt="Ema, la hormiga de Preinducol, abrazando el planeta Tierra" class="eco-ant-img" loading="lazy">
         </aside>
 
         <div class="sustainability-matrix-grid">
@@ -91,68 +91,132 @@ window.CompanyModule = (function () {
         </p>
       </div>
 
-      <div class="contact-dual-layout">
+      <!-- Bloque Unificado Editorial de Contacto (Estilo Disproel • Identidad Preinducol) -->
+      <div class="preinducol-contact-card">
         
-        <!-- Formulario Oficial -->
-        <div class="form-capsule">
-          <div class="form-capsule-head">
-            <h3>Diligenciar Solicitud de Cotización</h3>
-            <p>Un director comercial se comunicará contigo de inmediato para coordinar muestras o despachos:</p>
-          </div>
+        <!-- Lado Izquierdo: Visual Fotográfico con Foto Grande y Contactos Directos -->
+        <div class="contact-side-visual" style="background-image: url('assets/asesora-servicio-al-cliente.jpg');">
+          <div class="contact-visual-overlay">
+            
+            <div class="contact-visual-content">
+              <span class="contact-visual-tag">HABLEMOS</span>
+              <h2 class="contact-visual-title">¿TIENES ALGUNA DUDA?</h2>
+              <p class="contact-visual-desc">
+                Nuestro equipo de asesores y especialistas de planta está listo para brindarte la mejor asesoría técnica y comercial para tu empresa o proyecto industrial.
+              </p>
 
-          <form id="contactForm" class="pro-form">
-            <div class="form-grid-2">
-              <div class="field-item">
-                <label for="formNombre">Nombre Completo *</label>
+              <div class="contact-info-list">
+                <!-- 1. Teléfonos / WhatsApp -->
+                <div class="contact-info-item">
+                  <div class="info-icon-circle">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                      <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                    </svg>
+                  </div>
+                  <div class="info-text-group">
+                    <span class="info-label">LLÁMANOS O ESCRÍBENOS</span>
+                    <a href="https://wa.me/573106741977?text=Hola,%20me%20comunico%20desde%20la%20web%20Preinducol%20para%20cotizar" target="_blank" rel="noopener noreferrer" class="info-val-link">
+                      <strong>+57 310 674 1977</strong> <span class="info-sub-badge">Director Comercial</span>
+                    </a>
+                    <a href="https://wa.me/573138957129?text=Hola,%20me%20comunico%20con%20Servicio%20al%20Cliente%20de%20Preinducol" target="_blank" rel="noopener noreferrer" class="info-val-link">
+                      <strong>+57 313 895 7129</strong> <span class="info-sub-badge">Servicio al Cliente</span>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- 2. Correo -->
+                <div class="contact-info-item">
+                  <div class="info-icon-circle">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                  </div>
+                  <div class="info-text-group">
+                    <span class="info-label">ESCRÍBENOS</span>
+                    <a href="mailto:contacto@preinducol.com" class="info-val-link">contacto@preinducol.com</a>
+                  </div>
+                </div>
+
+                <!-- 3. Ubicación -->
+                <div class="contact-info-item">
+                  <div class="info-icon-circle">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/>
+                    </svg>
+                  </div>
+                  <div class="info-text-group">
+                    <span class="info-label">PLANTA Y OFICINAS CENTRALES</span>
+                    <span class="info-val-plain">Calle 63B # 116A - 35 Bodega 5, Engativá, Bogotá</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Cobertura y Despachos Nacionales -->
+              <div class="visual-footer-badge">
+                <span class="col-flag">🇨🇴</span>
+                <span>Despachos a las 32 regiones de Colombia • Lun a Vie 8:00 AM – 5:30 PM</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Lado Derecho: Formulario de Cotización Limpio y Elegante -->
+        <div class="contact-side-form">
+          <form id="contactForm" class="disproel-clean-form">
+            
+            <div class="form-row-split">
+              <div class="clean-field">
+                <label for="formNombre">NOMBRE COMPLETO *</label>
                 <input type="text" id="formNombre" required placeholder="Ej: Carlos Alberto Gómez">
               </div>
-              <div class="field-item">
-                <label for="formEmpresa">Empresa o Razón Social</label>
+              <div class="clean-field">
+                <label for="formEmail">CORREO ELECTRÓNICO *</label>
+                <input type="email" id="formEmail" required placeholder="compras@empresa.com">
+              </div>
+            </div>
+
+            <div class="form-row-split">
+              <div class="clean-field">
+                <label for="formCelular">CELULAR / WHATSAPP *</label>
+                <input type="tel" id="formCelular" required placeholder="Ej: 310 674 1977">
+              </div>
+              <div class="clean-field">
+                <label for="formEmpresa">EMPRESA O RAZÓN SOCIAL</label>
                 <input type="text" id="formEmpresa" placeholder="Ej: Distribuciones del Norte SAS">
               </div>
             </div>
 
-            <div class="form-grid-2">
-              <div class="field-item">
-                <label for="formCelular">Celular / WhatsApp *</label>
-                <input type="tel" id="formCelular" required placeholder="Ej: 311 842 0561">
-              </div>
-              <div class="field-item">
-                <label for="formEmail">Correo Electrónico *</label>
-                <input type="email" id="formEmail" required placeholder="Ej: compras@empresa.com">
-              </div>
-            </div>
-
-            <div class="form-grid-2">
-              <div class="field-item">
-                <label for="formProducto">Línea de Interés</label>
+            <div class="form-row-split">
+              <div class="clean-field">
+                <label for="formProducto">LÍNEA DE INTERÉS *</label>
                 <select id="formProducto">
                   <option value="Guante Ruberplus™ Calibre 20">Guante Ruberplus™ Calibre 20 Parejo</option>
                   <option value="Guante Ruberplus™ Calibre 25">Ruberplus™ Calibre 25 Semipesado</option>
-                  <option value="Guante Indumax™ Industrial">Guante Indumax™ Industrial</option>
+                  <option value="Guante Preindumax™ Industrial">Guante Preindumax™ Industrial</option>
                   <option value="Guante Rubber 50™ (Calibre 50)">Rubber 50™ (Calibre 50 Extra Pesado)</option>
                   <option value="Guante Mosquetero™ Manga Larga">Mosquetero™ Manga Larga</option>
                   <option value="Guante Corrugado Antideslizante">Corrugado Antideslizante</option>
                   <option value="Guantes de Nitrilo Industrial">Guantes de Nitrilo Industrial</option>
                   <option value="Guantes Cuero Vaqueta">Guantes Cuero Vaqueta</option>
                   <option value="Guantes Cuero Carnaza">Guantes Cuero Carnaza Soldadura</option>
+                  <option value="Flexi Guantes Hogar">Flexi Guantes Hogar & Confort</option>
                   <option value="Varios Productos / Pedido Mixto">Varios Productos / Pedido Mixto</option>
                 </select>
               </div>
-              <div class="field-item">
-                <label for="formCantidad">Cantidad Estimada</label>
+              <div class="clean-field">
+                <label for="formCantidad">CANTIDAD ESTIMADA</label>
                 <input type="text" id="formCantidad" placeholder="Ej: 20 cajas / 240 docenas">
               </div>
             </div>
 
-            <div class="field-item">
-              <label for="formMensaje">Ciudad de Despacho y Observaciones</label>
-              <textarea id="formMensaje" rows="3" placeholder="Indica ciudad de entrega, tallas preferidas o requerimientos especiales..."></textarea>
+            <div class="clean-field full-field">
+              <label for="formMensaje">¿EN QUÉ PODEMOS AYUDARTE? / OBSERVACIONES *</label>
+              <textarea id="formMensaje" rows="3" placeholder="Describe brevemente tu requerimiento, ciudad de entrega, tallas o especificaciones..."></textarea>
             </div>
 
-            <button type="submit" class="btn-submit-pro" id="btnSubmitForm">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-              <span>Generar Cotización y Conectar con Asesor</span>
+            <button type="submit" class="btn-clean-submit" id="btnSubmitForm">
+              <span>ENVIAR SOLICITUD DE COTIZACIÓN</span>
             </button>
           </form>
 
@@ -165,60 +229,6 @@ window.CompanyModule = (function () {
               <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.662 1.438 5.176L2 22l4.982-1.398A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
             </a>
           </div>
-        </div>
-
-        <!-- Canales Directos y Representantes -->
-        <div class="channels-capsule">
-          <div class="channels-head">
-            <h3>Atención Comercial Inmediata</h3>
-            <p>Comunícate en directo con nuestros líderes de cuenta en Colombia:</p>
-          </div>
-
-          <div class="rep-card-box">
-            <div class="rep-avatar-wrap">
-              <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-            </div>
-            <div class="rep-details">
-              <span class="rep-badge">VENTAS & DISTRIBUCIÓN</span>
-              <h4 class="rep-name">Director Comercial</h4>
-              <strong class="rep-contact-num">+57 311 842 0561</strong>
-              <span class="rep-live-status"><span class="dot-live"></span> En línea para pedidos mayoristas</span>
-            </div>
-            <a href="https://wa.me/573118420561?text=Hola,%20me%20comunico%20desde%20la%20web%20Preinducol%20para%20cotizar%20guantes%20al%20por%20mayor" target="_blank" rel="noopener noreferrer" class="btn-chatear-wa">
-              Chatear
-            </a>
-          </div>
-
-          <div class="rep-card-box">
-            <div class="rep-avatar-wrap">
-              <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-            </div>
-            <div class="rep-details">
-              <span class="rep-badge">POSTVENTA & SEGUIMIENTO</span>
-              <h4 class="rep-name">Servicio al Cliente</h4>
-              <strong class="rep-contact-num">+57 313 895 7129</strong>
-              <span class="rep-live-status"><span class="dot-live"></span> Despachos y logística nacional</span>
-            </div>
-            <a href="https://wa.me/573138957129?text=Hola,%20me%20comunico%20con%20Servicio%20al%20Cliente%20de%20Preinducol%20S.A.S." target="_blank" rel="noopener noreferrer" class="btn-chatear-wa">
-              Chatear
-            </a>
-          </div>
-
-          <!-- Cobertura de Despachos -->
-          <div class="coverage-banner">
-            <div class="cov-icon">🇨🇴</div>
-            <div class="cov-text">
-              <strong>Despachos a Nivel Nacional</strong>
-              <p>Envíos consolidados para distribuidores mayoristas, grandes superficies y plantas industriales en las 32 regiones de Colombia.</p>
-            </div>
-          </div>
-
-          <!-- Horario de Operación -->
-          <div class="business-hours-strip">
-            <span class="hours-label">Horario de Atención en Planta:</span>
-            <strong class="hours-val">Lunes a Viernes de 8:00 AM a 5:30 PM</strong>
-          </div>
-
         </div>
 
       </div>
@@ -280,7 +290,7 @@ window.CompanyModule = (function () {
         </div>
 
         <div class="modal-direct-buttons">
-          <a href="https://wa.me/573118420561?text=Hola,%20deseo%20cotizar%20guantes%20Ruberplus%20Preinducol" target="_blank" rel="noopener noreferrer" class="btn-modal-wa">
+          <a href="https://wa.me/573106741977?text=Hola,%20deseo%20cotizar%20guantes%20Ruberplus%20Preinducol" target="_blank" rel="noopener noreferrer" class="btn-modal-wa">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.662 1.438 5.176L2 22l4.982-1.398A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
             <span>Cotizar por WhatsApp Ahora</span>
           </a>
@@ -325,7 +335,7 @@ window.CompanyModule = (function () {
         if (cantidad) waText += '*Cantidad estimada:* ' + encodeURIComponent(cantidad) + '%0A';
         if (mensaje) waText += '*Observaciones / Ciudad:* ' + encodeURIComponent(mensaje) + '%0A';
 
-        const waUrl = 'https://wa.me/573118420561?text=' + waText;
+        const waUrl = 'https://wa.me/573106741977?text=' + waText;
 
         if (btnWaSuccess) {
           btnWaSuccess.setAttribute('href', waUrl);

@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <linearGradient id="gloveBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="50%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <linearGradient id="corrugadoGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#94a3b8"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#0f172a" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Silueta estilizada de guante con textura corrugada -->
+  <g filter="url(#shadow)">
+    <!-- Cuerpo del guante -->
+    <path d="M 280,420 
+             C 280,300 290,160 315,140 C 330,125 355,140 355,240 
+             C 365,180 375,100 405,90 C 430,80 445,105 440,230 
+             C 455,170 470,110 500,105 C 525,100 535,130 525,245 
+             C 540,195 560,170 585,175 C 610,180 610,225 590,320 
+             C 575,390 550,440 545,510 
+             C 540,580 550,720 545,860 
+             C 545,875 530,885 510,885 
+             L 285,885 
+             C 265,885 250,875 255,860 
+             C 260,720 260,580 250,510 
+             C 240,440 210,380 190,320 
+             C 175,275 195,240 220,245 
+             C 245,250 265,290 280,420 Z" 
+          fill="url(#gloveBg)" 
+          stroke="#94a3b8" 
+          stroke-width="5" 
+          stroke-dasharray="10 8"/>
+    
+    <!-- Textura corrugada interior -->
+    <g opacity="0.65" stroke="#64748b" stroke-width="3" stroke-linecap="round">
+      <line x1="320" y1="520" x2="480" y2="520"/>
+      <line x1="310" y1="545" x2="490" y2="545"/>
+      <line x1="305" y1="570" x2="495" y2="570"/>
+      <line x1="300" y1="595" x2="500" y2="595"/>
+      <line x1="295" y1="620" x2="505" y2="620"/>
+      <line x1="290" y1="645" x2="510" y2="645"/>
+      <line x1="285" y1="670" x2="515" y2="670"/>
+      <line x1="280" y1="695" x2="520" y2="695"/>
+      <line x1="280" y1="720" x2="520" y2="720"/>
+    </g>
+  </g>
+
+  <!-- Placa informativa central: FOTO PENDIENTE -->
+  <g transform="translate(400, 600)">
+    <!-- Fondo placa -->
+    <rect x="-180" y="-70" width="360" height="140" rx="20" 
+          fill="#0f172a" 
+          stroke="#38bdf8" 
+          stroke-width="2.5" 
+          filter="url(#shadow)"/>
+    
+    <!-- Icono cámara -->
+    <g transform="translate(-135, -28)" stroke="#38bdf8" stroke-width="3" fill="none">
+      <path d="M 5,20 L 15,5 L 35,5 L 45,20 L 55,20 C 58,20 60,22 60,25 L 60,50 C 60,53 58,55 55,55 L 5,55 C 2,55 0,53 0,50 L 0,25 C 0,22 2,20 5,20 Z"/>
+      <circle cx="30" cy="37" r="12"/>
+    </g>
+    
+    <!-- Textos -->
+    <text x="-55" y="-12" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="900" fill="#ffffff" letter-spacing="1">
+      FOTO PENDIENTE
+    </text>
+    <text x="-55" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" fill="#38bdf8" letter-spacing="0.5">
+      CORRUGADO GRIS Y BLANCO
+    </text>
+    <text x="-55" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#94a3b8">
+      Próximamente disponible
+    </text>
+  </g>
+</svg>
